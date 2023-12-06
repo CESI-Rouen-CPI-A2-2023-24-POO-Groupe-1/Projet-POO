@@ -10,6 +10,6 @@ int __clrcall WinMain(array<String^>^ args )
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	ProjetPOO::Splashscreen splashscreen;
+	ProjetPOO::Splashscreen splashscreen(true);
 	Application::Run(%splashscreen);
 }
