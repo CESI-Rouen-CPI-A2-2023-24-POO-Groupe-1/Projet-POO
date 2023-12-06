@@ -134,6 +134,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Date.h" />
+    <ClInclude Include="Mapping.h" />
     <ClInclude Include="Splashscreen.h">
       <FileType>CppForm</FileType>
     </ClInclude>

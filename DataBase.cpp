@@ -12,9 +12,9 @@ DataBase::DataBase(void) {
     this->dataSetObject = gcnew DataSet;
 }
 
-Int64 DataBase::actionRowsID(String^ rq_sql) {
+Int64 DataBase::executeToInt(String^ rq_sql) {
     this->setSQL(rq_sql);
-    this->getRows(this->sqlRequest);
+    this->execute(this->sqlRequest);
     if (this->dataSetObject->Tables[0]->Rows->Count > 0) {
         DataRow^ row = this->dataSetObject->Tables[0]->Rows[0];
         return Convert::ToInt64(row->ItemArray[0]);
@@ -24,7 +24,7 @@ Int64 DataBase::actionRowsID(String^ rq_sql) {
     }
 }
 
-System::Void DataBase::actionRows(String^ rq_sql) {
+System::Void DataBase::execute(String^ rq_sql) {
     this->setSQL(rq_sql);
     this->commSql->CommandText = this->sqlRequest;
     this->conToDb->Open();
@@ -34,7 +34,7 @@ System::Void DataBase::actionRows(String^ rq_sql) {
     this->commSql->Connection->Close();
 }
 
-DataSet^ NS_Composants::DataBase::getRows(String^ rq_sql)
+DataSet^ NS_Composants::DataBase::executeToDataSet(String^ rq_sql)
 {
     if (this->conToDb->State != ConnectionState::Open) conToDb->Open();
     this->commSql = gcnew System::Data::SqlClient::SqlCommand;
