@@ -1,10 +1,15 @@
 // Projet POO CESI 2023
-#include "DataBase.h"
-using namespace std;
-using namespace NS_Composants;
-int main() {
-	DataBase Feur;
-	Feur.actionRows("use NORTICBDD; INSERT INTO Pays (PAYS_NOM) VALUES ('France');");
-	cout << "fin de requete" << endl;
-	return 0;
+
+#include "Splashscreen.h"
+
+using namespace System;
+using namespace System::Windows::Forms;
+
+[STAThreadAttribute]
+int __clrcall WinMain(array<String^>^ args )
+{
+	Application::EnableVisualStyles();
+	Application::SetCompatibleTextRenderingDefault(false);
+	ProjetPOO::Splashscreen splashscreen(true);
+	Application::Run(%splashscreen);
 }
