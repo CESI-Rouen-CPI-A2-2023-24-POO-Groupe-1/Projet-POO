@@ -129,6 +129,7 @@
     <ClCompile Include="App_statistiques.cpp" />
     <ClCompile Include="App_Stock.cpp" />
     <ClCompile Include="Address.cpp" />
+    <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="mADDRESS.cpp" />
@@ -167,6 +168,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Address.h" />
+    <ClInclude Include="Article.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="mTAX.h" />
     <ClInclude Include="Date.h" />

@@ -10,10 +10,10 @@ using namespace System::Data;
 ref class ADDRESS : public Mapping
 {
 public:
-	Address^ add(Address address);
-	void edit(Address address);
-	void remove(Address address);
-	Address^ get(int id);
-	DataSet search(String^ pays, String^ zip_code, String^ city, String^ road_name, String^ road_number, String^ apartment_number);
+	static Address^ add(Address^ address);
+	static void edit(Address^ address);
+	static void remove(Address^ address);
+	static Address^ get(int id);
+	static DataSet search(String^ pays, String^ zip_code, String^ city, String^ road_name, String^ road_number, String^ apartment_number);
 };
 
