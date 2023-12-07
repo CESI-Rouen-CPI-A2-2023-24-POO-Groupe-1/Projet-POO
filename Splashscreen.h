@@ -106,10 +106,6 @@ namespace ProjetPOO {
 			// App is starting
 			System::Threading::Thread::Sleep(1000);
 		}
-		else {
-			// App is closing
-			System::Threading::Thread::Sleep(500);
-		}
 		while (this->Opacity > 0){
 			this->Opacity -= 0.05;
 			this->Refresh();

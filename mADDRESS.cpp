@@ -3,7 +3,7 @@
 
 using namespace System;
 
-Address ADDRESS::add(Address address)
+Address^ ADDRESS::add(Address address)
 {
 	DataBase^ db = gcnew DataBase();
 	
@@ -32,7 +32,8 @@ Address ADDRESS::add(Address address)
 	// add address to table "adresse"
 	int id = db->executeToInt("INSERT INTO adresse (adresse_rue, adresse_num_rue, adresse_num_appartement, id_ville) VALUES ('" + address.getRoadName() + "', '" + address.getRoadNumber() + "', '" + address.getApartmentNumber() + "', " + ville + ")");
 
-	Address newAddress(%address, id);
+	Address^ sortie = gcnew Address(%address, id);
+	return sortie;
 }
 
 void ADDRESS::edit(Address address)
@@ -63,8 +64,8 @@ Address^ ADDRESS::get(int id)
 	String^ road_number = set->Tables[0]->Rows[0]->ItemArray[2]->ToString();
 	String^ apartment_number = set->Tables[0]->Rows[0]->ItemArray[3]->ToString();
 
-	Address address(id, country, zip_code, city, road_name, road_number, apartment_number);
-	return %address;
+	Address^ sortie = gcnew Address(id, country, zip_code, city, road_name, road_number, apartment_number);
+	return sortie;
 }
 
 DataSet ADDRESS::search(String^ pays, String^ zip_code, String^ city, String^ road_name, String^ road_number, String^ apartment_number)

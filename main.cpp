@@ -13,14 +13,14 @@ int __clrcall WinMain(array<String^>^ args)
     Application::SetCompatibleTextRenderingDefault(false);
   	
     // Start splash
-    ProjetPOO::Splashscreen splashscreen(true);
-	  Application::Run(%splashscreen);
+    ProjetPOO::Splashscreen startSplashscreen(true);
+	Application::Run(%startSplashscreen);
   
     // Main app
     ProjetPOO::App_main mainForm;
     Application::Run(%mainForm);
 
     // Stop splash
-  	ProjetPOO::Splashscreen splashscreen(false);
-	  Application::Run(%splashscreen);
+  	ProjetPOO::Splashscreen stopSplashscreen(false);
+	Application::Run(%stopSplashscreen);
 }
