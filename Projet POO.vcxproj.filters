@@ -124,7 +124,7 @@
     </ClInclude>
     <ClInclude Include="App_Client.h">
       <Filter>Fichiers d%27en-tête\Classes UI</Filter>
-    </ClCompile>
+    </ClInclude>
     <ClInclude Include="Article.h">
       <Filter>Fichiers d%27en-tête\Classes components</Filter>
     </ClInclude>
