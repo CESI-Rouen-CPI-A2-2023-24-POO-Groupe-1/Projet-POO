@@ -120,7 +120,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Address.cpp" />
     <ClCompile Include="DataBase.cpp" />
+    <ClCompile Include="mADDRESS.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Splashscreen.cpp" />
   </ItemGroup>
@@ -134,7 +136,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Address.h" />
     <ClInclude Include="Date.h" />
+    <ClInclude Include="mADDRESS.h" />
     <ClInclude Include="Mapping.h" />
     <ClInclude Include="Splashscreen.h">
       <FileType>CppForm</FileType>
