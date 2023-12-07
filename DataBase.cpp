@@ -1,7 +1,5 @@
 #include "DataBase.h"
 
-using namespace NS_Composants;
-
 DataBase::DataBase(void) {
     this->sqlRequest = gcnew String("");
     this->chaineConnexion = gcnew String("Data Source=SEPTEMBRE\\MSSQL_DUBUS; Initial Catalog = NORTICBDD; Integrated Security=True;");
@@ -12,7 +10,7 @@ DataBase::DataBase(void) {
     this->dataSetObject = gcnew DataSet;
 }
 
-Int64 DataBase::executeToInt(String^ rq_sql) {
+int DataBase::executeToInt(String^ rq_sql) {
     this->setSQL(rq_sql);
     DataSet^ ds = this->executeToDataSet(this->sqlRequest);
     if (this->dataSetObject->Tables[0]->Rows->Count > 0) {

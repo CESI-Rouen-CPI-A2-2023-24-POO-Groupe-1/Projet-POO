@@ -10,7 +10,7 @@ using namespace System::Data;
 ref class ADDRESS : public Mapping
 {
 public:
-	Address add(Address address);
+	Address^ add(Address address);
 	void edit(Address address);
 	void remove(Address address);
 	Address^ get(int id);

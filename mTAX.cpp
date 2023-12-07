@@ -1,10 +1,12 @@
 #include "mTAX.h"
 
 
-Tax mTAX::add(Tax tax) {
+Tax^ mTAX::add(Tax tax) {
 	DataBase^ rtax = gcnew DataBase;
 	String^ order = "USE NORTICBDD; INSERT INTO Taux_TVA(TVA_TAUX) VALUES(" + tax.getPercentage() + "); ";
-	rtax->execute(order);
+	int id = rtax->executeToInt(order);
+
+	return gcnew Tax(id, tax.getPercentage());
 }
 
 void mTAX::edit(Tax tax) {
@@ -26,14 +28,16 @@ void mTAX::remove(Tax tax) {
 		String^ order = "USE NORTICBDD; DELETE Taux_TVA WHERE ID_TVA = " + tax.getId() + ";";
 	}
 }
-Tax mTAX::get(int id) {
+
+Tax^ mTAX::get(int id) {
 	DataBase^ rtax = gcnew DataBase;
 	String^ order = "USE NORTICBDD; SELECT TVA_TAUX WHERE ID_TVA = " + id;
 	DataSet^ ds = rtax->executeToDataSet(order);
 	int percentage = Convert::ToInt32(ds->Tables[0]->Rows[0]->ItemArray[0]);
-	Tax sortie(id, percentage);
-
+	Tax^ sortie = gcnew Tax(id, percentage);
+	return sortie;
 }
+
 DataSet^ mTAX::search(int percentage) {
 	DataBase^ rtax = gcnew DataBase;
 	String^ order = "USE NORTICBDD; SELECT ID_TVA WHERE TVA_TAUX = " + percentage;

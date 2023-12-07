@@ -4,7 +4,7 @@ Client::Client()
 {
 }
 
-Client::Client(int id, String^ first_name, String^ last_name, Date birthdate, Address deliver_address, Address billing_address)
+Client::Client(int id, String^ first_name, String^ last_name, Date^ birthdate, Address^ deliver_address, Address^ billing_address)
 {
     this->id = id;
     this->first_name = first_name;
@@ -14,7 +14,7 @@ Client::Client(int id, String^ first_name, String^ last_name, Date birthdate, Ad
     this->billing_address = billing_address;
 }
 
-Client::Client(String^ first_name, String^ last_name, Date birthdate, Address deliver_address, Address billing_address)
+Client::Client(String^ first_name, String^ last_name, Date^ birthdate, Address^ deliver_address, Address^ billing_address)
 {
 }
 
@@ -54,32 +54,32 @@ void Client::setLastName(String^ value)
     last_name = value;
 }
 
-Date Client::getBirthdate()
+Date^ Client::getBirthdate()
 {
     return birthdate;
 }
 
-void Client::setBirthdate(Date value)
+void Client::setBirthdate(Date^ value)
 {
     birthdate = value;
 }
 
-Address Client::getDeliverAddress()
+Address^ Client::getDeliverAddress()
 {
     return deliver_address;
 }
 
-void Client::setDeliverAddress(Address value)
+void Client::setDeliverAddress(Address^ value)
 {
     deliver_address = value;
 }
 
-Address Client::getBillingAddress()
+Address^ Client::getBillingAddress()
 {
     return billing_address;
 }
 
-void Client::setBillingAddress(Address value)
+void Client::setBillingAddress(Address^ value)
 {
     billing_address = value;
 }
