@@ -140,7 +140,7 @@ namespace ProjetPOO {
 			this->Gestion_Statistiques_Bouton->Location = System::Drawing::Point(1193, 235);
 			this->Gestion_Statistiques_Bouton->Name = L"Gestion_Statistiques_Bouton";
 			this->Gestion_Statistiques_Bouton->Size = System::Drawing::Size(246, 341);
-			this->Gestion_Statistiques_Bouton->TabIndex = 2;
+			this->Gestion_Statistiques_Bouton->TabIndex = 4;
 			this->Gestion_Statistiques_Bouton->UseVisualStyleBackColor = false;
 			this->Gestion_Statistiques_Bouton->Click += gcnew System::EventHandler(this, &App_main::button3_Click);
 			// 
@@ -166,7 +166,7 @@ namespace ProjetPOO {
 			this->Gestion_Commandes_Bouton->Location = System::Drawing::Point(652, 235);
 			this->Gestion_Commandes_Bouton->Name = L"Gestion_Commandes_Bouton";
 			this->Gestion_Commandes_Bouton->Size = System::Drawing::Size(246, 341);
-			this->Gestion_Commandes_Bouton->TabIndex = 4;
+			this->Gestion_Commandes_Bouton->TabIndex = 2;
 			this->Gestion_Commandes_Bouton->UseVisualStyleBackColor = false;
 			this->Gestion_Commandes_Bouton->Click += gcnew System::EventHandler(this, &App_main::button5_Click);
 			// 
