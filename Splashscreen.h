@@ -60,36 +60,37 @@ namespace ProjetPOO {
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::White;
+			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->ImageLocation = L"";
 			this->pictureBox1->Location = System::Drawing::Point(0, 0);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(0);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(600, 400);
+			this->pictureBox1->Size = System::Drawing::Size(800, 492);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
 			// Splashscreen
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(600, 400);
+			this->ClientSize = System::Drawing::Size(800, 492);
 			this->ControlBox = false;
 			this->Controls->Add(this->pictureBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(600, 400);
+			this->MaximumSize = System::Drawing::Size(800, 492);
 			this->MinimizeBox = false;
-			this->MinimumSize = System::Drawing::Size(600, 400);
+			this->MinimumSize = System::Drawing::Size(800, 492);
 			this->Name = L"Splashscreen";
 			this->Opacity = 0;
 			this->ShowIcon = false;
 			this->ShowInTaskbar = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Splashscreen";
-			this->TransparencyKey = System::Drawing::Color::White;
 			this->Shown += gcnew System::EventHandler(this, &Splashscreen::splash_shown);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
@@ -104,7 +105,7 @@ namespace ProjetPOO {
 		}
 		if (this->starting){
 			// App is starting
-			System::Threading::Thread::Sleep(1000);
+			System::Threading::Thread::Sleep(5000);
 		}
 		while (this->Opacity > 0){
 			this->Opacity -= 0.05;

@@ -20,7 +20,4 @@ int __clrcall WinMain(array<String^>^ args)
     ProjetPOO::App_main mainForm;
     Application::Run(%mainForm);
 
-    // Stop splash
-  	ProjetPOO::Splashscreen stopSplashscreen(false);
-	Application::Run(%stopSplashscreen);
 }
