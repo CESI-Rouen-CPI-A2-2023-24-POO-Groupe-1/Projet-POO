@@ -20,9 +20,9 @@ namespace NS_Composants {
     {
     public:
         DataBase(void);
-        Int64 actionRowsID(String^ rq_sql);
-        System::Void actionRows(String^ rq_sql);
-        DataSet^ getRows(String^ rq_sql);
+        Int64 executeToInt(String^ rq_sql);
+        System::Void execute(String^ rq_sql);
+        DataSet^ executeToDataSet(String^ rq_sql);
         System::Void setSQL(String^ rq_sql);
 
     private:

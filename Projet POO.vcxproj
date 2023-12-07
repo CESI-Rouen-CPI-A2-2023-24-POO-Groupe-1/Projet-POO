@@ -141,6 +141,8 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="mCLIENT.h" />
     <ClInclude Include="mTAX.h" />
+    <ClInclude Include="Date.h" />
+    <ClInclude Include="Mapping.h" />
     <ClInclude Include="Splashscreen.h">
       <FileType>CppForm</FileType>
     </ClInclude>
