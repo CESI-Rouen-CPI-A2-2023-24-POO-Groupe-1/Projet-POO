@@ -45,6 +45,24 @@
     <ClCompile Include="Splashscreen.cpp">
       <Filter>Fichiers sources\Classes UI</Filter>
     </ClCompile>
+    <ClCompile Include="App_main.cpp">
+      <Filter>Fichiers sources\Classes UI</Filter>
+    </ClCompile>
+    <ClCompile Include="App_Personnel.cpp">
+      <Filter>Fichiers sources\Classes UI</Filter>
+    </ClCompile>
+    <ClCompile Include="App_Stock.cpp">
+      <Filter>Fichiers sources\Classes UI</Filter>
+    </ClCompile>
+    <ClCompile Include="App_Client.cpp">
+      <Filter>Fichiers sources\Classes UI</Filter>
+    </ClCompile>
+    <ClCompile Include="App_Commandes.cpp">
+      <Filter>Fichiers sources\Classes UI</Filter>
+    </ClCompile>
+    <ClCompile Include="App_statistiques.cpp">
+      <Filter>Fichiers sources\Classes UI</Filter>
+    </ClCompile>
     <ClCompile Include="mADDRESS.cpp">
       <Filter>Fichiers sources\Classes mapping</Filter>
     </ClCompile>
@@ -66,6 +84,24 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Splashscreen.h">
+      <Filter>Fichiers d%27en-tête\Classes UI</Filter>
+    </ClInclude>
+    <ClInclude Include="App_main.h">
+      <Filter>Fichiers d%27en-tête\Classes UI</Filter>
+    </ClInclude>
+    <ClInclude Include="App_Personnel.h">
+      <Filter>Fichiers d%27en-tête\Classes UI</Filter>
+    </ClInclude>
+    <ClInclude Include="App_Stock.h">
+      <Filter>Fichiers d%27en-tête\Classes UI</Filter>
+    </ClInclude>
+    <ClInclude Include="App_Client.h">
+      <Filter>Fichiers d%27en-tête\Classes UI</Filter>
+    </ClInclude>
+    <ClInclude Include="App_Commandes.h">
+      <Filter>Fichiers d%27en-tête\Classes UI</Filter>
+    </ClInclude>
+    <ClInclude Include="App_statistiques.h">
       <Filter>Fichiers d%27en-tête\Classes UI</Filter>
     </ClInclude>
     <ClInclude Include="Client.h">
