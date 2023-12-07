@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Classes mapping">
+      <UniqueIdentifier>{5acc141a-24ca-4650-a278-61cc9e6ee76f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Classes components">
+      <UniqueIdentifier>{633d25ee-af10-4730-ac6f-05d0c4016bd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Classes UI">
+      <UniqueIdentifier>{bf2e892c-6ac6-4890-86c5-549f9c7a5065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Classes mapping">
+      <UniqueIdentifier>{e5a29d1a-9594-426f-8214-5928b4d9fcda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Classes components">
+      <UniqueIdentifier>{afc43aee-e214-441a-9ae4-671851729f09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Classes UI">
+      <UniqueIdentifier>{9c705c46-941d-425a-9ec6-f55dae785241}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,20 +39,26 @@
     <ClCompile Include="DataBase.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Address.cpp">
+      <Filter>Fichiers sources\Classes components</Filter>
+    </ClCompile>
     <ClCompile Include="Splashscreen.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Classes UI</Filter>
+    </ClCompile>
+    <ClCompile Include="mADDRESS.cpp">
+      <Filter>Fichiers sources\Classes mapping</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
     <ClCompile Include="mCLIENT.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Classes mapping</Filter>
     </ClCompile>
     <ClCompile Include="Tax.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
     <ClCompile Include="mTAX.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Classes mapping</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,22 +69,28 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Client.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
     </ClInclude>
     <ClInclude Include="mCLIENT.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
     </ClInclude>
     <ClInclude Include="Tax.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
     </ClInclude>
     <ClInclude Include="mTAX.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Mapping.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
     </ClInclude>
     <ClInclude Include="Date.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapping.h">
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="Address.h">
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
+    </ClInclude>
+    <ClInclude Include="mADDRESS.h">
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

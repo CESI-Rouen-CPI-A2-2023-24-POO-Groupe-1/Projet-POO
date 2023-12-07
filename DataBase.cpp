@@ -14,9 +14,9 @@ DataBase::DataBase(void) {
 
 Int64 DataBase::executeToInt(String^ rq_sql) {
     this->setSQL(rq_sql);
-    this->execute(this->sqlRequest);
+    DataSet^ ds = this->executeToDataSet(this->sqlRequest);
     if (this->dataSetObject->Tables[0]->Rows->Count > 0) {
-        DataRow^ row = this->dataSetObject->Tables[0]->Rows[0];
+        DataRow^ row = ds->Tables[0]->Rows[0];
         return Convert::ToInt64(row->ItemArray[0]);
     }
     else {
@@ -34,7 +34,7 @@ System::Void DataBase::execute(String^ rq_sql) {
     this->commSql->Connection->Close();
 }
 
-DataSet^ NS_Composants::DataBase::executeToDataSet(String^ rq_sql)
+DataSet^ DataBase::executeToDataSet(String^ rq_sql)
 {
     if (this->conToDb->State != ConnectionState::Open) conToDb->Open();
     this->commSql = gcnew System::Data::SqlClient::SqlCommand;
