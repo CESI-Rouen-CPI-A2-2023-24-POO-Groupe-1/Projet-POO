@@ -8,7 +8,7 @@ public:
 	Article mARTICLE::add(Article article);
 	void mARTICLE::edit(Article article);
 	void mARTICLE::remove(Article article);
-	Article mARTICLE::get(int id);
-	void mARTICLE::search(String);
+	Article^ mARTICLE::get(int id);
+	DataSet^ mARTICLE::search(String^ mot, String^ reference);
 };
 

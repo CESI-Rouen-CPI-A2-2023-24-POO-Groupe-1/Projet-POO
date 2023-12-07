@@ -38,6 +38,10 @@ Article^ mARTICLE::get(int id) {
 }
 
 
-void mARTICLE::search(String) {
-
-}
+DataSet^ mARTICLE::search(String^ mot, String^ reference){
+	DataBase^ rarticle = gcnew DataBase;
+	String^ order = "USE NORTICBDD; SELECT Articles.*, Reference.REFERENCE_NOM FROM Articles JOIN Reference ON Articles.ID_REFERENCE = Reference.ID_REFERENCE WHERE Reference.REFERENCE_NOM LIKE " + reference + " AND ARTICLES_NOM LIKE %" + mot + "%; ";
+	
+	DataSet^ ds = rarticle->executeToDataSet(order);
+	return ds;
+	}
