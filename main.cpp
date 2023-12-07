@@ -1,7 +1,7 @@
 // Projet POO CESI 2023
 
 #include "App_main.h"
-#include "App_Personnel.h"
+#include "Splashscreen.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -11,8 +11,16 @@ int __clrcall WinMain(array<String^>^ args)
 {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
-    ProjetPOO::App_main^ mainForm = gcnew ProjetPOO::App_main();
-    Application::Run(mainForm);
+  	
+    // Start splash
+    ProjetPOO::Splashscreen splashscreen(true);
+	  Application::Run(%splashscreen);
+  
+    // Main app
+    ProjetPOO::App_main mainForm;
+    Application::Run(%mainForm);
 
-    return 0;
+    // Stop splash
+  	ProjetPOO::Splashscreen splashscreen(false);
+	  Application::Run(%splashscreen);
 }
