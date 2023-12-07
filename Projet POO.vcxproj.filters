@@ -69,14 +69,14 @@
     <ClCompile Include="Client.cpp">
       <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
-    <ClCompile Include="mCLIENT.cpp">
-      <Filter>Fichiers sources\Classes mapping</Filter>
-    </ClCompile>
     <ClCompile Include="Tax.cpp">
       <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
     <ClCompile Include="mTAX.cpp">
       <Filter>Fichiers sources\Classes mapping</Filter>
+    </ClCompile>
+    <ClCompile Include="Article.cpp">
+      <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,9 +107,6 @@
     <ClInclude Include="Client.h">
       <Filter>Fichiers d%27en-tête\Classes components</Filter>
     </ClInclude>
-    <ClInclude Include="mCLIENT.h">
-      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
-    </ClInclude>
     <ClInclude Include="Tax.h">
       <Filter>Fichiers d%27en-tête\Classes components</Filter>
     </ClInclude>
@@ -127,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="mADDRESS.h">
       <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="Article.h">
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
