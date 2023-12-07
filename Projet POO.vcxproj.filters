@@ -48,6 +48,18 @@
     <ClCompile Include="mADDRESS.cpp">
       <Filter>Fichiers sources\Classes mapping</Filter>
     </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Fichiers sources\Classes components</Filter>
+    </ClCompile>
+    <ClCompile Include="mCLIENT.cpp">
+      <Filter>Fichiers sources\Classes mapping</Filter>
+    </ClCompile>
+    <ClCompile Include="Tax.cpp">
+      <Filter>Fichiers sources\Classes components</Filter>
+    </ClCompile>
+    <ClCompile Include="mTAX.cpp">
+      <Filter>Fichiers sources\Classes mapping</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataBase.h">
@@ -56,8 +68,20 @@
     <ClInclude Include="Splashscreen.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
+    </ClInclude>
+    <ClInclude Include="mCLIENT.h">
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="Tax.h">
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
+    </ClInclude>
+    <ClInclude Include="mTAX.h">
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
+    </ClInclude>
     <ClInclude Include="Date.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
     </ClInclude>
     <ClInclude Include="Mapping.h">
       <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
