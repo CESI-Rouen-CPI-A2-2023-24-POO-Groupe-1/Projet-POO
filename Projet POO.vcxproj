@@ -120,9 +120,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mCLIENT.cpp" />
+    <ClCompile Include="mTAX.cpp" />
     <ClCompile Include="Splashscreen.cpp" />
+    <ClCompile Include="Tax.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -134,9 +138,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="mCLIENT.h" />
+    <ClInclude Include="mTAX.h" />
     <ClInclude Include="Splashscreen.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Tax.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Splashscreen.resx">
