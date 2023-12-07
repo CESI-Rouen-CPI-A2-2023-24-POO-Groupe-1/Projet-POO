@@ -5,10 +5,10 @@
 ref class mTAX
 {
 public:
-	Tax mTAX::add(Tax tax);
+	Tax^ mTAX::add(Tax tax);
 	void mTAX::edit(Tax tax);
 	void mTAX::remove(Tax tax);
-	Tax mTAX::get(int id);
+	Tax^ mTAX::get(int id);
 	DataSet^ mTAX::search(int percentage);
 };
 

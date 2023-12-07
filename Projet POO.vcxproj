@@ -90,6 +90,8 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -120,6 +122,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="App_Client.cpp" />
+    <ClCompile Include="App_Commandes.cpp" />
+    <ClCompile Include="App_main.cpp" />
+    <ClCompile Include="App_Personnel.cpp" />
+    <ClCompile Include="App_statistiques.cpp" />
+    <ClCompile Include="App_Stock.cpp" />
     <ClCompile Include="Address.cpp" />
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
@@ -133,6 +141,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -140,6 +149,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="App_Client.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="App_Commandes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="App_main.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="App_Personnel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="App_statistiques.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="App_Stock.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Address.h" />
     <ClInclude Include="Article.h" />
     <ClInclude Include="Client.h" />
@@ -153,6 +180,24 @@
     <ClInclude Include="Tax.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="App_Client.resx">
+      <DependentUpon>App_Client.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Commandes.resx">
+      <DependentUpon>App_Commandes.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_main.resx">
+      <DependentUpon>App_main.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Personnel.resx">
+      <DependentUpon>App_Personnel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_statistiques.resx">
+      <DependentUpon>App_statistiques.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Stock.resx">
+      <DependentUpon>App_Stock.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Splashscreen.resx">
       <DependentUpon>Splashscreen.h</DependentUpon>
     </EmbeddedResource>

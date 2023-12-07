@@ -1,27 +1,31 @@
 #pragma once
+
+using namespace System;
+
 ref class Date
 {
 public:
-	getDay(){
+	int getDay(){
 		return day;
 	}
-	getMonth(){
+	int getMonth(){
 		return month;
 	}
-	getYear(){
+	int getYear(){
 		return year;
 	}
-	setDay(int day){
+	void setDay(int day){
 		this->day = day;
 	}
-	setMonth(int month){
+	void setMonth(int month){
 		this->month = month;
 	}
-	setYear(int year){
+	void setYear(int year){
 		this->year = year;
 	}
-	toSQLString(){
-		return year + "-" + month + "-" + day;
+	String^ toSQLString(){
+		String^ string = this->year + "-" + this->month + "-" + this->day;
+		return string;
 	}
 	Date(){
 		day = 0;
