@@ -1,6 +1,5 @@
 #include "DataBase.h"
 
-using namespace NS_Composants;
 
 DataBase::DataBase(void) {
     this->sqlRequest = gcnew String("");

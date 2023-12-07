@@ -11,6 +11,7 @@ private:
 	Tax^ tax;
 public:
 	Article::Article(String^ name, float price, Tax^ tax);
+	Article::Article(int id, String^ name, float price, Tax^ tax);
 	int Article::getId();
 	String^ Article::getName();
 	void Article::setName(String^ name);

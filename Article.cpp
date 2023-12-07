@@ -6,6 +6,13 @@ Article::Article(String^ name, float price, Tax^ tax)
     this->price = price;
     this->tax = tax;
 }
+Article::Article(int id, String^ name, float price, Tax^ tax)
+{
+    this->name = name;
+    this->price = price;
+    this->tax = tax;
+    this->id = id;
+}
 
 int Article::getId()
 {

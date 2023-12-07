@@ -60,6 +60,9 @@
     <ClCompile Include="Article.cpp">
       <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
+    <ClCompile Include="mARTICLE.cpp">
+      <Filter>Fichiers sources\Classes mapping</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataBase.h">
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="Article.h">
       <Filter>Fichiers d%27en-tête\Classes components</Filter>
+    </ClInclude>
+    <ClInclude Include="mARTICLE.h">
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
