@@ -178,11 +178,20 @@
     <ClInclude Include="Tax.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="App_Client.resx">
+      <DependentUpon>App_Client.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Commandes.resx">
+      <DependentUpon>App_Commandes.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_main.resx">
       <DependentUpon>App_main.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App_Personnel.resx">
       <DependentUpon>App_Personnel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_statistiques.resx">
+      <DependentUpon>App_statistiques.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App_Stock.resx">
       <DependentUpon>App_Stock.h</DependentUpon>

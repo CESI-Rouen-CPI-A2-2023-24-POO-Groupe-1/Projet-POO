@@ -54,9 +54,6 @@
     <ClCompile Include="App_Stock.cpp">
       <Filter>Fichiers sources\Classes UI</Filter>
     </ClCompile>
-    <ClCompile Include="App_Client.cpp">
-      <Filter>Fichiers sources\Classes UI</Filter>
-    </ClCompile>
     <ClCompile Include="App_Commandes.cpp">
       <Filter>Fichiers sources\Classes UI</Filter>
     </ClCompile>
@@ -69,14 +66,14 @@
     <ClCompile Include="Client.cpp">
       <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
-    <ClCompile Include="mCLIENT.cpp">
-      <Filter>Fichiers sources\Classes mapping</Filter>
-    </ClCompile>
     <ClCompile Include="Tax.cpp">
       <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
     <ClCompile Include="mTAX.cpp">
       <Filter>Fichiers sources\Classes mapping</Filter>
+    </ClCompile>
+    <ClCompile Include="App_Client.cpp">
+      <Filter>Fichiers sources\Classes UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,9 +92,6 @@
     <ClInclude Include="App_Stock.h">
       <Filter>Fichiers d%27en-tête\Classes UI</Filter>
     </ClInclude>
-    <ClInclude Include="App_Client.h">
-      <Filter>Fichiers d%27en-tête\Classes UI</Filter>
-    </ClInclude>
     <ClInclude Include="App_Commandes.h">
       <Filter>Fichiers d%27en-tête\Classes UI</Filter>
     </ClInclude>
@@ -106,9 +100,6 @@
     </ClInclude>
     <ClInclude Include="Client.h">
       <Filter>Fichiers d%27en-tête\Classes components</Filter>
-    </ClInclude>
-    <ClInclude Include="mCLIENT.h">
-      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
     </ClInclude>
     <ClInclude Include="Tax.h">
       <Filter>Fichiers d%27en-tête\Classes components</Filter>
@@ -127,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="mADDRESS.h">
       <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="App_Client.h">
+      <Filter>Fichiers d%27en-tête\Classes UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
