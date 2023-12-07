@@ -4,10 +4,9 @@
 Tax mTAX::add(Tax tax) {
 	DataBase^ rtax = gcnew DataBase;
 	String^ order = "USE NORTICBDD; INSERT INTO Taux_TVA(TVA_TAUX) VALUES(" + tax.getPercentage() + "); ";
-	rtax->actionRows(order);
-
-
+	rtax->execute(order);
 }
+
 void mTAX::edit(Tax tax) {
 	DataBase^ rtax = gcnew DataBase;
 	if (tax.getId() == 0) {
@@ -30,7 +29,7 @@ void mTAX::remove(Tax tax) {
 Tax mTAX::get(int id) {
 	DataBase^ rtax = gcnew DataBase;
 	String^ order = "USE NORTICBDD; SELECT TVA_TAUX WHERE ID_TVA = " + id;
-	DataSet^ ds = rtax->getRows(order);
+	DataSet^ ds = rtax->executeToDataSet(order);
 	int percentage = Convert::ToInt32(ds->Tables[0]->Rows[0]->ItemArray[0]);
 	Tax sortie(id, percentage);
 
@@ -38,7 +37,7 @@ Tax mTAX::get(int id) {
 DataSet^ mTAX::search(int percentage) {
 	DataBase^ rtax = gcnew DataBase;
 	String^ order = "USE NORTICBDD; SELECT ID_TVA WHERE TVA_TAUX = " + percentage;
-	DataSet^ ds = rtax->getRows(order);
+	DataSet^ ds = rtax->executeToDataSet(order);
 	return ds;
 
 }

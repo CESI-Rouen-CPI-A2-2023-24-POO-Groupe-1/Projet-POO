@@ -1,7 +1,6 @@
 #pragma once
 #include "Tax.h"
 #include "DataBase.h"
-using namespace NS_Composants;
 
 ref class mTAX
 {
