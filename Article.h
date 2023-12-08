@@ -3,7 +3,7 @@
 
 using namespace System;
 
-ref class Article {
+ref class Article{
 private:
     int id;
     String^ name;

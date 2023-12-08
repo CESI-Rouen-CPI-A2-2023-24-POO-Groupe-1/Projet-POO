@@ -93,6 +93,15 @@
     <ClCompile Include="mCLIENT.cpp">
       <Filter>Fichiers sources\Classes mapping</Filter>
     </ClCompile>
+    <ClCompile Include="mORDER.cpp">
+      <Filter>Fichiers sources\Classes mapping</Filter>
+    </ClCompile>
+    <ClCompile Include="Employe.cpp">
+      <Filter>Fichiers sources\Classes components</Filter>
+    </ClCompile>
+    <ClCompile Include="mEMPLOYE.cpp">
+      <Filter>Fichiers sources\Classes mapping</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataBase.h">
@@ -156,6 +165,15 @@
       <Filter>Fichiers d%27en-tête\Classes components</Filter>
     </ClInclude>
     <ClInclude Include="mCLIENT.h">
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="mORDER.h">
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="Employe.h">
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
+    </ClInclude>
+    <ClInclude Include="mEMPLOYE.h">
       <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
     </ClInclude>
   </ItemGroup>
