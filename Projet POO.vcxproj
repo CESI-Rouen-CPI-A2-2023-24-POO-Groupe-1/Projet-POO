@@ -130,11 +130,15 @@
     <ClCompile Include="App_Stock.cpp" />
     <ClCompile Include="Address.cpp" />
     <ClCompile Include="Article.cpp" />
+    <ClCompile Include="ArticleInList.cpp" />
+    <ClCompile Include="ArticleList.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="mADDRESS.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mARTICLE.cpp" />
     <ClCompile Include="mTAX.cpp" />
+    <ClCompile Include="Order.cpp" />
     <ClCompile Include="Splashscreen.cpp" />
     <ClCompile Include="Tax.cpp" />
   </ItemGroup>
@@ -169,11 +173,15 @@
     </ClInclude>
     <ClInclude Include="Address.h" />
     <ClInclude Include="Article.h" />
+    <ClInclude Include="ArticleInList.h" />
+    <ClInclude Include="ArticleList.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="mARTICLE.h" />
     <ClInclude Include="mTAX.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="mADDRESS.h" />
     <ClInclude Include="Mapping.h" />
+    <ClInclude Include="Order.h" />
     <ClInclude Include="Splashscreen.h">
       <FileType>CppForm</FileType>
     </ClInclude>

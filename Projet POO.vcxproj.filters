@@ -78,6 +78,18 @@
     <ClCompile Include="Article.cpp">
       <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
+    <ClCompile Include="mARTICLE.cpp">
+      <Filter>Fichiers sources\Classes mapping</Filter>
+    </ClCompile>
+    <ClCompile Include="Order.cpp">
+      <Filter>Fichiers sources\Classes components</Filter>
+    </ClCompile>
+    <ClCompile Include="ArticleInList.cpp">
+      <Filter>Fichiers sources\Classes components</Filter>
+    </ClCompile>
+    <ClCompile Include="ArticleList.cpp">
+      <Filter>Fichiers sources\Classes components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataBase.h">
@@ -126,6 +138,18 @@
       <Filter>Fichiers d%27en-tête\Classes UI</Filter>
     </ClInclude>
     <ClInclude Include="Article.h">
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
+    </ClInclude>
+    <ClInclude Include="mARTICLE.h">
+      <Filter>Fichiers d%27en-tête\Classes mapping</Filter>
+    </ClInclude>
+    <ClInclude Include="Order.h">
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
+    </ClInclude>
+    <ClInclude Include="ArticleInList.h">
+      <Filter>Fichiers d%27en-tête\Classes components</Filter>
+    </ClInclude>
+    <ClInclude Include="ArticleList.h">
       <Filter>Fichiers d%27en-tête\Classes components</Filter>
     </ClInclude>
   </ItemGroup>
