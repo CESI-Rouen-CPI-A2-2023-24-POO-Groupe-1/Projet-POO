@@ -1,15 +1,7 @@
 #include "mARTICLE.h"
 #include "mTAX.h"
 
-
-mARTICLE::mARTICLE(String^ nom, float prixht, Tax^ tax) {
-	DataBase^ rarticle = gcnew DataBase;
-	int id = tax->getId();
-	String^ order = "USE NORTICBDD; INSERT INTO Articles (ARTICLES_NOM, ARTICLES_PRIX_HT, ID_TVA) VALUES ('" + nom + "'," + prixht + ", " + id + "); ";
-	rarticle->execute(order);
-}
-
-Article^ mARTICLE::add(Article^ article) {
+Article^ ARTICLE::add(Article^ article) {
 	DataBase^ rarticle = gcnew DataBase;
 	String^ order = "USE NORTICBDD; INSERT INTO Articles (ARTICLES_NOM, ARTICLES_PRIX_HT, ID_TVA) VALUES ('" + article->getName() + "'," + article->getPrice() + ", " + article->getTax() + "); SELECT SCOPE_IDENTITY();";
 	int id = rarticle->executeToInt(order);
@@ -17,19 +9,19 @@ Article^ mARTICLE::add(Article^ article) {
 	return newarticle;
 }
 
-void mARTICLE::edit(Article^ article) {
+void ARTICLE::edit(Article^ article) {
 	DataBase^ rarticle = gcnew DataBase;
 	String^ order = "USE NORTICBDD; UPDATE Articles SET ARTICLES_NOM = '" + article->getName() + "',	ARTICLES_PRIX_HT = " + article->getPrice() + ",	ID_TVA = " + article->getTax() + " WHERE ID_ARTICLES = " + article->getId() + "; ";
 	rarticle->execute(order);
 }
 
-void mARTICLE::remove(Article^ article) {
+void ARTICLE::remove(Article^ article) {
 	DataBase^ rarticle = gcnew DataBase;
 	String^ order = "USE NORTICBDD; DELETE FROM Articles WHERE ID_ARTICLES = " + article->getId() + "; ";
 	rarticle->execute(order);
 }
 
-Article^ mARTICLE::get(int id) {
+Article^ ARTICLE::get(int id) {
 	DataBase^ rarticle = gcnew DataBase;
 	String^ order = "USE NORTICBDD; SELECT * FROM Articles WHERE ID_ARTICLES = " + id + "; ";
 	DataSet^ ds = rarticle->executeToDataSet(order);
@@ -44,7 +36,7 @@ Article^ mARTICLE::get(int id) {
 }
 
 
-DataSet^ mARTICLE::search(String^ mot, String^ reference) {
+DataSet^ ARTICLE::search(String^ mot, String^ reference) {
 	DataBase^ rarticle = gcnew DataBase;
 	String^ order = "USE NORTICBDD; SELECT Articles.*, Reference.REFERENCE_NOM FROM Articles JOIN Reference ON Articles.ID_REFERENCE = Reference.ID_REFERENCE WHERE Reference.REFERENCE_NOM LIKE " + reference + " AND ARTICLES_NOM LIKE %" + mot + "%; ";
 

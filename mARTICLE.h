@@ -1,13 +1,12 @@
 #pragma once
 #include "Article.h"
 #include "Tax.h"
-ref class mARTICLE
+ref class ARTICLE
 {
 public:
-    mARTICLE::mARTICLE(String^ nom, float prixht, Tax^ tax);
-    Article^ mARTICLE::add(Article^ article);
-    void mARTICLE::edit(Article^ article);
-    void mARTICLE::remove(Article^ article);
-    Article^ mARTICLE::get(int id);
-    DataSet^ mARTICLE::search(String^ mot, String^ reference);
+    static Article^ ARTICLE::add(Article^ article);
+    static void ARTICLE::edit(Article^ article);
+    static void ARTICLE::remove(Article^ article);
+    static Article^ ARTICLE::get(int id);
+    static DataSet^ ARTICLE::search(String^ mot, String^ reference);
 };

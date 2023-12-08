@@ -9,10 +9,10 @@ ref class CLIENT :
     public Mapping
 {
 public:
-    Client^ add(Client^ client);
-    void edit(Client^ client);
-    void remove(Client^ client);
-    Client^ get(int id);
-    DataSet^ search(String^ first_name, String^ last_name);
+    static Client^ add(Client^ client);
+    static void edit(Client^ client);
+    static void remove(Client^ client);
+    static Client^ get(int id);
+    static DataSet^ search(String^ first_name, String^ last_name);
 };
 
