@@ -6,6 +6,21 @@ Article::Article(String^ name, float price, Tax^ tax)
     this->price = price;
     this->tax = tax;
 }
+Article::Article(int id, String^ name, float price, Tax^ tax)
+{
+    this->name = name;
+    this->price = price;
+    this->tax = tax;
+    this->id = id;
+}
+
+Article::Article(Article^ article)
+{
+    this->id = article->getId();
+    this->name = article->getName();
+    this->price = article->getPrice();
+    this->tax = article->getTax();
+}
 
 int Article::getId()
 {
@@ -39,7 +54,7 @@ Tax^ Article::getTax()
 
 }
 void Article::setTax(Tax tax)
-{   
+{
     Tax^ taxCopy = gcnew Tax(tax.getId(), tax.getPercentage());
     this->tax = taxCopy;
 }
