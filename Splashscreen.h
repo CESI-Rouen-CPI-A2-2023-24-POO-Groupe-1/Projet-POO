@@ -109,17 +109,7 @@ namespace ProjetPOO {
 			System::Threading::Thread::Sleep(1);
 		}
 		if (this->starting){
-		
-			Address^ address1 = ADDRESS::get(4);
-			Address^ address2 = ADDRESS::get(5);
-
-			Client^ client1 = gcnew Client("Jean", "Dupont", DateTime(1990, 1, 1), address1, address2);
-			client1 = CLIENT::add(client1);
-
-			Client^ client2 = CLIENT::get(client1->getId());
-			client2->setFirstName("Jeanne");
-			client2->setLastName("Dupond");
-			CLIENT::edit(client2);
+			Threading::Thread::Sleep(1000);
 		}
 		while (this->Opacity > 0){
 			this->Opacity -= 0.05;
