@@ -1,5 +1,10 @@
 #include "ArticleList.h"
 
+
+ArticleList::ArticleList() {
+
+}
+
 void ArticleList::add(Article^ article, int amount) {
     ArticleInList^ newArticle = gcnew ArticleInList(article, amount);
     if (head == nullptr) {

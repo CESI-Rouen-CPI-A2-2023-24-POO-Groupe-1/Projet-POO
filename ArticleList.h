@@ -6,5 +6,6 @@ private:
     ArticleInList^ head;
 
 public:
+    ArticleList();
     void add(Article^ article, int amount);
 };

@@ -139,6 +139,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mARTICLE.cpp" />
     <ClCompile Include="mCLIENT.cpp" />
+    <ClCompile Include="mORDER.cpp" />
     <ClCompile Include="mEMPLOYE.cpp" />
     <ClCompile Include="mTAX.cpp" />
     <ClCompile Include="Order.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Employe.h" />
     <ClInclude Include="mARTICLE.h" />
     <ClInclude Include="mCLIENT.h" />
+    <ClInclude Include="mORDER.h" />
     <ClInclude Include="mEMPLOYE.h" />
     <ClInclude Include="mTAX.h" />
     <ClInclude Include="Date.h" />
