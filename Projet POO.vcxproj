@@ -134,10 +134,12 @@
     <ClCompile Include="ArticleList.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="DataBase.cpp" />
+    <ClCompile Include="Employe.cpp" />
     <ClCompile Include="mADDRESS.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mARTICLE.cpp" />
     <ClCompile Include="mCLIENT.cpp" />
+    <ClCompile Include="mEMPLOYE.cpp" />
     <ClCompile Include="mTAX.cpp" />
     <ClCompile Include="Order.cpp" />
     <ClCompile Include="Splashscreen.cpp" />
@@ -177,8 +179,10 @@
     <ClInclude Include="ArticleInList.h" />
     <ClInclude Include="ArticleList.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="Employe.h" />
     <ClInclude Include="mARTICLE.h" />
     <ClInclude Include="mCLIENT.h" />
+    <ClInclude Include="mEMPLOYE.h" />
     <ClInclude Include="mTAX.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="mADDRESS.h" />
