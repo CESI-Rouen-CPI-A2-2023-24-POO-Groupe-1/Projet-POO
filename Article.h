@@ -1,9 +1,10 @@
+#pragma once
 #include "Tax.h"
 #include "DataBase.h"
 
 using namespace System;
 
-ref class Article{
+ref class Article {
 private:
     int id;
     String^ name;

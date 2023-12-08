@@ -4,11 +4,12 @@
 #include "mCLIENT.h"
 #include "ArticleList.h"
 
-Order ORDER::add(Order order) {
+Order^ ORDER::add(Order^ order) {
 
 	DataBase^ rcommande = gcnew DataBase;
 	String^ theorder = "INSERT INTO Commandes(COMMANDES_REF, COMMANDES_CREA, COMMANDES_REMISE, COMMANDE_STATUT, ID_CLIENT)VALUES('VotreReference', '2023-12-07', 10.5, 1, 123);";
 	rcommande->execute(theorder);
+	return order;
 
 }
 void ORDER::edit(Order order) {
@@ -57,11 +58,11 @@ Order^ ORDER::get(int id) {
 	}
 
 
-	String^ reference = ds->Tables[0]->Rows[0]->ItemArray[1]->ToString();
+	String^ areference = ds->Tables[0]->Rows[0]->ItemArray[1]->ToString();
 	
-	Order^ sortie = gcnew Order(id, reference, date, liaison, clientcommande, remise, statut);
+	Order^ sortie = gcnew Order(id, areference, date, liaison, clientcommande, remise, statut);
 
-
+	return sortie;
 }
 DataSet^ ORDER::search(String^ reference, DateTime date) {
 	DataBase^ rcommande = gcnew DataBase;
