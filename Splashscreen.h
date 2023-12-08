@@ -1,5 +1,10 @@
 #pragma once
 
+#include "Client.h"
+#include "Address.h"
+#include "mCLIENT.h"
+#include "mADDRESS.h"
+
 namespace ProjetPOO {
 
 	using namespace System;
@@ -104,8 +109,7 @@ namespace ProjetPOO {
 			System::Threading::Thread::Sleep(1);
 		}
 		if (this->starting){
-			// App is starting
-			System::Threading::Thread::Sleep(5000);
+			Threading::Thread::Sleep(1000);
 		}
 		while (this->Opacity > 0){
 			this->Opacity -= 0.05;

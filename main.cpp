@@ -19,5 +19,4 @@ int __clrcall WinMain(array<String^>^ args)
     // Main app
     ProjetPOO::App_main mainForm;
     Application::Run(%mainForm);
-
 }
