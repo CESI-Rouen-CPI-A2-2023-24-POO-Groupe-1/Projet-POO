@@ -102,5 +102,12 @@ namespace TestProject
                 Assert.That(address2.getApartmentNumber(), Is.EqualTo(address1.getApartmentNumber()));
             });
         }
+
+        [OneTimeTearDown]
+        public void TearDown()
+        {
+            address1.Dispose();
+            address2.Dispose();
+        }
     }
 }
