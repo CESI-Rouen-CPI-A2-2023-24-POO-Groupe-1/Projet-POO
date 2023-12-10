@@ -1,5 +1,5 @@
 #pragma once
-ref class Tax
+public ref class Tax
 {
 private:
     int id;

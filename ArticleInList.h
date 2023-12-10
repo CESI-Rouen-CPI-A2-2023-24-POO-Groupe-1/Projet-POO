@@ -1,7 +1,7 @@
 #pragma once
 #include "Article.h"
 
-ref class ArticleInList : public Article {
+public ref class ArticleInList : public Article {
 private:
     ArticleInList^ next;
     int amount;

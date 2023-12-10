@@ -17,7 +17,7 @@ Client^ CLIENT::add(Client^ client)
 void CLIENT::edit(Client^ client)
 {
 	DataBase^ db = gcnew DataBase();
-	db->execute("UPDATE client SET client_nom = '" + client->getFirstName() + "', client_prenom = '" + client->getLastName() + "', client_naissance = '" + client->getBirthdate().ToString() + " id_adresse = '" + client->getBillingAddress()->getId() + "', id_adresse_1 = '" + client->getDeliverAddress()->getId() + "' WHERE id_client = '" + client->getId() + "'");
+	db->execute("UPDATE client SET client_nom = '" + client->getFirstName() + "', client_prenom = '" + client->getLastName() + "', client_naissance = '" + client->getBirthdate().ToString() + "' id_adresse = '" + client->getBillingAddress()->getId() + "', id_adresse_1 = '" + client->getDeliverAddress()->getId() + "' WHERE id_client = '" + client->getId() + "'");
 }
 
 void CLIENT::remove(Client^ client)

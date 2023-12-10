@@ -5,7 +5,7 @@
 using namespace System;
 using namespace System::Data;
 
-ref class CLIENT :
+public ref class CLIENT :
     public Mapping
 {
 public:

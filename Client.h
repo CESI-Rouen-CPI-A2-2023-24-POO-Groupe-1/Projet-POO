@@ -4,7 +4,7 @@
 
 using namespace System;
 
-ref class Client
+public ref class Client
 {
 private:
     int id;

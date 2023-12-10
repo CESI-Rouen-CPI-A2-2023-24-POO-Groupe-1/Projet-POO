@@ -4,7 +4,7 @@
 #include "ArticleList.h"
 using namespace System;
 
-ref class Order
+public ref class Order
 {
 private:
     int id;

@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace TestProject
 {
-    public class T_Address
+    public class TestAddress
     {
         private Address? address1 = new();
         private Address? address2 = new();
@@ -79,17 +79,17 @@ namespace TestProject
         {
             Assert.That(address1.getId(), Is.GreaterThan(0));
 
-            // Use ADDRESS::update() to update DB
-            address1 = new("France", "75001", "Paris", "Rue de la Paix", "8", "");
-            address1.setCountry("France");
+            // Use ADDRESS::edit() to update DB
+            address1.setCountry("Allemagne");
             address1.setZipCode("75001");
-            address1.setCity("Paris");
-            address1.setRoadName("Rue de la Paix");
-            address1.setRoadNumber("8");
-            address1.setApartmentNumber("");
+            address1.setCity("Berlin");
+            address1.setRoadName("Alexanderplatz");
+            address1.setRoadNumber("1");
+            address1.setApartmentNumber("3C");
             ADDRESS.edit(address1);
 
             // Use ADDRESS::get() to read from DB
+            Assert.That(address1.getId(), Is.GreaterThan(0));
             address2 = ADDRESS.get(address1.getId());
 
             Assert.Multiple(() =>
@@ -101,6 +101,16 @@ namespace TestProject
                 Assert.That(address2.getRoadNumber(), Is.EqualTo(address1.getRoadNumber()));
                 Assert.That(address2.getApartmentNumber(), Is.EqualTo(address1.getApartmentNumber()));
             });
+        }
+
+        [Test, Order(6)]
+        public void Deleting_From_DB()
+        {
+            ADDRESS.remove(address1);
+            address1 = null;
+
+            ADDRESS.remove(address2);
+            address2 = null;
         }
 
         [OneTimeTearDown]
