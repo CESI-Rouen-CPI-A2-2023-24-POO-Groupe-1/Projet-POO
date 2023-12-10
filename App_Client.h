@@ -717,7 +717,40 @@ namespace ProjetPOO {
 		String^ num_rue = textBoxNumRue->Text;
 		String^ nom_rue = textBoxNomRue->Text;
 		DateTime date = dateTimePickerBirth->Value;
-		
+
+		if (prenom == "Prénom") {
+			MessageBox::Show("Veuillez entrer un prénom valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+		if (nom == "Nom") {
+			MessageBox::Show("Veuillez entrer un nom valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+		if (pays == "Pays") {
+			MessageBox::Show("Veuillez entrer un pays valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+		if (ville == "Ville") {
+			MessageBox::Show("Veuillez entrer une ville valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+		if (cp == "Code Postal") {
+			MessageBox::Show("Veuillez entrer un code postal valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+		if (num_appartement == "Numéro d'appartement") {
+			num_appartement = "";
+		}
+		if (num_rue == "Numéro de rue") {
+			MessageBox::Show("Veuillez entrer un numéro de rue valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+		if (nom_rue == "Nom de la rue") {
+			MessageBox::Show("Veuillez entrer un nom de rue valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+
+
 		Address^ billing_address = gcnew Address(num_appartement, num_rue, nom_rue, ville, cp, pays);
 		Address^ delivery_address = gcnew Address(num_appartement, num_rue, nom_rue, ville, cp, pays);
 		Client^ client = gcnew Client(nom, prenom, date, billing_address, delivery_address);

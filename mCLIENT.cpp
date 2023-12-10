@@ -12,24 +12,32 @@ Client^ CLIENT::add(Client^ client)
 	Address^ deliver_address = client->getDeliverAddress();
 
 	// check if addresses have an ID, else insert them into DB
-	if (client->getBillingAddress()->getId() == 0)
+	if (billing_address->getId() == 0)
 	{
-		billing_address = ADDRESS::add(client->getBillingAddress());
+		billing_address = ADDRESS::add(billing_address);
 	}
-	if (client->getDeliverAddress()->getId() == 0)
+	if (deliver_address->getId() == 0)
 	{
-		deliver_address = ADDRESS::add(client->getDeliverAddress());
+		deliver_address = ADDRESS::add(deliver_address);
 	}
 
-	int id = db->executeToInt("INSERT INTO client (client_nom, client_prenom, client_naissance, id_adresse, id_adresse_1) VALUES ('" + client->getFirstName() + "', '" + client->getLastName() + "', '" + client->getBirthdate().ToString() + "', '" + client->getBillingAddress()->getId() + "', '" + client->getDeliverAddress()->getId() + "')");
-	Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), billing_address, deliver_address);
+	int id = db->executeToInt("INSERT INTO client (client_nom, client_prenom, client_naissance, id_adresse, id_adresse_1) VALUES ('" + client->getFirstName() + "', '" + client->getLastName() + "', '" + client->getBirthdate().ToString() + "', '" + deliver_address->getId() + "', '" + billing_address->getId() + "'); SELECT SCOPE_IDENTITY();");
+	Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), deliver_address, billing_address);
 	return c;
 }
 
 void CLIENT::edit(Client^ client)
 {
 	DataBase^ db = gcnew DataBase();
-	db->execute("UPDATE client SET client_nom = '" + client->getFirstName() + "', client_prenom = '" + client->getLastName() + "', client_naissance = '" + client->getBirthdate().ToString() + "' id_adresse = '" + client->getBillingAddress()->getId() + "', id_adresse_1 = '" + client->getDeliverAddress()->getId() + "' WHERE id_client = '" + client->getId() + "'");
+	if (client->getBillingAddress()->getId() == 0)
+	{
+		client->setBillingAddress(ADDRESS::add(client->getBillingAddress()));
+	}
+	if (client->getDeliverAddress()->getId() == 0)
+	{
+		client->setDeliverAddress(ADDRESS::add(client->getDeliverAddress()));
+	}
+	db->execute("UPDATE client SET client_nom = '" + client->getFirstName() + "', client_prenom = '" + client->getLastName() + "', client_naissance = '" + client->getBirthdate().ToString() + "', id_adresse = '" + client->getDeliverAddress()->getId() + "', id_adresse_1 = '" + client->getBillingAddress()->getId() + "' WHERE id_client = '" + client->getId() + "'");
 }
 
 void CLIENT::remove(Client^ client)
