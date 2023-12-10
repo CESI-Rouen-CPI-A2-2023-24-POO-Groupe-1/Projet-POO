@@ -48,6 +48,16 @@ void Order::setReference(String^ reference)
     this->reference = reference;
 }
 
+ArticleList^ Order::getArticleList()
+{
+	return this->Liste;
+}
+
+void Order::setArticleList(ArticleList^ Liste)
+{
+	this->Liste = Liste;
+}
+
 DateTime Order::getCreation_date()
 {
     return this->creation_date;
@@ -58,6 +68,26 @@ void Order::setCreation_date(DateTime creation_date)
     this->creation_date = creation_date;
 }
 
+Client^ Order::getClient()
+{
+    return this->client;
+}
+
+void Order::setClient(Client^ client)
+{
+	this->client = client;
+}
+
+float Order::getRemise()
+{
+	return this->remise;
+}
+
+void Order::setRemise(float remise)
+{
+	this->remise = remise;
+}
+
 ArticleList^ Order::getList()
 {
     return this->Liste;
@@ -66,4 +96,16 @@ ArticleList^ Order::getList()
 void Order::setList(ArticleList^ Liste)
 {
     this->Liste = Liste;
+}
+
+float Order::getTotal()
+{
+    DataSet^ list = this->getList()->toDataSet();
+    float total = 0;
+    if (list->Tables["Article"]->Rows->Count > 0){return 0.0f;}
+	for (int i = 0; i < list->Tables["Article"]->Rows->Count; i++)
+	{
+		total += float::Parse(list->Tables["Article"]->Rows[i]->ItemArray[3]->ToString()) * float::Parse(list->Tables["Article"]->Rows[i]->ItemArray[4]->ToString());
+	}
+	return total;
 }

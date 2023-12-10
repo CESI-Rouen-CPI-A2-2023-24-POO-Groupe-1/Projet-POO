@@ -11,6 +11,6 @@ public:
     static void edit(Employes^ employes);
     static void remove(Employes^ employes);
     static Employes^ get(int id);
-    static DataSet^ search(String^ first_name, String^ last_name);
+    static DataSet^ search(String^ id, String^ first_name, String^ last_name);
 };
 

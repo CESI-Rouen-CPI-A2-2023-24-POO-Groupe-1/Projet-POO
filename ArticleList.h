@@ -8,4 +8,10 @@ private:
 public:
     ArticleList();
     void add(Article^ article, int amount);
+    void remove(int index);
+    void setAmount(int index, int amount);
+    void clear();
+    int size();
+    DataSet^ toDataSet();
+    ArticleInList^ get(int index);
 };

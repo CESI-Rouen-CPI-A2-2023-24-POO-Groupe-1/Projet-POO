@@ -23,8 +23,15 @@ public:
     int getId();
     String^ getReference();
     void setReference(String^ reference);
-    DateTime getCreation_date(); // Maintenant un pointeur
-    void setCreation_date(DateTime creation_date); // Maintenant un pointeur
+    ArticleList^ getArticleList();
+    void setArticleList(ArticleList^ Liste);
+    DateTime getCreation_date();
+    void setCreation_date(DateTime creation_date); 
+    Client^ getClient();
+	void setClient(Client^ client);
+    float getRemise();
+	void setRemise(float remise);
     ArticleList^ getList();
     void setList(ArticleList^ Liste);
+    float getTotal();
 };
