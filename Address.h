@@ -2,7 +2,7 @@
 
 using namespace System;
 
-ref class Address
+public ref class Address
 {
 private:
 	int id;

@@ -7,7 +7,7 @@ using namespace System;
 using namespace System::Data;
 
 
-ref class ADDRESS : public Mapping
+public ref class ADDRESS : public Mapping
 {
 public:
 	static Address^ add(Address^ address);

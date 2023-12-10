@@ -1,7 +1,7 @@
 #pragma once
 #include "Article.h"
 #include "Tax.h"
-ref class ARTICLE
+public ref class ARTICLE
 {
 public:
     static Article^ ARTICLE::add(Article^ article);

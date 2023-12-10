@@ -1,5 +1,5 @@
 #pragma once
-ref class Mapping
+public ref class Mapping
 {
 public:
 	Mapping(){

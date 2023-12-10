@@ -4,7 +4,7 @@
 
 using namespace System;
 
-ref class Article {
+public ref class Article {
 private:
     int id;
     String^ name;

@@ -9,25 +9,22 @@ Client^ CLIENT::add(Client^ client){
     DataBase^ db = gcnew DataBase();
     Address^ billing_address = client->getBillingAddress();
     Address^ deliver_address = client->getDeliverAddress();
-    if (String::IsNullOrEmpty(client->getFirstName()) || String::IsNullOrEmpty(client->getLastName())){
-        return nullptr;
-    }
-    if (client->getBillingAddress()->getId() == 0){
-        billing_address = ADDRESS::add(client->getBillingAddress());
-    }
-    if (client->getDeliverAddress()->getId() == 0){
-        deliver_address = ADDRESS::add(client->getDeliverAddress());
-    }
+	
+	// check if addresses have an ID, else insert them into DB
+	if (billing_address->getId() == 0)
+	{
+		billing_address = ADDRESS::add(billing_address);
+	}
+	if (deliver_address->getId() == 0)
+	{
+		deliver_address = ADDRESS::add(deliver_address);
+	}
 
-    try{
-        String^ query = "INSERT INTO client (client_nom, client_prenom, client_naissance, id_adresse, id_adresse_1) VALUES ('" +
-        client->getFirstName() + "', '" + client->getLastName() + "', '" + client->getBirthdate().ToString() + "', '" +
-        billing_address->getId() + "', '" + deliver_address->getId() + "')";
-        int id = db->executeToInt(query);
-        Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), billing_address, deliver_address);
-        return c;
-    }
-    catch (Exception^ ex){
+	try{
+		int id = db->executeToInt("INSERT INTO client (client_nom, client_prenom, client_naissance, id_adresse, id_adresse_1) VALUES ('" + client->getFirstName() + "', '" + client->getLastName() + "', '" + client->getBirthdate().ToString() + "', '" + deliver_address->getId() + "', '" + billing_address->getId() + "'); SELECT SCOPE_IDENTITY();");
+		Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), deliver_address, billing_address);
+		return c;
+	} catch (Exception^ ex) {
         Console::WriteLine("Erreur lors de l'ajout du client : " + ex->Message);
         return nullptr;
     }
@@ -37,8 +34,15 @@ Client^ CLIENT::add(Client^ client){
 void CLIENT::edit(Client^ client)
 {
 	DataBase^ db = gcnew DataBase();
-    db->execute("UPDATE client SET client_nom = '" + client->getFirstName() + "', client_prenom = '" + client->getLastName() + "', client_naissance = '" + client->getBirthdate().ToString() + "', id_adresse = '" + client->getBillingAddress()->getId() + "', id_adresse_1 = '" + client->getDeliverAddress()->getId() + "' WHERE id_client = '" + client->getId() + "'");
-
+	if (client->getBillingAddress()->getId() == 0)
+	{
+		client->setBillingAddress(ADDRESS::add(client->getBillingAddress()));
+	}
+	if (client->getDeliverAddress()->getId() == 0)
+	{
+		client->setDeliverAddress(ADDRESS::add(client->getDeliverAddress()));
+	}
+	db->execute("UPDATE client SET client_nom = '" + client->getFirstName() + "', client_prenom = '" + client->getLastName() + "', client_naissance = '" + client->getBirthdate().ToString() + "', id_adresse = '" + client->getDeliverAddress()->getId() + "', id_adresse_1 = '" + client->getBillingAddress()->getId() + "' WHERE id_client = '" + client->getId() + "'");
 }
 
 void CLIENT::remove(Client^ client)

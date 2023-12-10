@@ -1,7 +1,7 @@
 #pragma once
 #include "ArticleInList.h"
 
-ref class ArticleList {
+public ref class ArticleList {
 private:
     ArticleInList^ head;
 
