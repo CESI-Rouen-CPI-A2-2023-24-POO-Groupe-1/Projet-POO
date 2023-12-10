@@ -117,26 +117,28 @@ namespace TestProject
 
             CLIENT.edit(client1);
 
+            client2 = CLIENT.get(client1.getId());
+
             Assert.Multiple(() =>
             {
-                Assert.That(client1.getId(), Is.GreaterThan(0));
-                Assert.That(client1.getFirstName(), Is.EqualTo("Jeanne"));
-                Assert.That(client1.getLastName(), Is.EqualTo("Dupond"));
-                Assert.That(client1.getBirthdate(), Is.EqualTo(DateTime.Parse("01/01/2001")));
+                Assert.That(client2.getId(), Is.GreaterThan(0));
+                Assert.That(client2.getFirstName(), Is.EqualTo("Jeanne"));
+                Assert.That(client2.getLastName(), Is.EqualTo("Dupond"));
+                Assert.That(client2.getBirthdate(), Is.EqualTo(DateTime.Parse("01/01/2001")));
                 // comparer les adresses de livraison
-                Assert.That(client1.getDeliverAddress().getCity(), Is.EqualTo(bill_address.getCity()));
-                Assert.That(client1.getDeliverAddress().getCountry(), Is.EqualTo(bill_address.getCountry()));
-                Assert.That(client1.getDeliverAddress().getRoadName(), Is.EqualTo(bill_address.getRoadName()));
-                Assert.That(client1.getDeliverAddress().getRoadNumber(), Is.EqualTo(bill_address.getRoadNumber()));
-                Assert.That(client1.getDeliverAddress().getZipCode(), Is.EqualTo(bill_address.getZipCode()));
-                Assert.That(client1.getDeliverAddress().getApartmentNumber(), Is.EqualTo(bill_address.getApartmentNumber()));
+                Assert.That(client2.getDeliverAddress().getCity(), Is.EqualTo(bill_address.getCity()));
+                Assert.That(client2.getDeliverAddress().getCountry(), Is.EqualTo(bill_address.getCountry()));
+                Assert.That(client2.getDeliverAddress().getRoadName(), Is.EqualTo(bill_address.getRoadName()));
+                Assert.That(client2.getDeliverAddress().getRoadNumber(), Is.EqualTo(bill_address.getRoadNumber()));
+                Assert.That(client2.getDeliverAddress().getZipCode(), Is.EqualTo(bill_address.getZipCode()));
+                Assert.That(client2.getDeliverAddress().getApartmentNumber(), Is.EqualTo(bill_address.getApartmentNumber()));
                 // comparer les adresses de facturation
-                Assert.That(client1.getBillingAddress().getCity(), Is.EqualTo(deliver_address.getCity()));
-                Assert.That(client1.getBillingAddress().getCountry(), Is.EqualTo(deliver_address.getCountry()));
-                Assert.That(client1.getBillingAddress().getRoadName(), Is.EqualTo(deliver_address.getRoadName()));
-                Assert.That(client1.getBillingAddress().getRoadNumber(), Is.EqualTo(deliver_address.getRoadNumber()));
-                Assert.That(client1.getBillingAddress().getZipCode(), Is.EqualTo(deliver_address.getZipCode()));
-                Assert.That(client1.getBillingAddress().getApartmentNumber(), Is.EqualTo(deliver_address.getApartmentNumber()));
+                Assert.That(client2.getBillingAddress().getCity(), Is.EqualTo(deliver_address.getCity()));
+                Assert.That(client2.getBillingAddress().getCountry(), Is.EqualTo(deliver_address.getCountry()));
+                Assert.That(client2.getBillingAddress().getRoadName(), Is.EqualTo(deliver_address.getRoadName()));
+                Assert.That(client2.getBillingAddress().getRoadNumber(), Is.EqualTo(deliver_address.getRoadNumber()));
+                Assert.That(client2.getBillingAddress().getZipCode(), Is.EqualTo(deliver_address.getZipCode()));
+                Assert.That(client2.getBillingAddress().getApartmentNumber(), Is.EqualTo(deliver_address.getApartmentNumber()));
             });
         }
 
