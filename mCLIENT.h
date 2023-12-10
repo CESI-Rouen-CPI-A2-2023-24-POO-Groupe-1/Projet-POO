@@ -13,6 +13,6 @@ public:
     static void edit(Client^ client);
     static void remove(Client^ client);
     static Client^ get(int id);
-    static DataSet^ search(String^ first_name, String^ last_name);
+    static DataSet^ search(String^ id, String^ first_name, String^ last_name);
 };
 

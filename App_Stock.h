@@ -18,12 +18,12 @@ namespace ProjetPOO {
 		App_Stock(void)
 		{
 			InitializeComponent();
-			this->textBox1->Enter += gcnew System::EventHandler(this, &App_Stock::textBox1_Enter);
-			this->textBox1->Leave += gcnew System::EventHandler(this, &App_Stock::textBox1_Leave);
-			this->textBox2->Enter += gcnew System::EventHandler(this, &App_Stock::textBox2_Enter);
-			this->textBox2->Leave += gcnew System::EventHandler(this, &App_Stock::textBox2_Leave);
-			this->textBox3->Enter += gcnew System::EventHandler(this, &App_Stock::textBox3_Enter);
-			this->textBox3->Leave += gcnew System::EventHandler(this, &App_Stock::textBox3_Leave);
+			this->textBoxIdSearch->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxIdSearch_Enter);
+			this->textBoxIdSearch->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxIdSearch_Leave);
+			this->textBoxNomSearch->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxNomSearch_Enter);
+			this->textBoxNomSearch->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxNomSearch_Leave);
+			this->textBoxPrenomSearch->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxPrenomSearch_Enter);
+			this->textBoxPrenomSearch->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxPrenomSearch_Leave);
 		}
 
 	protected:
@@ -43,20 +43,20 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ Main_Titre_2;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ textBoxIdSearch;
+	private: System::Windows::Forms::TextBox^ textBoxNomSearch;
 
 	private: System::Windows::Forms::DataGridView^ dataGridView2;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::TextBox^ textBoxPrenomSearch;
 
 	private:
 		void SetInitialText() {
-			textBox1->Text = "Identificateur Stock";
-			textBox2->Text = "Identificateur Entrepôt";
-			textBox3->Text = "Nombre d'articles";
+			textBoxIdSearch->Text = "Identificateur Stock";
+			textBoxNomSearch->Text = "Identificateur Entrepôt";
+			textBoxPrenomSearch->Text = "Nombre d'articles";
 		}
 
 	protected:
@@ -83,9 +83,9 @@ namespace ProjetPOO {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Main_Titre_2 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxIdSearch = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxNomSearch = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxPrenomSearch = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
@@ -148,50 +148,50 @@ namespace ProjetPOO {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &App_Stock::button1_Click);
 			// 
-			// textBox1
+			// textBoxIdSearch
 			// 
-			this->textBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+			this->textBoxIdSearch->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox1->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBox1->Location = System::Drawing::Point(1092, 283);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(220, 22);
-			this->textBox1->TabIndex = 12;
-			this->textBox1->Text = L"Identificateur Stock";
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &App_Stock::textBox1_TextChanged);
+			this->textBoxIdSearch->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->textBoxIdSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxIdSearch->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBoxIdSearch->Location = System::Drawing::Point(1092, 283);
+			this->textBoxIdSearch->Name = L"textBoxIdSearch";
+			this->textBoxIdSearch->Size = System::Drawing::Size(220, 22);
+			this->textBoxIdSearch->TabIndex = 12;
+			this->textBoxIdSearch->Text = L"Identificateur Stock";
+			this->textBoxIdSearch->TextChanged += gcnew System::EventHandler(this, &App_Stock::textBoxIdSearch_TextChanged);
 			// 
-			// textBox2
+			// textBoxNomSearch
 			// 
-			this->textBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+			this->textBoxNomSearch->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox2->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox2->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBox2->Location = System::Drawing::Point(1342, 283);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(220, 22);
-			this->textBox2->TabIndex = 13;
-			this->textBox2->Text = L"PréNombre d'articles";
-			this->textBox2->TextChanged += gcnew System::EventHandler(this, &App_Stock::textBox2_TextChanged);
+			this->textBoxNomSearch->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->textBoxNomSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxNomSearch->ForeColor = System::Drawing::SystemColors::ControlDark;
+			this->textBoxNomSearch->Location = System::Drawing::Point(1342, 283);
+			this->textBoxNomSearch->Name = L"textBoxNomSearch";
+			this->textBoxNomSearch->Size = System::Drawing::Size(220, 22);
+			this->textBoxNomSearch->TabIndex = 13;
+			this->textBoxNomSearch->Text = L"PréNombre d'articles";
+			this->textBoxNomSearch->TextChanged += gcnew System::EventHandler(this, &App_Stock::textBoxNomSearch_TextChanged);
 			// 
-			// textBox3
+			// textBoxPrenomSearch
 			// 
-			this->textBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+			this->textBoxPrenomSearch->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox3->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox3->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBox3->Location = System::Drawing::Point(1592, 283);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(220, 22);
-			this->textBox3->TabIndex = 14;
-			this->textBox3->Text = L"Nombre d'articles";
-			this->textBox3->TextChanged += gcnew System::EventHandler(this, &App_Stock::textBox3_TextChanged);
+			this->textBoxPrenomSearch->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->textBoxPrenomSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxPrenomSearch->ForeColor = System::Drawing::SystemColors::ControlDark;
+			this->textBoxPrenomSearch->Location = System::Drawing::Point(1592, 283);
+			this->textBoxPrenomSearch->Name = L"textBoxPrenomSearch";
+			this->textBoxPrenomSearch->Size = System::Drawing::Size(220, 22);
+			this->textBoxPrenomSearch->TabIndex = 14;
+			this->textBoxPrenomSearch->Text = L"Nombre d'articles";
+			this->textBoxPrenomSearch->TextChanged += gcnew System::EventHandler(this, &App_Stock::textBoxPrenomSearch_TextChanged);
 			// 
 			// dataGridView2
 			// 
@@ -239,9 +239,9 @@ namespace ProjetPOO {
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1924, 923);
 			this->Controls->Add(this->dataGridView2);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->textBoxPrenomSearch);
+			this->Controls->Add(this->textBoxNomSearch);
+			this->Controls->Add(this->textBoxIdSearch);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->Main_Titre_2);
@@ -272,52 +272,52 @@ namespace ProjetPOO {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void textBoxIdSearch_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void textBoxNomSearch_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void textBoxPrenomSearch_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 
-	private: System::Void textBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBox1->Text == "Identificateur Stock") {
-			textBox1->Text = "";
-			textBox1->ForeColor = System::Drawing::SystemColors::ControlText;
+	private: System::Void textBoxIdSearch_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxIdSearch->Text == "Identificateur Stock") {
+			textBoxIdSearch->Text = "";
+			textBoxIdSearch->ForeColor = System::Drawing::SystemColors::ControlText;
 		}
 	}
 
-	private: System::Void textBox1_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBox1->Text == "") {
-			textBox1->Text = "Identificateur Client";
-			textBox1->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+	private: System::Void textBoxIdSearch_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxIdSearch->Text == "") {
+			textBoxIdSearch->Text = "Identificateur Client";
+			textBoxIdSearch->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 		}
 	}
 
-	private: System::Void textBox2_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBox2->Text == "Identificateur Entrepôt") {
-			textBox2->Text = "";
-			textBox2->ForeColor = System::Drawing::SystemColors::ControlText;
+	private: System::Void textBoxNomSearch_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxNomSearch->Text == "Identificateur Entrepôt") {
+			textBoxNomSearch->Text = "";
+			textBoxNomSearch->ForeColor = System::Drawing::SystemColors::ControlText;
 		}
 	}
 
-	private: System::Void textBox2_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBox2->Text == "") {
-			textBox2->Text = "Identificateur Entrepôt";
-			textBox2->ForeColor = System::Drawing::SystemColors::ControlDark;
+	private: System::Void textBoxNomSearch_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxNomSearch->Text == "") {
+			textBoxNomSearch->Text = "Identificateur Entrepôt";
+			textBoxNomSearch->ForeColor = System::Drawing::SystemColors::ControlDark;
 		}
 	}
 
-	private: System::Void textBox3_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBox3->Text == "Nombre d'articles") {
-			textBox3->Text = "";
-			textBox3->ForeColor = System::Drawing::SystemColors::ControlText;
+	private: System::Void textBoxPrenomSearch_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxPrenomSearch->Text == "Nombre d'articles") {
+			textBoxPrenomSearch->Text = "";
+			textBoxPrenomSearch->ForeColor = System::Drawing::SystemColors::ControlText;
 		}
 	}
 
-	private: System::Void textBox3_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBox3->Text == "") {
-			textBox3->Text = "Nombre d'articles";
-			textBox3->ForeColor = System::Drawing::SystemColors::ControlDark;
+	private: System::Void textBoxPrenomSearch_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxPrenomSearch->Text == "") {
+			textBoxPrenomSearch->Text = "Nombre d'articles";
+			textBoxPrenomSearch->ForeColor = System::Drawing::SystemColors::ControlDark;
 		}
 	}
 	private: System::Void dataGridView2_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
