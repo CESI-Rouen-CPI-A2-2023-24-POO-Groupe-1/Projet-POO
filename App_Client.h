@@ -724,6 +724,7 @@ namespace ProjetPOO {
 
 		client = CLIENT::add(client);
 		selectedClient = client;
+		update_search(nullptr, nullptr);
 	}
 
 		   ////////////

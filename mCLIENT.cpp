@@ -5,26 +5,34 @@
 using namespace System;
 using namespace System::Data;
 
-Client^ CLIENT::add(Client^ client)
-{
-	DataBase^ db = gcnew DataBase();
-	Address^ billing_address = client->getBillingAddress();
-	Address^ deliver_address = client->getDeliverAddress();
+Client^ CLIENT::add(Client^ client){
+    DataBase^ db = gcnew DataBase();
+    Address^ billing_address = client->getBillingAddress();
+    Address^ deliver_address = client->getDeliverAddress();
+    if (String::IsNullOrEmpty(client->getFirstName()) || String::IsNullOrEmpty(client->getLastName())){
+        return nullptr;
+    }
+    if (client->getBillingAddress()->getId() == 0){
+        billing_address = ADDRESS::add(client->getBillingAddress());
+    }
+    if (client->getDeliverAddress()->getId() == 0){
+        deliver_address = ADDRESS::add(client->getDeliverAddress());
+    }
 
-	// check if addresses have an ID, else insert them into DB
-	if (client->getBillingAddress()->getId() == 0)
-	{
-		billing_address = ADDRESS::add(client->getBillingAddress());
-	}
-	if (client->getDeliverAddress()->getId() == 0)
-	{
-		deliver_address = ADDRESS::add(client->getDeliverAddress());
-	}
-
-	int id = db->executeToInt("INSERT INTO client (client_nom, client_prenom, client_naissance, id_adresse, id_adresse_1) VALUES ('" + client->getFirstName() + "', '" + client->getLastName() + "', '" + client->getBirthdate().ToString() + "', '" + client->getBillingAddress()->getId() + "', '" + client->getDeliverAddress()->getId() + "')");
-	Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), billing_address, deliver_address);
-	return c;
+    try{
+        String^ query = "INSERT INTO client (client_nom, client_prenom, client_naissance, id_adresse, id_adresse_1) VALUES ('" +
+        client->getFirstName() + "', '" + client->getLastName() + "', '" + client->getBirthdate().ToString() + "', '" +
+        billing_address->getId() + "', '" + deliver_address->getId() + "')";
+        int id = db->executeToInt(query);
+        Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), billing_address, deliver_address);
+        return c;
+    }
+    catch (Exception^ ex){
+        Console::WriteLine("Erreur lors de l'ajout du client : " + ex->Message);
+        return nullptr;
+    }
 }
+
 
 void CLIENT::edit(Client^ client)
 {
