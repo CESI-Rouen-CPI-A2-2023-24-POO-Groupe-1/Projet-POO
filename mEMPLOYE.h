@@ -5,7 +5,7 @@
 using namespace System;
 using namespace System::Data;
 
-ref class EMPLOYES : public Mapping {
+public ref class EMPLOYES : public Mapping {
 public:
     static Employes^ add(Employes^ employes);
     static void edit(Employes^ employes);

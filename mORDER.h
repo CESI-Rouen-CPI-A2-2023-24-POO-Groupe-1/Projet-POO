@@ -3,7 +3,7 @@
 #include "Order.h"
 #include "DataBase.h"
 
-ref class ORDER
+public ref class ORDER
 {
 public:
 	Order^ ORDER::add(Order^ order);

@@ -2,7 +2,7 @@
 #include "Tax.h"
 #include "DataBase.h"
 
-ref class TAX
+public ref class TAX
 {
 public:
     static Tax^ TAX::add(Tax^ tax);

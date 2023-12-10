@@ -57,9 +57,9 @@ Address^ ADDRESS::get(int id)
 		throw gcnew System::Exception("Address not found");
 	}
 	
-	String^ city = set->Tables[0]->Rows[0]->ItemArray[5]->ToString();
-	String^ zip_code = set->Tables[0]->Rows[0]->ItemArray[6]->ToString();
-	String^ country = set->Tables[0]->Rows[0]->ItemArray[7]->ToString();
+	String^ city = set->Tables[0]->Rows[0]->ItemArray[6]->ToString();
+	String^ zip_code = set->Tables[0]->Rows[0]->ItemArray[7]->ToString();
+	String^ country = set->Tables[0]->Rows[0]->ItemArray[10]->ToString();
 	String^ road_name = set->Tables[0]->Rows[0]->ItemArray[1]->ToString();
 	String^ road_number = set->Tables[0]->Rows[0]->ItemArray[2]->ToString();
 	String^ apartment_number = set->Tables[0]->Rows[0]->ItemArray[3]->ToString();
