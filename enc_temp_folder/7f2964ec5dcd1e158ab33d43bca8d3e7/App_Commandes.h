@@ -480,9 +480,9 @@ namespace ProjetPOO {
 		if (textBoxRefSearch->Text == "Référence") textBoxRefSearch->Text = "";
 
 		if (dateTimePicker1->Value == System::DateTime(1990, 1, 1, 0, 0, 0, 0)){
-			//dataGridView1->DataSource = ORDER::search("", textBoxIDClientSearch->Text, textBoxNomClientSearch->Text, textBoxPrenomClientSearch->Text);
+			dataGridView1->DataSource = ORDER::search("", textBoxIDClientSearch->Text, textBoxNomClientSearch->Text, textBoxPrenomClientSearch->Text);
 		} else {
-			//dataGridView1->DataSource = ORDER::search("", textBoxIDClientSearch->Text, textBoxNomClientSearch->Text, textBoxPrenomClientSearch->Text, dateTimePicker1->Value);
+			dataGridView1->DataSource = ORDER::search("", textBoxIDClientSearch->Text, textBoxNomClientSearch->Text, textBoxPrenomClientSearch->Text, dateTimePicker1->Value);
 		}
 	}
 
