@@ -5,12 +5,11 @@
 using namespace System;
 using namespace System::Data;
 
-Client^ CLIENT::add(Client^ client)
-{
-	DataBase^ db = gcnew DataBase();
-	Address^ billing_address = client->getBillingAddress();
-	Address^ deliver_address = client->getDeliverAddress();
-
+Client^ CLIENT::add(Client^ client){
+    DataBase^ db = gcnew DataBase();
+    Address^ billing_address = client->getBillingAddress();
+    Address^ deliver_address = client->getDeliverAddress();
+	
 	// check if addresses have an ID, else insert them into DB
 	if (billing_address->getId() == 0)
 	{
@@ -21,10 +20,16 @@ Client^ CLIENT::add(Client^ client)
 		deliver_address = ADDRESS::add(deliver_address);
 	}
 
-	int id = db->executeToInt("INSERT INTO client (client_nom, client_prenom, client_naissance, id_adresse, id_adresse_1) VALUES ('" + client->getFirstName() + "', '" + client->getLastName() + "', '" + client->getBirthdate().ToString() + "', '" + deliver_address->getId() + "', '" + billing_address->getId() + "'); SELECT SCOPE_IDENTITY();");
-	Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), deliver_address, billing_address);
-	return c;
+	try{
+		int id = db->executeToInt("INSERT INTO client (client_nom, client_prenom, client_naissance, id_adresse, id_adresse_1) VALUES ('" + client->getFirstName() + "', '" + client->getLastName() + "', '" + client->getBirthdate().ToString() + "', '" + deliver_address->getId() + "', '" + billing_address->getId() + "'); SELECT SCOPE_IDENTITY();");
+		Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), deliver_address, billing_address);
+		return c;
+	} catch (Exception^ ex) {
+        Console::WriteLine("Erreur lors de l'ajout du client : " + ex->Message);
+        return nullptr;
+    }
 }
+
 
 void CLIENT::edit(Client^ client)
 {
@@ -43,7 +48,11 @@ void CLIENT::edit(Client^ client)
 void CLIENT::remove(Client^ client)
 {
 	DataBase^ db = gcnew DataBase();
-	db->execute("DELETE FROM client WHERE id_client = '" + client->getId() + "'");
+    int billingAddressId = client->getBillingAddress()->getId();
+    int deliverAddressId = client->getDeliverAddress()->getId();
+    db->execute("DELETE FROM client WHERE id_client = '" + client->getId() + "'");
+    db->execute("DELETE FROM adresse WHERE id_adresse = '" + billingAddressId + "' AND id_adresse NOT IN (SELECT id_adresse FROM client)");
+    db->execute("DELETE FROM adresse WHERE id_adresse = '" + deliverAddressId + "' AND id_adresse NOT IN (SELECT id_adresse_1 FROM client)");
 }
 
 Client^ CLIENT::get(int id)

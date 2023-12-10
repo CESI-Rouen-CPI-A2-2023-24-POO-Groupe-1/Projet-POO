@@ -43,7 +43,7 @@ Employes^ EMPLOYES::get(int id)
 	}
 }
 
-DataSet^ EMPLOYES::search(String^ first_name, String^ last_name)
+DataSet^ EMPLOYES::search(String^ id, String^ first_name, String^ last_name)
 {
 	DataBase^ db = gcnew DataBase();
 	DataSet^ ds = db->executeToDataSet("SELECT * FROM employes WHERE employes_nom LIKE '%" + last_name + "%' AND employes_prenom LIKE '%" + first_name + "%'");
