@@ -111,7 +111,7 @@ namespace ProjetPOO {
 			this->Gestion_personnel_bouton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Gestion_personnel_bouton.BackgroundImage")));
 			this->Gestion_personnel_bouton->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->Gestion_personnel_bouton->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->Gestion_personnel_bouton->Location = System::Drawing::Point(108, 235);
+			this->Gestion_personnel_bouton->Location = System::Drawing::Point(110, 237);
 			this->Gestion_personnel_bouton->Name = L"Gestion_personnel_bouton";
 			this->Gestion_personnel_bouton->Size = System::Drawing::Size(246, 341);
 			this->Gestion_personnel_bouton->TabIndex = 0;
@@ -124,7 +124,7 @@ namespace ProjetPOO {
 			this->Gestion_client_bouton->BackColor = System::Drawing::SystemColors::Window;
 			this->Gestion_client_bouton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Gestion_client_bouton.BackgroundImage")));
 			this->Gestion_client_bouton->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->Gestion_client_bouton->Location = System::Drawing::Point(377, 235);
+			this->Gestion_client_bouton->Location = System::Drawing::Point(379, 237);
 			this->Gestion_client_bouton->Name = L"Gestion_client_bouton";
 			this->Gestion_client_bouton->Size = System::Drawing::Size(246, 341);
 			this->Gestion_client_bouton->TabIndex = 1;
@@ -137,7 +137,7 @@ namespace ProjetPOO {
 			this->Gestion_Statistiques_Bouton->BackColor = System::Drawing::SystemColors::Window;
 			this->Gestion_Statistiques_Bouton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Gestion_Statistiques_Bouton.BackgroundImage")));
 			this->Gestion_Statistiques_Bouton->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->Gestion_Statistiques_Bouton->Location = System::Drawing::Point(1193, 235);
+			this->Gestion_Statistiques_Bouton->Location = System::Drawing::Point(1195, 237);
 			this->Gestion_Statistiques_Bouton->Name = L"Gestion_Statistiques_Bouton";
 			this->Gestion_Statistiques_Bouton->Size = System::Drawing::Size(246, 341);
 			this->Gestion_Statistiques_Bouton->TabIndex = 4;
@@ -150,7 +150,7 @@ namespace ProjetPOO {
 			this->Gestion_Stock_Bouton->BackColor = System::Drawing::SystemColors::Window;
 			this->Gestion_Stock_Bouton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Gestion_Stock_Bouton.BackgroundImage")));
 			this->Gestion_Stock_Bouton->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->Gestion_Stock_Bouton->Location = System::Drawing::Point(924, 235);
+			this->Gestion_Stock_Bouton->Location = System::Drawing::Point(926, 237);
 			this->Gestion_Stock_Bouton->Name = L"Gestion_Stock_Bouton";
 			this->Gestion_Stock_Bouton->Size = System::Drawing::Size(246, 341);
 			this->Gestion_Stock_Bouton->TabIndex = 3;
@@ -163,7 +163,7 @@ namespace ProjetPOO {
 			this->Gestion_Commandes_Bouton->BackColor = System::Drawing::SystemColors::Window;
 			this->Gestion_Commandes_Bouton->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Gestion_Commandes_Bouton.BackgroundImage")));
 			this->Gestion_Commandes_Bouton->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->Gestion_Commandes_Bouton->Location = System::Drawing::Point(652, 235);
+			this->Gestion_Commandes_Bouton->Location = System::Drawing::Point(654, 237);
 			this->Gestion_Commandes_Bouton->Name = L"Gestion_Commandes_Bouton";
 			this->Gestion_Commandes_Bouton->Size = System::Drawing::Size(246, 341);
 			this->Gestion_Commandes_Bouton->TabIndex = 2;
@@ -176,7 +176,7 @@ namespace ProjetPOO {
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox1->Location = System::Drawing::Point(1175, 637);
+			this->pictureBox1->Location = System::Drawing::Point(1177, 639);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(165, 62);
 			this->pictureBox1->TabIndex = 6;
@@ -190,7 +190,7 @@ namespace ProjetPOO {
 			this->Main_Titre_2->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->Main_Titre_2->Font = (gcnew System::Drawing::Font(L"Calibri", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Main_Titre_2->Location = System::Drawing::Point(444, 91);
+			this->Main_Titre_2->Location = System::Drawing::Point(446, 93);
 			this->Main_Titre_2->Name = L"Main_Titre_2";
 			this->Main_Titre_2->Size = System::Drawing::Size(133, 37);
 			this->Main_Titre_2->TabIndex = 7;
@@ -204,7 +204,7 @@ namespace ProjetPOO {
 			this->label1->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Calibri Light", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(567, 91);
+			this->label1->Location = System::Drawing::Point(569, 93);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(572, 37);
 			this->label1->TabIndex = 8;
@@ -217,7 +217,7 @@ namespace ProjetPOO {
 			this->label2->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Calibri", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(139, 209);
+			this->label2->Location = System::Drawing::Point(141, 211);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(175, 23);
 			this->label2->TabIndex = 9;
@@ -230,7 +230,7 @@ namespace ProjetPOO {
 			this->label3->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Calibri", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(422, 209);
+			this->label3->Location = System::Drawing::Point(424, 211);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(154, 23);
 			this->label3->TabIndex = 10;
@@ -243,7 +243,7 @@ namespace ProjetPOO {
 			this->label4->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Calibri", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(673, 209);
+			this->label4->Location = System::Drawing::Point(675, 211);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(199, 23);
 			this->label4->TabIndex = 11;
@@ -256,7 +256,7 @@ namespace ProjetPOO {
 			this->label5->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Calibri", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(978, 209);
+			this->label5->Location = System::Drawing::Point(980, 211);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(139, 23);
 			this->label5->TabIndex = 12;
@@ -269,7 +269,7 @@ namespace ProjetPOO {
 			this->label6->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Calibri", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(1214, 209);
+			this->label6->Location = System::Drawing::Point(1216, 211);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(195, 23);
 			this->label6->TabIndex = 13;
@@ -279,7 +279,7 @@ namespace ProjetPOO {
 			// 
 			this->Main_titre->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->Main_titre->AutoSize = true;
-			this->Main_titre->Location = System::Drawing::Point(1215, 657);
+			this->Main_titre->Location = System::Drawing::Point(1217, 659);
 			this->Main_titre->Name = L"Main_titre";
 			this->Main_titre->Size = System::Drawing::Size(78, 17);
 			this->Main_titre->TabIndex = 5;
@@ -291,7 +291,7 @@ namespace ProjetPOO {
 			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox2->Location = System::Drawing::Point(1341, 637);
+			this->pictureBox2->Location = System::Drawing::Point(1343, 639);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(165, 62);
 			this->pictureBox2->TabIndex = 14;
@@ -320,7 +320,7 @@ namespace ProjetPOO {
 			this->Controls->Add(this->Gestion_Statistiques_Bouton);
 			this->Controls->Add(this->Gestion_client_bouton);
 			this->Controls->Add(this->Gestion_personnel_bouton);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(1558, 776);
 			this->MinimumSize = System::Drawing::Size(1558, 776);
