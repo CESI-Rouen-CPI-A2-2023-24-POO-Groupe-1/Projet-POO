@@ -49,6 +49,8 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::DataGridView^ dataGridView2;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ button2;
 
 	private: System::Windows::Forms::TextBox^ textBox3;
 
@@ -89,6 +91,8 @@ namespace ProjetPOO {
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
@@ -188,7 +192,7 @@ namespace ProjetPOO {
 			this->textBox3->ForeColor = System::Drawing::SystemColors::ControlDark;
 			this->textBox3->Location = System::Drawing::Point(1592, 283);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(220, 22);
+			this->textBox3->Size = System::Drawing::Size(125, 22);
 			this->textBox3->TabIndex = 14;
 			this->textBox3->Text = L"Statut de la commande";
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &App_Commandes::textBox3_TextChanged);
@@ -229,6 +233,24 @@ namespace ProjetPOO {
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &App_Commandes::pictureBox1_Click);
 			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(1894, 280);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(32, 30);
+			this->button3->TabIndex = 21;
+			this->button3->UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
+			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button2->Location = System::Drawing::Point(1854, 280);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(32, 30);
+			this->button2->TabIndex = 20;
+			this->button2->UseVisualStyleBackColor = true;
+			// 
 			// App_Commandes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -237,6 +259,8 @@ namespace ProjetPOO {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1924, 923);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->dataGridView2);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
@@ -323,5 +347,7 @@ namespace ProjetPOO {
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+	private: System::Void buttonSearch_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
