@@ -100,7 +100,7 @@
       <Filter>Fichiers sources\Classes mapping</Filter>
     </ClCompile>
     <ClCompile Include="DataBase.cpp">
-      <Filter>Fichiers sources\Classes UI</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
