@@ -36,9 +36,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="DataBase.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Address.cpp">
       <Filter>Fichiers sources\Classes components</Filter>
     </ClCompile>
@@ -101,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="mEMPLOYE.cpp">
       <Filter>Fichiers sources\Classes mapping</Filter>
+    </ClCompile>
+    <ClCompile Include="DataBase.cpp">
+      <Filter>Fichiers sources\Classes UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
