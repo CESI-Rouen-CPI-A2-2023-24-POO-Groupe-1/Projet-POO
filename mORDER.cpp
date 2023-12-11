@@ -22,40 +22,38 @@ Order^ ORDER::add(Order^ order) {
 	return order;
 }
 
-void ORDER::edit(Order order) {
-
-
+void ORDER::edit(Order^ order) {
 	DataBase^ rcommande = gcnew DataBase;
-	String^ theorder = "USE NORTICBDD; UPDATE Commandes SET COMMANDES_REF = '" + order.getReference() + "', COMMANDES_CREA = '" + order.getCreation_date().ToString() + "', COMMANDES_REMISE = " + order.getRemise() + ", COMMANDE_STATUT = 0, ID_CLIENT = " + order.getClient()->getId() + " WHERE ID_COMMANDES = " + order.getId() + ";";
+	String^ theorder = "USE NORTICBDD; UPDATE Commandes SET COMMANDES_REF = '" + order->getReference() + "', COMMANDES_CREA = '" + order->getCreation_date().ToString() + "', COMMANDES_REMISE = " + order->getRemise() + ", COMMANDE_STATUT = 0, ID_CLIENT = " + order->getClient()->getId() + " WHERE ID_COMMANDES = " + order->getId() + ";";
 	rcommande->execute(theorder);
 
-	ArticleList^ list = order.getArticleList();
+	ArticleList^ list = order->getArticleList();
 	int nblignes = list->size();
 	int i = 0;
 	for (i = 0; i < nblignes; i++) {
 		ArticleInList^ article = list->get(i);
 		// Check if article is already in the order
-		String^ theorder2 = "SELECT * FROM Commandes_Articles WHERE ID_COMMANDES = " + order.getId() + " AND ID_ARTICLES = " + article->getId() + ";";
+		String^ theorder2 = "SELECT * FROM Commandes_Articles WHERE ID_COMMANDES = " + order->getId() + " AND ID_ARTICLES = " + article->getId() + ";";
 		DataSet^ result = rcommande->executeToDataSet(theorder2);
 		if (result->Tables[0]->Rows->Count == 0) {
 			// If not, add it
-			String^ theorder3 = "INSERT INTO Commandes_Articles(ID_COMMANDES, ID_ARTICLES, COMMANDES_ARTICLES_NB) VALUES (" + order.getId() + ", " + article->getId() + ", " + article->getAmount() + ");";
+			String^ theorder3 = "INSERT INTO Commandes_Articles(ID_COMMANDES, ID_ARTICLES, COMMANDES_ARTICLES_NB) VALUES (" + order->getId() + ", " + article->getId() + ", " + article->getAmount() + ");";
 			rcommande->execute(theorder3);
 		}
 		else {
 			// If yes, update it
-			String^ theorder3 = "UPDATE Commandes_Articles SET COMMANDES_ARTICLES_NB = " + article->getAmount() + " WHERE ID_COMMANDES = " + order.getId() + " AND ID_ARTICLES = " + article->getId() + ";";
+			String^ theorder3 = "UPDATE Commandes_Articles SET COMMANDES_ARTICLES_NB = " + article->getAmount() + " WHERE ID_COMMANDES = " + order->getId() + " AND ID_ARTICLES = " + article->getId() + ";";
 			rcommande->execute(theorder3);
 		}
 	}
 }
 
-void ORDER::remove(Order order) {
+void ORDER::remove(Order^ order) {
 	DataBase^ rcommande = gcnew DataBase;
-	String^ theorder = "USE NORTICBDD; DELETE FROM Commandes WHERE ID_COMMANDES =" + order.getId() + "; ";
+	String^ theorder = "USE NORTICBDD; DELETE FROM Commandes WHERE ID_COMMANDES =" + order->getId() + "; ";
 	rcommande->execute(theorder);
 
-	String^ theorder2 = "DELETE FROM Commandes_Articles WHERE ID_COMMANDES =" + order.getId() + "; ";
+	String^ theorder2 = "DELETE FROM Commandes_Articles WHERE ID_COMMANDES =" + order->getId() + "; ";
 }
 
 Order^ ORDER::get(int id) {
@@ -65,7 +63,6 @@ Order^ ORDER::get(int id) {
 	String^ reference = ds->Tables[0]->Rows[0]->ItemArray[1]->ToString();
 	DateTime date =  Convert::ToDateTime(ds->Tables[0]->Rows[0]->ItemArray[2]);
 	String^ remisetemp = ds->Tables[0]->Rows[0]->ItemArray[3]->ToString();
-	remisetemp = remisetemp->Replace(",", ".");
 	float remise = Single::Parse(remisetemp);
 
 	int statut = Convert::ToInt32(ds->Tables[0]->Rows[0]->ItemArray[4]);
@@ -74,10 +71,7 @@ Order^ ORDER::get(int id) {
 
 	String^ commandorder = "SELECT * FROM Commandes_Articles WHERE ID_COMMANDES =" + id + ";";
 	DataSet^ ds2 = rcommande->executeToDataSet(commandorder);
-	int idarticle = Convert::ToInt32(ds2->Tables[0]->Rows[0]->ItemArray[1]);
-	int nbarticle = Convert::ToInt32(ds2->Tables[0]->Rows[0]->ItemArray[2]);
 	ArticleList^ liaison = gcnew ArticleList;
-	//ArticleInList^ liaison = gcnew ArticleInList(article0, nbarticle);
 	int nblignes = Convert::ToInt32(ds2->Tables[0]->Rows->Count);
 	int i = 0;
 	for (i = 0; i < nblignes; i++) {
@@ -106,15 +100,14 @@ DataSet^ ORDER::search(String^ reference, DateTime date) {
 DataSet^ ORDER::search(String^ reference, String^ id_client, String^ nom_client, String^ prenom_client, DateTime date) {
 	DataBase^ rcommande = gcnew DataBase;
 	String^ datestring = date.ToString("yyyy-MM-dd");
-
-	String^ theorder = "SELECT * FROM Commandes INNER JOIN Client ON Commandes.id_client = Client.id_client WHERE COMMANDES_REF Like %" + reference + "% AND COMMANDES_CREA LIKE %" + datestring + "% AND ID_CLIENT LIKE %" + id_client + "% AND ID_CLIENT IN (SELECT ID_CLIENT FROM Clients WHERE CLIENTS_NOM LIKE %" + nom_client + "% AND CLIENTS_PRENOM LIKE %" + prenom_client + "%); ";
+	String^ theorder = "SELECT * FROM Commandes INNER JOIN Client ON Commandes.id_client = Client.id_client WHERE COMMANDES_REF Like '%" + reference + "%' AND COMMANDES_CREA LIKE '%" + datestring + "%' AND Client.id_client LIKE '%" + id_client + "%' AND Client.id_client IN (SELECT ID_CLIENT FROM Clients WHERE CLIENT_NOM LIKE '%" + nom_client + "%' AND CLIENT_PRENOM LIKE '%" + prenom_client + "%');";
 	DataSet^ ds = rcommande->executeToDataSet(theorder);
 	return ds;
 }
 
 DataSet^ ORDER::search(String^ reference, String^ id_client, String^ nom_client, String^ prenom_client) {
 	DataBase^ rcommande = gcnew DataBase;
-	String^ theorder = "SELECT * FROM Commandes INNER JOIN Client ON Commandes.id_client = Client.id_client WHERE COMMANDES_REF Like %" + reference + "% AND ID_CLIENT LIKE %" + id_client + "% AND ID_CLIENT IN (SELECT ID_CLIENT FROM Clients WHERE CLIENTS_NOM LIKE %" + nom_client + "% AND CLIENTS_PRENOM LIKE %" + prenom_client + "%); ";
+	String^ theorder = "SELECT * FROM Commandes INNER JOIN Client ON Commandes.id_client = Client.id_client WHERE COMMANDES_REF Like '%" + reference + "%' AND Client.id_client LIKE'%" + id_client + "%' AND Client.id_client IN (SELECT ID_CLIENT FROM Client WHERE CLIENT_NOM LIKE '%" + nom_client + "%' AND CLIENT_PRENOM LIKE '%" + prenom_client + "%'); ";
 	DataSet^ ds = rcommande->executeToDataSet(theorder);
 	return ds;
 }

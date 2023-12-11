@@ -1,5 +1,6 @@
 #pragma once
 #include "mORDER.h"
+#include "mCLIENT.h"
 
 namespace ProjetPOO {
 
@@ -15,6 +16,8 @@ namespace ProjetPOO {
 	/// </summary>
 	public ref class App_Commandes : public System::Windows::Forms::Form
 	{
+	private: ArticleList^ articleList = gcnew ArticleList();
+
 	public:
 		App_Commandes(void)
 		{
@@ -54,15 +57,15 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::TextBox^ textBox6;
-	private: System::Windows::Forms::TextBox^ textBox7;
+	private: System::Windows::Forms::TextBox^ textBoxRef;
+	private: System::Windows::Forms::TextBox^ textBoxIDClient;
+	private: System::Windows::Forms::TextBox^ textBoxPrenom;
+	private: System::Windows::Forms::TextBox^ textBoxNom;
+	private: System::Windows::Forms::TextBox^ textBoxRemise;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBox8;
+	private: System::Windows::Forms::TextBox^ textBoxTotal;
 	private: System::Windows::Forms::Button^ button4;
-	private: System::Windows::Forms::TextBox^ textBox9;
+	private: System::Windows::Forms::TextBox^ textBoxID;
 	private: System::Windows::Forms::DataGridView^ dataGridView3;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
@@ -71,9 +74,7 @@ namespace ProjetPOO {
 
 
 	private:
-		void SetInitialText() {
-			textBoxRefSearch->Text = "Reférence commande";
-		}
+		void SetInitialText() {}
 
 	protected:
 
@@ -111,15 +112,15 @@ namespace ProjetPOO {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxRef = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxIDClient = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxPrenom = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxNom = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxRemise = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxTotal = (gcnew System::Windows::Forms::TextBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxID = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
@@ -142,6 +143,10 @@ namespace ProjetPOO {
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(540, 367);
 			this->dataGridView1->TabIndex = 2;
+			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &App_Commandes::dataGridView1_CellContentClick);
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &App_Commandes::dataGridView1_CellContentClick);
+			this->dataGridView1->CellContentDoubleClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &App_Commandes::dataGridView1_CellContentClick);
+			this->dataGridView1->CellDoubleClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &App_Commandes::dataGridView1_CellContentClick);
 			// 
 			// label1
 			// 
@@ -200,6 +205,8 @@ namespace ProjetPOO {
 			this->textBoxRefSearch->TabIndex = 12;
 			this->textBoxRefSearch->Text = L"Référence";
 			this->textBoxRefSearch->TextChanged += gcnew System::EventHandler(this, &App_Commandes::search);
+			this->textBoxRefSearch->Enter += gcnew System::EventHandler(this, &App_Commandes::textBoxRefSearch_Enter);
+			this->textBoxRefSearch->Leave += gcnew System::EventHandler(this, &App_Commandes::textBoxRefSearch_Leave);
 			// 
 			// dataGridView2
 			// 
@@ -238,7 +245,6 @@ namespace ProjetPOO {
 			this->pictureBox1->Size = System::Drawing::Size(609, 595);
 			this->pictureBox1->TabIndex = 15;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &App_Commandes::pictureBox1_Click);
 			// 
 			// textBoxIDClientSearch
 			// 
@@ -255,6 +261,8 @@ namespace ProjetPOO {
 			this->textBoxIDClientSearch->TabIndex = 18;
 			this->textBoxIDClientSearch->Text = L"ID Client";
 			this->textBoxIDClientSearch->TextChanged += gcnew System::EventHandler(this, &App_Commandes::search);
+			this->textBoxIDClientSearch->Enter += gcnew System::EventHandler(this, &App_Commandes::textBoxIDClientSearch_Enter);
+			this->textBoxIDClientSearch->Leave += gcnew System::EventHandler(this, &App_Commandes::textBoxIDClientSearch_Leave);
 			// 
 			// textBoxNomClientSearch
 			// 
@@ -271,6 +279,8 @@ namespace ProjetPOO {
 			this->textBoxNomClientSearch->TabIndex = 19;
 			this->textBoxNomClientSearch->Text = L"Nom client";
 			this->textBoxNomClientSearch->TextChanged += gcnew System::EventHandler(this, &App_Commandes::search);
+			this->textBoxNomClientSearch->Enter += gcnew System::EventHandler(this, &App_Commandes::textBoxNomClientSearch_Enter);
+			this->textBoxNomClientSearch->Leave += gcnew System::EventHandler(this, &App_Commandes::textBoxNomClientSearch_Leave);
 			// 
 			// textBoxPrenomClientSearch
 			// 
@@ -287,6 +297,8 @@ namespace ProjetPOO {
 			this->textBoxPrenomClientSearch->TabIndex = 20;
 			this->textBoxPrenomClientSearch->Text = L"Prénom client";
 			this->textBoxPrenomClientSearch->TextChanged += gcnew System::EventHandler(this, &App_Commandes::search);
+			this->textBoxPrenomClientSearch->Enter += gcnew System::EventHandler(this, &App_Commandes::textBoxPrenomClientSearch_Enter);
+			this->textBoxPrenomClientSearch->Leave += gcnew System::EventHandler(this, &App_Commandes::textBoxPrenomClientSearch_Leave);
 			// 
 			// dateTimePicker1
 			// 
@@ -331,45 +343,61 @@ namespace ProjetPOO {
 			this->button3->Text = L"Ajouter un article";
 			this->button3->UseVisualStyleBackColor = true;
 			// 
-			// textBox3
+			// textBoxRef
 			// 
-			this->textBox3->Location = System::Drawing::Point(397, 159);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(301, 20);
-			this->textBox3->TabIndex = 27;
-			this->textBox3->Text = L"Référence";
+			this->textBoxRef->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBoxRef->Location = System::Drawing::Point(397, 159);
+			this->textBoxRef->Name = L"textBoxRef";
+			this->textBoxRef->Size = System::Drawing::Size(301, 20);
+			this->textBoxRef->TabIndex = 27;
+			this->textBoxRef->Text = L"Référence";
+			this->textBoxRef->Enter += gcnew System::EventHandler(this, &App_Commandes::textBoxRef_Enter);
+			this->textBoxRef->Leave += gcnew System::EventHandler(this, &App_Commandes::textBoxRef_Leave);
 			// 
-			// textBox4
+			// textBoxIDClient
 			// 
-			this->textBox4->Location = System::Drawing::Point(323, 185);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(68, 20);
-			this->textBox4->TabIndex = 28;
-			this->textBox4->Text = L"ID Client";
+			this->textBoxIDClient->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBoxIDClient->Location = System::Drawing::Point(323, 185);
+			this->textBoxIDClient->Name = L"textBoxIDClient";
+			this->textBoxIDClient->Size = System::Drawing::Size(68, 20);
+			this->textBoxIDClient->TabIndex = 28;
+			this->textBoxIDClient->Text = L"ID Client";
+			this->textBoxIDClient->TextChanged += gcnew System::EventHandler(this, &App_Commandes::textBoxIDClient_TextChanged);
+			this->textBoxIDClient->Enter += gcnew System::EventHandler(this, &App_Commandes::textBoxIDClient_Enter);
+			this->textBoxIDClient->Leave += gcnew System::EventHandler(this, &App_Commandes::textBoxIDClient_Leave);
 			// 
-			// textBox5
+			// textBoxPrenom
 			// 
-			this->textBox5->Location = System::Drawing::Point(397, 185);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(301, 20);
-			this->textBox5->TabIndex = 29;
-			this->textBox5->Text = L"Nom";
+			this->textBoxPrenom->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->textBoxPrenom->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBoxPrenom->Location = System::Drawing::Point(397, 185);
+			this->textBoxPrenom->Name = L"textBoxPrenom";
+			this->textBoxPrenom->ReadOnly = true;
+			this->textBoxPrenom->Size = System::Drawing::Size(301, 20);
+			this->textBoxPrenom->TabIndex = 29;
+			this->textBoxPrenom->Text = L"Nom";
 			// 
-			// textBox6
+			// textBoxNom
 			// 
-			this->textBox6->Location = System::Drawing::Point(397, 211);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(301, 20);
-			this->textBox6->TabIndex = 30;
-			this->textBox6->Text = L"Prénom";
+			this->textBoxNom->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->textBoxNom->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBoxNom->Location = System::Drawing::Point(397, 211);
+			this->textBoxNom->Name = L"textBoxNom";
+			this->textBoxNom->ReadOnly = true;
+			this->textBoxNom->Size = System::Drawing::Size(301, 20);
+			this->textBoxNom->TabIndex = 30;
+			this->textBoxNom->Text = L"Prénom";
 			// 
-			// textBox7
+			// textBoxRemise
 			// 
-			this->textBox7->Location = System::Drawing::Point(323, 237);
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(192, 20);
-			this->textBox7->TabIndex = 31;
-			this->textBox7->Text = L"Réduction";
+			this->textBoxRemise->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBoxRemise->Location = System::Drawing::Point(323, 237);
+			this->textBoxRemise->Name = L"textBoxRemise";
+			this->textBoxRemise->Size = System::Drawing::Size(223, 20);
+			this->textBoxRemise->TabIndex = 31;
+			this->textBoxRemise->Text = L"Réduction";
+			this->textBoxRemise->Enter += gcnew System::EventHandler(this, &App_Commandes::textBoxRemise_Enter);
+			this->textBoxRemise->Leave += gcnew System::EventHandler(this, &App_Commandes::textBoxRemise_Leave);
 			// 
 			// label2
 			// 
@@ -380,16 +408,17 @@ namespace ProjetPOO {
 			this->label2->TabIndex = 32;
 			this->label2->Text = L"Total :";
 			// 
-			// textBox8
+			// textBoxTotal
 			// 
-			this->textBox8->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->textBox8->ForeColor = System::Drawing::SystemColors::MenuHighlight;
-			this->textBox8->Location = System::Drawing::Point(595, 237);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(103, 20);
-			this->textBox8->TabIndex = 33;
-			this->textBox8->Text = L"19€50";
-			this->textBox8->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->textBoxTotal->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->textBoxTotal->ForeColor = System::Drawing::SystemColors::MenuHighlight;
+			this->textBoxTotal->Location = System::Drawing::Point(595, 237);
+			this->textBoxTotal->Name = L"textBoxTotal";
+			this->textBoxTotal->ReadOnly = true;
+			this->textBoxTotal->Size = System::Drawing::Size(103, 20);
+			this->textBoxTotal->TabIndex = 33;
+			this->textBoxTotal->Text = L"19€50";
+			this->textBoxTotal->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
 			// button4
 			// 
@@ -399,14 +428,19 @@ namespace ProjetPOO {
 			this->button4->TabIndex = 34;
 			this->button4->Text = L"Valider";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &App_Commandes::button4_Click);
 			// 
-			// textBox9
+			// textBoxID
 			// 
-			this->textBox9->Location = System::Drawing::Point(323, 159);
-			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(68, 20);
-			this->textBox9->TabIndex = 35;
-			this->textBox9->Text = L"ID Comm.";
+			this->textBoxID->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->textBoxID->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			this->textBoxID->Location = System::Drawing::Point(323, 159);
+			this->textBoxID->Name = L"textBoxID";
+			this->textBoxID->Size = System::Drawing::Size(68, 20);
+			this->textBoxID->TabIndex = 35;
+			this->textBoxID->Text = L"ID Comm.";
+			this->textBoxID->Enter += gcnew System::EventHandler(this, &App_Commandes::textBoxID_Enter);
+			this->textBoxID->Leave += gcnew System::EventHandler(this, &App_Commandes::textBoxID_Leave);
 			// 
 			// dataGridView3
 			// 
@@ -424,15 +458,15 @@ namespace ProjetPOO {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1443, 750);
-			this->Controls->Add(this->textBox9);
+			this->Controls->Add(this->textBoxID);
 			this->Controls->Add(this->button4);
-			this->Controls->Add(this->textBox8);
+			this->Controls->Add(this->textBoxTotal);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox7);
-			this->Controls->Add(this->textBox6);
-			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->textBoxRemise);
+			this->Controls->Add(this->textBoxNom);
+			this->Controls->Add(this->textBoxPrenom);
+			this->Controls->Add(this->textBoxIDClient);
+			this->Controls->Add(this->textBoxRef);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
@@ -474,30 +508,70 @@ namespace ProjetPOO {
 	}
 
 	private: System::Void search(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxPrenomClientSearch->Text == "Prénom client") textBoxPrenomClientSearch->Text = "";
-		if (textBoxNomClientSearch->Text == "Nom client") textBoxNomClientSearch->Text = "";
-		if (textBoxIDClientSearch->Text == "ID Client") textBoxIDClientSearch->Text = "";
-		if (textBoxRefSearch->Text == "Référence") textBoxRefSearch->Text = "";
+		String^ ref = textBoxRefSearch->Text;
+		String^ idClient = textBoxIDClientSearch->Text;
+		String^ nomClient = textBoxNomClientSearch->Text;
+		String^ prenomClient = textBoxPrenomClientSearch->Text;
+		if(ref == "Référence") ref = "";
+		if(idClient == "ID Client") idClient = "";
+		if(nomClient == "Nom client") nomClient = "";
+		if(prenomClient == "Prénom client") prenomClient = "";
 
 		if (dateTimePicker1->Value == System::DateTime(1990, 1, 1, 0, 0, 0, 0)){
-			//dataGridView1->DataSource = ORDER::search("", textBoxIDClientSearch->Text, textBoxNomClientSearch->Text, textBoxPrenomClientSearch->Text);
+			dataGridView1->DataSource = ORDER::search(ref, idClient, nomClient, prenomClient)->Tables[0]->DefaultView;
 		} else {
-			//dataGridView1->DataSource = ORDER::search("", textBoxIDClientSearch->Text, textBoxNomClientSearch->Text, textBoxPrenomClientSearch->Text, dateTimePicker1->Value);
+			dataGridView1->DataSource = ORDER::search(ref, idClient, nomClient, prenomClient, dateTimePicker1->Value)->Tables[0]->DefaultView;
 		}
+		dataGridView1->Columns[0]->HeaderText = "ID";
+		dataGridView1->Columns[1]->HeaderText = "Référence";
+		dataGridView1->Columns[2]->HeaderText = "Date";
+		dataGridView1->Columns[3]->Visible = false;
+		dataGridView1->Columns[4]->Visible = false;
+		dataGridView1->Columns[5]->Visible = false;
+		dataGridView1->Columns[6]->Visible = false;
+		dataGridView1->Columns[7]->HeaderText = "Nom";
+		dataGridView1->Columns[8]->HeaderText = "Prénom";
+		dataGridView1->Columns[9]->Visible = false;
+		dataGridView1->Columns[10]->Visible = false;
+		dataGridView1->Columns[11]->Visible = false;
 	}
 
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		if (e->RowIndex == dataGridView1->RowCount - 1){
+			textBoxRef->Text = "Référence";
+			textBoxRef->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			textBoxID->Text = "ID Comm.";
+			textBoxID->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			textBoxIDClient->Text = "ID Client";
+			textBoxIDClient->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			textBoxPrenom->Text = "Prénom";
+			textBoxPrenom->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			textBoxNom->Text = "Nom";
+			textBoxNom->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			textBoxRemise->Text = "Réduction";
+			textBoxRemise->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			textBoxTotal->Text = "0";
+			dataGridView2->DataSource = nullptr;
+			return;
+		};
 		if (e->RowIndex >= 0) {
 			Order^ order = ORDER::get(Convert::ToInt32(dataGridView1->Rows[e->RowIndex]->Cells[0]->Value));
 			dataGridView2->DataSource = order->getArticleList()->toDataSet();
 
-			textBox3->Text = order->getReference();
-			textBox9->Text = order->getId().ToString();
-			textBox4->Text = order->getClient()->getId().ToString();
-			textBox5->Text = order->getClient()->getFirstName();
-			textBox6->Text = order->getClient()->getLastName();
-			textBox7->Text = order->getRemise().ToString();
-			textBox8->Text = order->getTotal().ToString();
+			textBoxRef->Text = order->getReference();
+			textBoxRef->ForeColor = System::Drawing::SystemColors::ControlText;
+			textBoxID->Text = order->getId().ToString();
+			textBoxID->ForeColor = System::Drawing::SystemColors::ControlText;
+			textBoxIDClient->Text = order->getClient()->getId().ToString();
+			textBoxIDClient->ForeColor = System::Drawing::SystemColors::ControlText;
+			textBoxPrenom->Text = order->getClient()->getFirstName();
+			textBoxPrenom->ForeColor = System::Drawing::SystemColors::ControlText;
+			textBoxNom->Text = order->getClient()->getLastName();
+			textBoxNom->ForeColor = System::Drawing::SystemColors::ControlText;
+			textBoxRemise->Text = order->getRemise().ToString();
+			textBoxRemise->ForeColor = System::Drawing::SystemColors::ControlText;
+			textBoxTotal->Text = order->getTotal().ToString();
+
 		}
 	}
 
@@ -528,52 +602,150 @@ namespace ProjetPOO {
 	}
 
 	private: System::Void textBoxIDClientSearch_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRefSearch->Text == "ID Client") {
-			textBoxRefSearch->Text = "";
-			textBoxRefSearch->ForeColor = System::Drawing::SystemColors::ControlText;
+		if (textBoxIDClientSearch->Text == "ID Client") {
+			textBoxIDClientSearch->Text = "";
+			textBoxIDClientSearch->ForeColor = System::Drawing::SystemColors::ControlText;
 		}
 	}
 
 	private: System::Void textBoxIDClientSearch_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRefSearch->Text == "") {
-			textBoxRefSearch->Text = "ID Client";
-			textBoxRefSearch->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+		if (textBoxIDClientSearch->Text == "") {
+			textBoxIDClientSearch->Text = "ID Client";
+			textBoxIDClientSearch->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 		}
 	}
 
 	private: System::Void textBoxNomClientSearch_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRefSearch->Text == "Nom client") {
-			textBoxRefSearch->Text = "";
-			textBoxRefSearch->ForeColor = System::Drawing::SystemColors::ControlText;
+		if (textBoxNomClientSearch->Text == "Nom client") {
+			textBoxNomClientSearch->Text = "";
+			textBoxNomClientSearch->ForeColor = System::Drawing::SystemColors::ControlText;
 		}
 	}
 
 	private: System::Void textBoxNomClientSearch_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRefSearch->Text == "") {
-			textBoxRefSearch->Text = "Nom client";
-			textBoxRefSearch->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+		if (textBoxNomClientSearch->Text == "") {
+			textBoxNomClientSearch->Text = "Nom client";
+			textBoxNomClientSearch->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 		}
 	}
 
 	private: System::Void textBoxPrenomClientSearch_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRefSearch->Text == "Prénom client") {
-			textBoxRefSearch->Text = "";
-			textBoxRefSearch->ForeColor = System::Drawing::SystemColors::ControlText;
+		if (textBoxPrenomClientSearch->Text == "Prénom client") {
+			textBoxPrenomClientSearch->Text = "";
+			textBoxPrenomClientSearch->ForeColor = System::Drawing::SystemColors::ControlText;
 		}
 	}
 
 	private: System::Void textBoxPrenomClientSearch_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRefSearch->Text == "") {
-			textBoxRefSearch->Text = "Prénom client";
-			textBoxRefSearch->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+		if (textBoxPrenomClientSearch->Text == "") {
+			textBoxPrenomClientSearch->Text = "Prénom client";
+			textBoxPrenomClientSearch->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 		}
 	}
 
-	private: System::Void dataGridView2_ContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	private: System::Void textBoxID_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxID->Text == "ID Comm.") {
+				textBoxID->Text = "";
+				textBoxID->ForeColor = System::Drawing::SystemColors::ControlText;
+		}
 	}
-	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void textBoxID_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxID->Text == "") {
+				textBoxID->Text = "ID Comm.";
+				textBoxID->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+		}
 	}
-	private: System::Void buttonSearch_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	private: System::Void textBoxRef_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxRef->Text == "Référence") {
+			textBoxRef->Text = "";
+			textBoxRef->ForeColor = System::Drawing::SystemColors::ControlText;
+		}
+	}
+
+	private: System::Void textBoxRef_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxRef->Text == "") {
+			textBoxRef->Text = "Référence";
+			textBoxRef->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+		}
+	}
+
+	private: System::Void textBoxIDClient_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxIDClient->Text == "ID Client") {
+			textBoxIDClient->Text = "";
+			textBoxIDClient->ForeColor = System::Drawing::SystemColors::ControlText;
+		}
+	}
+
+	private: System::Void textBoxIDClient_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxIDClient->Text == "") {
+			textBoxIDClient->Text = "ID Client";
+			textBoxIDClient->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+		}
+	}
+
+	private: System::Void textBoxIDClient_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (System::Text::RegularExpressions::Regex::IsMatch(textBoxIDClient->Text, "[^0-9]")) {
+			textBoxIDClient->Text = "ID Client";
+		} else {
+			if (textBoxIDClient->Text != "") {
+				Client^ client = CLIENT::get(Convert::ToInt32(textBoxIDClient->Text));
+				if (client != nullptr) {
+					textBoxPrenom->Text = client->getFirstName();
+					textBoxNom->Text = client->getLastName();
+				} else {
+					textBoxPrenom->Text = "ID invalide";
+					textBoxNom->Text = "";
+				}
+			} else {
+				textBoxPrenom->Text = "Nom";
+				textBoxNom->Text = "Prénom";
+			}
+		}
+	}
+
+	private: System::Void textBoxRemise_Enter(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxRemise->Text == "Réduction") {
+			textBoxRemise->Text = "";
+			textBoxRemise->ForeColor = System::Drawing::SystemColors::ControlText;
+		} else if (textBoxRemise->Text->EndsWith("%")) {
+			textBoxRemise->Text = textBoxRemise->Text->Substring(0, textBoxRemise->Text->Length - 1);
+		}
+	}
+
+	private: System::Void textBoxRemise_Leave(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxRemise->Text == "" || System::Text::RegularExpressions::Regex::IsMatch(textBoxRemise->Text, "[^0-9]")) {
+			textBoxRemise->Text = "Réduction";
+			textBoxRemise->ForeColor = System::Drawing::SystemColors::ButtonShadow;
+			return;
+		}
+		int remise = Convert::ToInt32(textBoxRemise->Text);
+		if (remise > 100) {
+			textBoxRemise->Text = "100%";
+		} else if (!textBoxRemise->Text->EndsWith("%")) {
+			textBoxRemise->Text += "%";
+		}
+	}
+
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (textBoxID->Text == "ID Comm.") {
+			Order^ order = gcnew Order();
+			order->setReference(textBoxRef->Text);
+			order->setClient(CLIENT::get(Convert::ToInt32(textBoxIDClient->Text)));
+			order->setRemise(Convert::ToInt32(textBoxRemise->Text->Substring(0, textBoxRemise->Text->Length - 1)));
+			order->setArticleList(articleList);
+			ORDER::add(order);
+			MessageBox::Show("Commande ajoutée avec succès !", "Succès", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			search(nullptr, nullptr);
+		} else {
+			Order^ order = ORDER::get(Convert::ToInt32(textBoxID->Text));
+			order->setReference(textBoxRef->Text);
+			order->setClient(CLIENT::get(Convert::ToInt32(textBoxIDClient->Text)));
+			order->setRemise(Convert::ToInt32(textBoxRemise->Text->Substring(0, textBoxRemise->Text->Length - 1)));
+			order->setArticleList(articleList);
+			ORDER::edit(order);
+			search(nullptr, nullptr);
+		}
 	}
 };
 }

@@ -4,7 +4,7 @@ Order::Order()
 {
     this->id = 0;
     this->reference = "";
-    this->creation_date = DateTime(); // Allocation d'une nouvelle instance de Date
+    this->creation_date = DateTime();
     this->Liste = gcnew ArticleList();
     this->client = gcnew Client();;
     this->remise = 0;
@@ -102,7 +102,7 @@ float Order::getTotal()
 {
     DataSet^ list = this->getList()->toDataSet();
     float total = 0;
-    if (list->Tables["Article"]->Rows->Count > 0){return 0.0f;}
+    if (list->Tables[0]->Rows->Count == 0){return 0.0f;}
 	for (int i = 0; i < list->Tables["Article"]->Rows->Count; i++)
 	{
 		total += float::Parse(list->Tables["Article"]->Rows[i]->ItemArray[3]->ToString()) * float::Parse(list->Tables["Article"]->Rows[i]->ItemArray[4]->ToString());

@@ -81,7 +81,7 @@ namespace TestProject
 
             // Use ADDRESS::edit() to update DB
             address1.setCountry("Allemagne");
-            address1.setZipCode("75001");
+            address1.setZipCode("12345");
             address1.setCity("Berlin");
             address1.setRoadName("Alexanderplatz");
             address1.setRoadNumber("1");
