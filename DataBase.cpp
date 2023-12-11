@@ -2,13 +2,20 @@
 
 DataBase::DataBase(void) {
     this->sqlRequest = gcnew String("");
-    this->chaineConnexion = gcnew String("Data Source=DESKTOP-MRGUHBJ;Initial Catalog=NORTICBDD;Integrated Security=True;");
+    this->chaineConnexion = gcnew String("Data Source=SEPTEMBRE\\MSSQL_DUBUS;Initial Catalog=NORTICBDD;Integrated Security=True;");
     this->conToDb = gcnew SqlConnection(this->chaineConnexion);
     this->commSql = gcnew SqlCommand;
     this->commSql->CommandType = CommandType::Text;
     this->dataAdapter = gcnew System::Data::SqlClient::SqlDataAdapter;
     this->dataSetObject = gcnew DataSet;
 }
+
+
+
+
+
+
+
 
 int DataBase::executeToInt(String^ rq_sql) {
     this->setSQL(rq_sql);

@@ -201,13 +201,13 @@ namespace ProjetPOO {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->BackgroundColor = System::Drawing::SystemColors::ButtonFace;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(819, 262);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
+			this->dataGridView1->Location = System::Drawing::Point(1092, 322);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(540, 367);
+			this->dataGridView1->Size = System::Drawing::Size(720, 452);
 			this->dataGridView1->TabIndex = 2;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &App_Client::select_client);
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &App_Client::select_client);
@@ -222,10 +222,9 @@ namespace ProjetPOO {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Calibri Light", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->label1->Location = System::Drawing::Point(1010, 116);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(1347, 143);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(262, 29);
+			this->label1->Size = System::Drawing::Size(340, 37);
 			this->label1->TabIndex = 10;
 			this->label1->Text = L"Pôle de gestion des clients";
 			// 
@@ -237,10 +236,9 @@ namespace ProjetPOO {
 			this->Main_Titre_2->Font = (gcnew System::Drawing::Font(L"Calibri", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Main_Titre_2->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->Main_Titre_2->Location = System::Drawing::Point(920, 116);
-			this->Main_Titre_2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->Main_Titre_2->Location = System::Drawing::Point(1227, 143);
 			this->Main_Titre_2->Name = L"Main_Titre_2";
-			this->Main_Titre_2->Size = System::Drawing::Size(100, 29);
+			this->Main_Titre_2->Size = System::Drawing::Size(126, 37);
 			this->Main_Titre_2->TabIndex = 9;
 			this->Main_Titre_2->Text = L"NORTIC :";
 			// 
@@ -249,10 +247,10 @@ namespace ProjetPOO {
 			this->button1->BackColor = System::Drawing::Color::Transparent;
 			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
 			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->button1->Location = System::Drawing::Point(1339, 52);
-			this->button1->Margin = System::Windows::Forms::Padding(2);
+			this->button1->Location = System::Drawing::Point(1785, 64);
+			this->button1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(86, 50);
+			this->button1->Size = System::Drawing::Size(115, 62);
 			this->button1->TabIndex = 11;
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &App_Client::button1_Click);
@@ -265,10 +263,10 @@ namespace ProjetPOO {
 			this->textBoxIdSearch->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->textBoxIdSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxIdSearch->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBoxIdSearch->Location = System::Drawing::Point(819, 230);
-			this->textBoxIdSearch->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxIdSearch->Location = System::Drawing::Point(1092, 283);
+			this->textBoxIdSearch->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxIdSearch->Name = L"textBoxIdSearch";
-			this->textBoxIdSearch->Size = System::Drawing::Size(156, 20);
+			this->textBoxIdSearch->Size = System::Drawing::Size(207, 22);
 			this->textBoxIdSearch->TabIndex = 12;
 			this->textBoxIdSearch->Text = L"Identificateur client";
 			this->textBoxIdSearch->TextChanged += gcnew System::EventHandler(this, &App_Client::update_search);
@@ -281,10 +279,10 @@ namespace ProjetPOO {
 			this->textBoxNomSearch->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->textBoxNomSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxNomSearch->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxNomSearch->Location = System::Drawing::Point(996, 230);
-			this->textBoxNomSearch->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxNomSearch->Location = System::Drawing::Point(1328, 283);
+			this->textBoxNomSearch->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxNomSearch->Name = L"textBoxNomSearch";
-			this->textBoxNomSearch->Size = System::Drawing::Size(166, 20);
+			this->textBoxNomSearch->Size = System::Drawing::Size(221, 22);
 			this->textBoxNomSearch->TabIndex = 13;
 			this->textBoxNomSearch->Text = L"Prénom";
 			this->textBoxNomSearch->TextChanged += gcnew System::EventHandler(this, &App_Client::update_search);
@@ -297,10 +295,10 @@ namespace ProjetPOO {
 			this->textBoxPrenomSearch->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->textBoxPrenomSearch->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxPrenomSearch->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxPrenomSearch->Location = System::Drawing::Point(1184, 230);
-			this->textBoxPrenomSearch->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxPrenomSearch->Location = System::Drawing::Point(1579, 283);
+			this->textBoxPrenomSearch->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxPrenomSearch->Name = L"textBoxPrenomSearch";
-			this->textBoxPrenomSearch->Size = System::Drawing::Size(166, 20);
+			this->textBoxPrenomSearch->Size = System::Drawing::Size(221, 22);
 			this->textBoxPrenomSearch->TabIndex = 14;
 			this->textBoxPrenomSearch->Text = L"Nom";
 			this->textBoxPrenomSearch->TextChanged += gcnew System::EventHandler(this, &App_Client::update_search);
@@ -311,13 +309,13 @@ namespace ProjetPOO {
 			this->dataGridView2->AllowUserToDeleteRows = false;
 			this->dataGridView2->BackgroundColor = System::Drawing::SystemColors::Window;
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Location = System::Drawing::Point(132, 147);
-			this->dataGridView2->Margin = System::Windows::Forms::Padding(2);
+			this->dataGridView2->Location = System::Drawing::Point(176, 181);
+			this->dataGridView2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->ReadOnly = true;
 			this->dataGridView2->RowHeadersWidth = 51;
 			this->dataGridView2->RowTemplate->Height = 24;
-			this->dataGridView2->Size = System::Drawing::Size(585, 431);
+			this->dataGridView2->Size = System::Drawing::Size(780, 530);
 			this->dataGridView2->TabIndex = 16;
 			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &App_Client::dataGridView2_CellContentClick_1);
 			// 
@@ -327,10 +325,10 @@ namespace ProjetPOO {
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(809, 218);
-			this->pictureBox2->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox2->Location = System::Drawing::Point(1079, 268);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(558, 420);
+			this->pictureBox2->Size = System::Drawing::Size(744, 517);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->pictureBox2->TabIndex = 17;
 			this->pictureBox2->TabStop = false;
@@ -340,10 +338,10 @@ namespace ProjetPOO {
 			this->pictureBox1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
 			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pictureBox1->Location = System::Drawing::Point(121, 134);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox1->Location = System::Drawing::Point(161, 165);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(609, 595);
+			this->pictureBox1->Size = System::Drawing::Size(811, 732);
 			this->pictureBox1->TabIndex = 15;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &App_Client::pictureBox1_Click);
@@ -352,10 +350,10 @@ namespace ProjetPOO {
 			// 
 			this->Supprimer->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Supprimer.BackgroundImage")));
 			this->Supprimer->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->Supprimer->Location = System::Drawing::Point(653, 583);
-			this->Supprimer->Margin = System::Windows::Forms::Padding(2);
+			this->Supprimer->Location = System::Drawing::Point(871, 718);
+			this->Supprimer->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Supprimer->Name = L"Supprimer";
-			this->Supprimer->Size = System::Drawing::Size(64, 130);
+			this->Supprimer->Size = System::Drawing::Size(85, 160);
 			this->Supprimer->TabIndex = 2;
 			this->Supprimer->UseVisualStyleBackColor = true;
 			this->Supprimer->Click += gcnew System::EventHandler(this, &App_Client::Supprimer_Click);
@@ -364,10 +362,10 @@ namespace ProjetPOO {
 			// 
 			this->Modifier->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Modifier->Location = System::Drawing::Point(132, 650);
-			this->Modifier->Margin = System::Windows::Forms::Padding(2);
+			this->Modifier->Location = System::Drawing::Point(176, 800);
+			this->Modifier->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Modifier->Name = L"Modifier";
-			this->Modifier->Size = System::Drawing::Size(517, 63);
+			this->Modifier->Size = System::Drawing::Size(689, 78);
 			this->Modifier->TabIndex = 3;
 			this->Modifier->Text = L"Modifier un personnel";
 			this->Modifier->UseVisualStyleBackColor = true;
@@ -378,10 +376,10 @@ namespace ProjetPOO {
 			this->Ajouter->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->Ajouter->Font = (gcnew System::Drawing::Font(L"Calibri", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Ajouter->Location = System::Drawing::Point(132, 583);
-			this->Ajouter->Margin = System::Windows::Forms::Padding(2);
+			this->Ajouter->Location = System::Drawing::Point(176, 718);
+			this->Ajouter->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Ajouter->Name = L"Ajouter";
-			this->Ajouter->Size = System::Drawing::Size(517, 63);
+			this->Ajouter->Size = System::Drawing::Size(689, 78);
 			this->Ajouter->TabIndex = 0;
 			this->Ajouter->Text = L"Ajouter un personnel";
 			this->Ajouter->UseVisualStyleBackColor = true;
@@ -395,10 +393,10 @@ namespace ProjetPOO {
 			this->textBoxPrenom->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxPrenom->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxPrenom->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxPrenom->Location = System::Drawing::Point(166, 306);
-			this->textBoxPrenom->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxPrenom->Location = System::Drawing::Point(221, 377);
+			this->textBoxPrenom->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxPrenom->Name = L"textBoxPrenom";
-			this->textBoxPrenom->Size = System::Drawing::Size(175, 20);
+			this->textBoxPrenom->Size = System::Drawing::Size(233, 22);
 			this->textBoxPrenom->TabIndex = 22;
 			this->textBoxPrenom->Text = L"Prénom";
 			// 
@@ -410,10 +408,10 @@ namespace ProjetPOO {
 			this->textBoxNom->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxNom->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxNom->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxNom->Location = System::Drawing::Point(166, 342);
-			this->textBoxNom->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxNom->Location = System::Drawing::Point(221, 421);
+			this->textBoxNom->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxNom->Name = L"textBoxNom";
-			this->textBoxNom->Size = System::Drawing::Size(175, 20);
+			this->textBoxNom->Size = System::Drawing::Size(233, 22);
 			this->textBoxNom->TabIndex = 23;
 			this->textBoxNom->Text = L"Nom";
 			// 
@@ -421,10 +419,10 @@ namespace ProjetPOO {
 			// 
 			this->pictureBox5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.BackgroundImage")));
 			this->pictureBox5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox5->Location = System::Drawing::Point(472, 160);
-			this->pictureBox5->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox5->Location = System::Drawing::Point(629, 197);
+			this->pictureBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(232, 283);
+			this->pictureBox5->Size = System::Drawing::Size(309, 348);
 			this->pictureBox5->TabIndex = 24;
 			this->pictureBox5->TabStop = false;
 			// 
@@ -436,10 +434,10 @@ namespace ProjetPOO {
 			this->textBoxPays->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxPays->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxPays->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxPays->Location = System::Drawing::Point(166, 466);
-			this->textBoxPays->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxPays->Location = System::Drawing::Point(221, 574);
+			this->textBoxPays->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxPays->Name = L"textBoxPays";
-			this->textBoxPays->Size = System::Drawing::Size(149, 20);
+			this->textBoxPays->Size = System::Drawing::Size(198, 22);
 			this->textBoxPays->TabIndex = 25;
 			this->textBoxPays->Text = L"Pays";
 			// 
@@ -451,10 +449,10 @@ namespace ProjetPOO {
 			this->textBoxVille->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxVille->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxVille->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxVille->Location = System::Drawing::Point(166, 503);
-			this->textBoxVille->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxVille->Location = System::Drawing::Point(221, 619);
+			this->textBoxVille->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxVille->Name = L"textBoxVille";
-			this->textBoxVille->Size = System::Drawing::Size(149, 20);
+			this->textBoxVille->Size = System::Drawing::Size(198, 22);
 			this->textBoxVille->TabIndex = 26;
 			this->textBoxVille->Text = L"Ville";
 			// 
@@ -466,10 +464,10 @@ namespace ProjetPOO {
 			this->textBoxAppart->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxAppart->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxAppart->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxAppart->Location = System::Drawing::Point(440, 536);
-			this->textBoxAppart->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxAppart->Location = System::Drawing::Point(587, 660);
+			this->textBoxAppart->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxAppart->Name = L"textBoxAppart";
-			this->textBoxAppart->Size = System::Drawing::Size(148, 20);
+			this->textBoxAppart->Size = System::Drawing::Size(197, 22);
 			this->textBoxAppart->TabIndex = 30;
 			this->textBoxAppart->Text = L"Numéro d\'appartement";
 			// 
@@ -481,10 +479,10 @@ namespace ProjetPOO {
 			this->textBoxNumRue->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxNumRue->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxNumRue->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxNumRue->Location = System::Drawing::Point(440, 503);
-			this->textBoxNumRue->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxNumRue->Location = System::Drawing::Point(587, 619);
+			this->textBoxNumRue->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxNumRue->Name = L"textBoxNumRue";
-			this->textBoxNumRue->Size = System::Drawing::Size(148, 20);
+			this->textBoxNumRue->Size = System::Drawing::Size(197, 22);
 			this->textBoxNumRue->TabIndex = 29;
 			this->textBoxNumRue->Text = L"Numéro de rue";
 			// 
@@ -496,10 +494,10 @@ namespace ProjetPOO {
 			this->textBoxNomRue->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxNomRue->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxNomRue->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxNomRue->Location = System::Drawing::Point(440, 466);
-			this->textBoxNomRue->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxNomRue->Location = System::Drawing::Point(587, 574);
+			this->textBoxNomRue->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxNomRue->Name = L"textBoxNomRue";
-			this->textBoxNomRue->Size = System::Drawing::Size(148, 20);
+			this->textBoxNomRue->Size = System::Drawing::Size(197, 22);
 			this->textBoxNomRue->TabIndex = 28;
 			this->textBoxNomRue->Text = L"Nom de la rue";
 			// 
@@ -510,10 +508,9 @@ namespace ProjetPOO {
 			this->label2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Calibri", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(148, 227);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->Location = System::Drawing::Point(197, 279);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(218, 20);
+			this->label2->Size = System::Drawing::Size(272, 25);
 			this->label2->TabIndex = 34;
 			this->label2->Text = L"Informations personnels du client";
 			// 
@@ -524,10 +521,9 @@ namespace ProjetPOO {
 			this->label3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Calibri", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(146, 422);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label3->Location = System::Drawing::Point(195, 519);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(221, 20);
+			this->label3->Size = System::Drawing::Size(275, 25);
 			this->label3->TabIndex = 35;
 			this->label3->Text = L"Adresse de livraison et facturation";
 			// 
@@ -539,10 +535,10 @@ namespace ProjetPOO {
 			this->textBoxZip->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxZip->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxZip->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxZip->Location = System::Drawing::Point(166, 536);
-			this->textBoxZip->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxZip->Location = System::Drawing::Point(221, 660);
+			this->textBoxZip->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxZip->Name = L"textBoxZip";
-			this->textBoxZip->Size = System::Drawing::Size(149, 20);
+			this->textBoxZip->Size = System::Drawing::Size(198, 22);
 			this->textBoxZip->TabIndex = 27;
 			this->textBoxZip->Text = L"Code Postal";
 			// 
@@ -554,29 +550,31 @@ namespace ProjetPOO {
 			this->textBoxID->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->textBoxID->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxID->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-			this->textBoxID->Location = System::Drawing::Point(166, 271);
-			this->textBoxID->Margin = System::Windows::Forms::Padding(2);
+			this->textBoxID->Location = System::Drawing::Point(221, 334);
+			this->textBoxID->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxID->Name = L"textBoxID";
 			this->textBoxID->ReadOnly = true;
-			this->textBoxID->Size = System::Drawing::Size(175, 20);
+			this->textBoxID->Size = System::Drawing::Size(233, 22);
 			this->textBoxID->TabIndex = 21;
 			this->textBoxID->Text = L"Identificateur client";
+			this->textBoxID->TextChanged += gcnew System::EventHandler(this, &App_Client::textBoxID_TextChanged);
 			// 
 			// dateTimePickerBirth
 			// 
-			this->dateTimePickerBirth->Location = System::Drawing::Point(166, 376);
+			this->dateTimePickerBirth->Location = System::Drawing::Point(221, 463);
+			this->dateTimePickerBirth->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dateTimePickerBirth->Name = L"dateTimePickerBirth";
-			this->dateTimePickerBirth->Size = System::Drawing::Size(175, 20);
+			this->dateTimePickerBirth->Size = System::Drawing::Size(232, 22);
 			this->dateTimePickerBirth->TabIndex = 36;
 			// 
 			// App_Client
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1443, 750);
+			this->ClientSize = System::Drawing::Size(1924, 923);
 			this->Controls->Add(this->dateTimePickerBirth);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
@@ -605,7 +603,7 @@ namespace ProjetPOO {
 			this->Controls->Add(this->pictureBox2);
 			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"App_Client";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"App_Client";
@@ -977,6 +975,8 @@ namespace ProjetPOO {
 	}
 	private: System::Void toolTip1_Popup(System::Object^ sender, System::Windows::Forms::PopupEventArgs^ e) {
 	}
+private: System::Void textBoxID_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
 

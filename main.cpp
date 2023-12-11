@@ -2,6 +2,8 @@
 
 #include "App_main.h"
 #include "Splashscreen.h"
+#include "App_statistiques.h"
+#include "DataBase.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
