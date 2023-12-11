@@ -2,6 +2,7 @@
 #include "Employe.h"
 #include "DataBase.h"
 #include "mEMPLOYE.h"
+#include "mADDRESS.h"
 
 namespace ProjetPOO {
 
@@ -683,8 +684,8 @@ namespace ProjetPOO {
 
 		dataGridView1->DataSource = dataSet->Tables[0]->DefaultView;
 		dataGridView1->Columns[0]->HeaderText = "Identificateur";
-		dataGridView1->Columns[1]->HeaderText = "Prénom";
-		dataGridView1->Columns[2]->HeaderText = "Nom";
+		dataGridView1->Columns[1]->HeaderText = "Nom";
+		dataGridView1->Columns[2]->HeaderText = "Prénom";
 		dataGridView1->Columns[3]->HeaderText = "Date de naissance";
 		// hide useless columns
 		dataGridView1->Columns[4]->Visible = false;
@@ -725,6 +726,7 @@ namespace ProjetPOO {
 		textBoxNomRue->Text = selectedEmployes->getHome_address()->getRoadName();
 		textBoxNomRue->ForeColor = System::Drawing::SystemColors::ControlText;
 		dateTimePickerHired->Value = selectedEmployes->getHired();
+		textBoxIDsuup->Text = selectedEmployes->getSuperior().ToString();
 	}
 
 	///////////
@@ -732,18 +734,67 @@ namespace ProjetPOO {
 	///////////
 
 private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
-//
-//	// Récupération des données de l'utilisateur
-//	String^ prenom = textBoxPrenom->Text;
-//	String^ nom = textBoxNom->Text;
-//	String^ pays = textBoxPays->Text;
-//	String^ ville = textBoxVille->Text;
-//	String^ cp = textBoxZip->Text;
-//	String^ num_appartement = textBoxAppart->Text;
-//	String^ num_rue = textBoxNumRue->Text;
-//	String^ nom_rue = textBoxNomRue->Text;
-//	DateTime date = dateTimePickerHired->Value;
-//
+
+	// Récupération des données de l'utilisateur
+	String^ prenom = textBoxPrenom->Text;
+	String^ nom = textBoxNom->Text;
+	String^ pays = textBoxPays->Text;
+	String^ ville = textBoxVille->Text;
+	String^ cp = textBoxZip->Text;
+	String^ num_appartement = textBoxAppart->Text;
+	String^ num_rue = textBoxNumRue->Text;
+	String^ nom_rue = textBoxNomRue->Text;
+	DateTime date = dateTimePickerHired->Value;
+	int superior;
+
+	if (prenom == "Prénom") {
+		MessageBox::Show("Veuillez entrer un prénom valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+	if (nom == "Nom") {
+		MessageBox::Show("Veuillez entrer un nom valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+	if (pays == "Pays") {
+		MessageBox::Show("Veuillez entrer un pays valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+	if (ville == "Ville") {
+		MessageBox::Show("Veuillez entrer une ville valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+	if (cp == "Code Postal") {
+		MessageBox::Show("Veuillez entrer un code postal valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+	if (num_appartement == "Numéro d'appartement") {
+		MessageBox::Show("Veuillez entrer un numéro d'appartement valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+	if (num_rue == "Numéro de rue") {
+		MessageBox::Show("Veuillez entrer un numéro de rue valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+	if (nom_rue == "Nom de la rue") {
+		MessageBox::Show("Veuillez entrer un nom de rue valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		return;
+	}
+
+	if (textBoxIDsuup->Text == "Identifiant Supérieur") {
+		superior = 0;
+	}
+	else {
+		superior = Convert::ToInt32(textBoxIDsuup->Text);
+	}
+
+	Address^ home_address = gcnew Address(pays, cp, ville, nom_rue, num_rue, num_appartement);
+	home_address = ADDRESS::add(home_address);
+	Employes^ employes = gcnew Employes(prenom, nom, date, superior, home_address);
+
+	employes = EMPLOYES::add(employes);
+	selectedEmployes = employes;
+	update_search(nullptr, nullptr);
+
 }
 	////////////
 	//Modifier//
@@ -759,12 +810,15 @@ private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e
 		String^ num_rue = textBoxNumRue->Text;
 		String^ nom_rue = textBoxNomRue->Text;
 		DateTime date = dateTimePickerHired->Value;
+		int superior;
 
-		Address^ home_adress = gcnew Address(pays, cp, ville, nom_rue, num_rue, num_appartement);
+		Address^ home_address = gcnew Address(pays, cp, ville, nom_rue, num_rue, num_appartement);
+		home_address = ADDRESS::add(home_address);
 
 		selectedEmployes->setFirstName(prenom);
 		selectedEmployes->setLastName(nom);
-		selectedEmployes->setHome_address(home_adress);
+		selectedEmployes->setHome_address(home_address);
+		selectedEmployes->setSuperior(superior);
 		selectedEmployes->setHired(date);
 
 		EMPLOYES::edit(selectedEmployes);
