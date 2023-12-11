@@ -72,24 +72,24 @@ namespace ProjetPOO {
 			this->pictureBox1->Location = System::Drawing::Point(0, 0);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(0);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(800, 492);
+			this->pictureBox1->Size = System::Drawing::Size(600, 400);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &Splashscreen::pictureBox1_Click);
 			// 
 			// Splashscreen
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(800, 492);
+			this->ClientSize = System::Drawing::Size(600, 400);
 			this->ControlBox = false;
 			this->Controls->Add(this->pictureBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(800, 492);
+			this->MaximumSize = System::Drawing::Size(600, 400);
 			this->MinimizeBox = false;
-			this->MinimumSize = System::Drawing::Size(800, 492);
+			this->MinimumSize = System::Drawing::Size(600, 400);
 			this->Name = L"Splashscreen";
 			this->Opacity = 0;
 			this->ShowIcon = false;
@@ -108,9 +108,7 @@ namespace ProjetPOO {
 			this->Refresh();
 			System::Threading::Thread::Sleep(1);
 		}
-		if (this->starting){
-			Threading::Thread::Sleep(1000);
-		}
+		if (this->starting){}
 		while (this->Opacity > 0){
 			this->Opacity -= 0.05;
 			this->Refresh();
@@ -118,5 +116,7 @@ namespace ProjetPOO {
 		}
 		this->Close();
 	}
-	};
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
