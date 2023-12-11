@@ -561,7 +561,6 @@ namespace ProjetPOO {
 		int index = e->RowIndex;
 		DataGridViewRow^ row = dataGridView1->Rows[index];
 		int id = (int)row->Cells[0]->Value;
-		MessageBox::Show("ID :"+id.ToString());
 		Article^ selectedArticle = ARTICLE::get(id);
 		
 		textBoxID->Text = selectedArticle->getId().ToString();
@@ -610,6 +609,27 @@ namespace ProjetPOO {
 		   ////////////
 
 	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ nomArticle = textBoxNom->Text;
+		float prixHT;
+		float tauxTVA;
+		try {
+			prixHT = float::Parse(textBoxPrixHT->Text);
+			tauxTVA = float::Parse(textBoxTVA->Text);
+
+		}
+		catch (Exception^ event) {
+			MessageBox::Show("Erreur lors de la récupération des données");
+			return;
+		}
+		Tax^ newtaux = gcnew Tax(tauxTVA);
+		newtaux = TAX::add(newtaux);
+		Article^ newarticle = gcnew Article(nomArticle, prixHT, newtaux);
+		ARTICLE::edit(newarticle);
+
+		update_search(nullptr, nullptr);
+
+
+		MessageBox::Show("Article édité avec succès!");
 	}
 
 
@@ -619,7 +639,9 @@ namespace ProjetPOO {
 		   /////////////
 
 	private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
-		ARTICLE::remove(selectedArticle);
+		int idarticle = Convert::ToInt32(textBoxID->Text);
+		Article^ selected = ARTICLE::get(idarticle);
+		ARTICLE::remove(selected);
 		update_search();
 	}
 

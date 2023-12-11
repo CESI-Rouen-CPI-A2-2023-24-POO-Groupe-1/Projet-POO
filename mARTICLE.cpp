@@ -17,22 +17,26 @@ void ARTICLE::edit(Article^ article) {
 	DataBase^ rarticle = gcnew DataBase;
 	String^ order = "UPDATE Articles SET ARTICLES_NOM = '" + article->getName() + "', ARTICLES_PRIX_HT = " + article->getPrice() + ", ID_TVA = " + article->getTax()->getId() + " WHERE ID_ARTICLES = " + article->getId() + "; ";
 	rarticle->execute(order);
+	Console::WriteLine(order);
 }
 
 void ARTICLE::remove(Article^ article) {
+
+
 	DataBase^ rarticle = gcnew DataBase;
-	try {
+
+
 		if (article->getId() == 0) {
 			throw gcnew Exception("Unknown ID");
 		}
 		else {
-			String^ order = "DELETE FROM Articles WHERE ID_ARTICLES = " + article->getId() + "; ";
-			rarticle->execute(order);
+			String^ order1 = "DELETE FROM Variations_de_stocks WHERE ID_ARTICLES = " + article->getId() + ";";
+			String^ order2 = " DELETE FROM Articles WHERE ID_ARTICLES = " + article->getId() + "; ";
+			rarticle->execute(order1);
+			rarticle->execute(order2);
 		}
-	}
-	catch (Exception^ ex) {
-		System::Windows::Forms::MessageBox::Show("Erreur : Vous n'avez pas les privilèges nécessaires");
-	}
+	
+
 }
 
 
