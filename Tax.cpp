@@ -25,3 +25,6 @@ Tax::Tax(int id, int percentage) {
     this->id = id;
     this->percentage = percentage;
 }
+Tax::Tax( int percentage) {
+    this->percentage = percentage;
+}

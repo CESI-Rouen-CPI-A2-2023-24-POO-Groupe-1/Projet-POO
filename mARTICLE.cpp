@@ -4,8 +4,11 @@
 
 Article^ ARTICLE::add(Article^ article) {
 	DataBase^ rarticle = gcnew DataBase;
-	String^ order = "INSERT INTO Articles (ARTICLES_NOM, ARTICLES_PRIX_HT, ID_TVA) VALUES ('" + article->getName() + "'," + article->getPrice() + ", " + article->getTax()->getId() + "); SELECT SCOPE_IDENTITY();";
-	int id = rarticle->executeToInt(order);
+	String^ order1 = "INSERT INTO Articles (ARTICLES_NOM, ARTICLES_PRIX_HT, ID_TVA) VALUES ('" + article->getName() + "'," + article->getPrice() + ", " + article->getTax()->getId() + ");";
+	
+	rarticle->execute(order1);
+	String^ order2 = "SELECT TOP 1 ID_ARTICLES FROM Articles ORDER BY ID_ARTICLES ASC;";
+	int id = rarticle->executeToInt(order2);
 	Article^ newarticle = gcnew Article(id, article->getName(), article->getPrice(), article->getTax());
 	return newarticle;
 }

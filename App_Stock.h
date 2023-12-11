@@ -1,5 +1,7 @@
 #pragma once
 #include "Article.h"
+#include "Tax.h"
+#include "mTAX.h"
 #include "DataBase.h"
 #include "mARTICLE.h"
 
@@ -24,7 +26,6 @@ namespace ProjetPOO {
 		{
 			InitializeComponent();
 			this->textBoxIdSearch->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &App_Stock::textBoxIdSearch_int);
-			this->textBoxZip->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &App_Stock::textBoxZip_int);
 			this->textBoxIdSearch->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxIdSearch_Enter);
 			this->textBoxIdSearch->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxIdSearch_Leave);
 			this->textBoxNomSearch->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxNomSearch_Enter);
@@ -33,22 +34,8 @@ namespace ProjetPOO {
 			this->textBoxPrixSearch->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxPrixSearch_Leave);
 			this->textBoxNom->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxNom_Enter);
 			this->textBoxNom->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxNom_Leave);
-			this->textBoxPays->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxPays_Enter);
-			this->textBoxPays->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxPays_Leave);
-			this->textBoxVille->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxVille_Enter);
-			this->textBoxVille->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxVille_Leave);
-			this->textBoxZip->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxZip_Enter);
-			this->textBoxZip->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxZip_Leave);
-			this->textBoxAppart->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxAppart_Enter);
-			this->textBoxAppart->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxAppart_Leave);
-			this->textBoxNumRue->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxNumRue_Enter);
-			this->textBoxNumRue->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxNumRue_Leave);
-			this->textBoxNomRue->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxNomRue_Enter);
-			this->textBoxNomRue->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxNomRue_Leave);
 			this->textBoxTVA->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxTVA_Enter);
 			this->textBoxTVA->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxTVA_Leave);
-			this->textBoxRef->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxRef_Enter);
-			this->textBoxRef->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxRef_Leave);
 			this->textBoxPrixHT->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxPrixHT_Enter);
 			this->textBoxPrixHT->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxPrixHT_Leave);
 			database = gcnew DataBase();
@@ -93,23 +80,23 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::TextBox^ textBoxPrixHT;
 
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
-	private: System::Windows::Forms::TextBox^ textBoxPays;
-	private: System::Windows::Forms::TextBox^ textBoxVille;
 
-	private: System::Windows::Forms::TextBox^ textBoxAppart;
-	private: System::Windows::Forms::TextBox^ textBoxNumRue;
-	private: System::Windows::Forms::TextBox^ textBoxNomRue;
+
+
+
+
+
 
 
 
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ textBoxZip;
+
+
 	private: System::Windows::Forms::TextBox^ textBoxID;
 
 	private: bool buttonClicked = false;
 	private: bool buttonClicked2 = false;
-	private: System::Windows::Forms::TextBox^ textBoxRef;
+
 	private: System::Windows::Forms::TextBox^ textBoxTVA;
 
 
@@ -125,14 +112,7 @@ namespace ProjetPOO {
 			textBoxID->Text = "Identifiant Article";
 			textBoxNom->Text = "Nom";
 			textBoxPrixHT->Text = "Prix Hors Taxe";
-			textBoxRef->Text = "Référence de l'article";
 			textBoxTVA->Text = "Taux TVA";
-			textBoxPays->Text = "Pays";
-			textBoxVille->Text = "Ville";
-			textBoxZip->Text = "Code Postal";
-			textBoxAppart->Text = "Numéro d'appartement";
-			textBoxNumRue->Text = "Numéro de rue";
-			textBoxNomRue->Text = "Nom de la rue";
 		}
 
 	private:
@@ -188,16 +168,8 @@ namespace ProjetPOO {
 			this->textBoxNom = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxPrixHT = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
-			this->textBoxPays = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxVille = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxAppart = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxNumRue = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxNomRue = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBoxZip = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxID = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxRef = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxTVA = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
@@ -440,81 +412,6 @@ namespace ProjetPOO {
 			this->pictureBox5->TabIndex = 24;
 			this->pictureBox5->TabStop = false;
 			// 
-			// textBoxPays
-			// 
-			this->textBoxPays->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxPays->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->textBoxPays->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxPays->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxPays->Location = System::Drawing::Point(221, 574);
-			this->textBoxPays->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBoxPays->Name = L"textBoxPays";
-			this->textBoxPays->Size = System::Drawing::Size(198, 22);
-			this->textBoxPays->TabIndex = 25;
-			this->textBoxPays->Text = L"Pays";
-			// 
-			// textBoxVille
-			// 
-			this->textBoxVille->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxVille->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->textBoxVille->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxVille->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxVille->Location = System::Drawing::Point(221, 619);
-			this->textBoxVille->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBoxVille->Name = L"textBoxVille";
-			this->textBoxVille->Size = System::Drawing::Size(198, 22);
-			this->textBoxVille->TabIndex = 26;
-			this->textBoxVille->Text = L"Ville";
-			// 
-			// textBoxAppart
-			// 
-			this->textBoxAppart->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxAppart->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->textBoxAppart->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxAppart->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxAppart->Location = System::Drawing::Point(587, 660);
-			this->textBoxAppart->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBoxAppart->Name = L"textBoxAppart";
-			this->textBoxAppart->Size = System::Drawing::Size(198, 22);
-			this->textBoxAppart->TabIndex = 30;
-			this->textBoxAppart->Text = L"Numéro d\'appartement";
-			// 
-			// textBoxNumRue
-			// 
-			this->textBoxNumRue->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxNumRue->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->textBoxNumRue->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxNumRue->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxNumRue->Location = System::Drawing::Point(587, 619);
-			this->textBoxNumRue->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBoxNumRue->Name = L"textBoxNumRue";
-			this->textBoxNumRue->Size = System::Drawing::Size(198, 22);
-			this->textBoxNumRue->TabIndex = 29;
-			this->textBoxNumRue->Text = L"Numéro de rue";
-			// 
-			// textBoxNomRue
-			// 
-			this->textBoxNomRue->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxNomRue->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->textBoxNomRue->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxNomRue->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxNomRue->Location = System::Drawing::Point(587, 574);
-			this->textBoxNomRue->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBoxNomRue->Name = L"textBoxNomRue";
-			this->textBoxNomRue->Size = System::Drawing::Size(198, 22);
-			this->textBoxNomRue->TabIndex = 28;
-			this->textBoxNomRue->Text = L"Nom de la rue";
-			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
@@ -527,34 +424,6 @@ namespace ProjetPOO {
 			this->label2->Size = System::Drawing::Size(257, 25);
 			this->label2->TabIndex = 34;
 			this->label2->Text = L"Informations relatives à l\'article";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->label3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Calibri", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(195, 519);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(176, 25);
-			this->label3->TabIndex = 35;
-			this->label3->Text = L"Adresse de l\'entrepôt";
-			// 
-			// textBoxZip
-			// 
-			this->textBoxZip->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxZip->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->textBoxZip->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxZip->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxZip->Location = System::Drawing::Point(221, 660);
-			this->textBoxZip->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBoxZip->Name = L"textBoxZip";
-			this->textBoxZip->Size = System::Drawing::Size(198, 22);
-			this->textBoxZip->TabIndex = 27;
-			this->textBoxZip->Text = L"Code Postal";
 			// 
 			// textBoxID
 			// 
@@ -572,21 +441,6 @@ namespace ProjetPOO {
 			this->textBoxID->TabIndex = 21;
 			this->textBoxID->Text = L"Identifiant article";
 			// 
-			// textBoxRef
-			// 
-			this->textBoxRef->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxRef->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->textBoxRef->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxRef->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxRef->Location = System::Drawing::Point(221, 419);
-			this->textBoxRef->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBoxRef->Name = L"textBoxRef";
-			this->textBoxRef->Size = System::Drawing::Size(233, 22);
-			this->textBoxRef->TabIndex = 36;
-			this->textBoxRef->Text = L"Référence de l\'article";
-			// 
 			// textBoxTVA
 			// 
 			this->textBoxTVA->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
@@ -595,7 +449,7 @@ namespace ProjetPOO {
 			this->textBoxTVA->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxTVA->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxTVA->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxTVA->Location = System::Drawing::Point(221, 464);
+			this->textBoxTVA->Location = System::Drawing::Point(221, 419);
 			this->textBoxTVA->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxTVA->Name = L"textBoxTVA";
 			this->textBoxTVA->Size = System::Drawing::Size(233, 22);
@@ -611,15 +465,7 @@ namespace ProjetPOO {
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1906, 876);
 			this->Controls->Add(this->textBoxTVA);
-			this->Controls->Add(this->textBoxRef);
-			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBoxAppart);
-			this->Controls->Add(this->textBoxNumRue);
-			this->Controls->Add(this->textBoxNomRue);
-			this->Controls->Add(this->textBoxZip);
-			this->Controls->Add(this->textBoxVille);
-			this->Controls->Add(this->textBoxPays);
 			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->textBoxPrixHT);
 			this->Controls->Add(this->textBoxNom);
@@ -715,7 +561,8 @@ namespace ProjetPOO {
 		int index = e->RowIndex;
 		DataGridViewRow^ row = dataGridView1->Rows[index];
 		int id = (int)row->Cells[0]->Value;
-		selectedArticle = ARTICLE::get(id);
+		MessageBox::Show("ID :"+id.ToString());
+		Article^ selectedArticle = ARTICLE::get(id);
 		
 		textBoxID->Text = selectedArticle->getId().ToString();
 		textBoxID->ForeColor = System::Drawing::SystemColors::ControlText;
@@ -723,7 +570,9 @@ namespace ProjetPOO {
 		textBoxNom->ForeColor = System::Drawing::SystemColors::ControlText;
 		textBoxPrixHT->Text = System::Convert::ToString(selectedArticle->getPrice());
 		textBoxPrixHT->ForeColor = System::Drawing::SystemColors::ControlText;
-		textBoxTVA->Text = System::Convert::ToString(selectedArticle->getTax());
+		textBoxTVA->Text = System::Convert::ToString(selectedArticle->getTax()->getPercentage());
+		textBoxTVA->ForeColor = System::Drawing::SystemColors::ControlText;
+
 		
 	}
 
@@ -733,11 +582,25 @@ namespace ProjetPOO {
 
 	private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ nomArticle = textBoxNom->Text;
-		Decimal prixHT = Decimal::Parse(textBoxPrixHT->Text);
-		String^ nomReference = textBoxRef->Text;
-		Decimal tauxTVA = Decimal::Parse(textBoxTVA->Text);
-		
+		float prixHT;
+		float tauxTVA;
+		try{
+			 prixHT = float::Parse(textBoxPrixHT->Text);
+			 tauxTVA = float::Parse(textBoxTVA->Text);
+
+		}
+		catch(Exception^event){
+			MessageBox::Show("Erreur lors de la récupération des données");
+			return;
+		}
+		Tax^ newtaux = gcnew Tax(tauxTVA);
+		newtaux = TAX::add(newtaux);
+		Article^ newarticle = gcnew Article(nomArticle, prixHT, newtaux);
+		newarticle = ARTICLE::add(newarticle);
+
 		update_search(nullptr, nullptr);
+
+
 		MessageBox::Show("Article ajouté avec succès!");
 	}
 
@@ -822,88 +685,7 @@ namespace ProjetPOO {
 		}
 	}
 
-	private: System::Void textBoxPays_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxPays->Text == "Pays") {
-			textBoxPays->Text = "";
-			textBoxPays->ForeColor = System::Drawing::SystemColors::ControlText;
-		}
-	}
 
-	private: System::Void textBoxPays_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxPays->Text == "") {
-			textBoxPays->Text = "Pays";
-			textBoxPays->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		}
-	}
-	private: System::Void textBoxVille_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxVille->Text == "Ville") {
-			textBoxVille->Text = "";
-			textBoxVille->ForeColor = System::Drawing::SystemColors::ControlText;
-		}
-	}
-
-	private: System::Void textBoxVille_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxVille->Text == "") {
-			textBoxVille->Text = "Ville";
-			textBoxVille->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		}
-	}
-
-	private: System::Void textBoxZip_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxZip->Text == "Code Postal") {
-			textBoxZip->Text = "";
-			textBoxZip->ForeColor = System::Drawing::SystemColors::ControlText;
-		}
-	}
-
-	private: System::Void textBoxZip_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxZip->Text == "") {
-			textBoxZip->Text = "Code Postal";
-			textBoxZip->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		}
-	}
-
-	private: System::Void textBoxAppart_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxAppart->Text == "Numéro d'appartement") {
-			textBoxAppart->Text = "";
-			textBoxAppart->ForeColor = System::Drawing::SystemColors::ControlText;
-		}
-	}
-
-	private: System::Void textBoxAppart_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxAppart->Text == "") {
-			textBoxAppart->Text = "Numéro d'appartement";
-			textBoxAppart->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		}
-	}
-
-	private: System::Void textBoxNumRue_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxNumRue->Text == "Numéro de rue") {
-			textBoxNumRue->Text = "";
-			textBoxNumRue->ForeColor = System::Drawing::SystemColors::ControlText;
-		}
-	}
-
-	private: System::Void textBoxNumRue_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxNumRue->Text == "") {
-			textBoxNumRue->Text = "Numéro de rue";
-			textBoxNumRue->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		}
-	}
-
-	private: System::Void textBoxNomRue_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxNomRue->Text == "Nom de la rue") {
-			textBoxNomRue->Text = "";
-			textBoxNomRue->ForeColor = System::Drawing::SystemColors::ControlText;
-		}
-	}
-
-	private: System::Void textBoxNomRue_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxNomRue->Text == "") {
-			textBoxNomRue->Text = "Nom de la rue";
-			textBoxNomRue->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		}
-	}
 
 	private: System::Void textBoxTVA_Enter(System::Object^ sender, System::EventArgs^ e) {
 		if (textBoxTVA->Text == "Taux TVA") {
@@ -916,20 +698,6 @@ namespace ProjetPOO {
 		if (textBoxTVA->Text == "") {
 			textBoxTVA->Text = "Taux TVA";
 			textBoxTVA->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		}
-	}
-
-	private: System::Void textBoxRef_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRef->Text == "Référence de l'article") {
-			textBoxRef->Text = "";
-			textBoxRef->ForeColor = System::Drawing::SystemColors::ControlText;
-		}
-	}
-
-	private: System::Void textBoxRef_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRef->Text == "") {
-			textBoxRef->Text = "Référence de l'article";
-			textBoxRef->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 		}
 	}
 
