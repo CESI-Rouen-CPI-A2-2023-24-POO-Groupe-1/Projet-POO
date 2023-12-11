@@ -47,8 +47,6 @@ namespace ProjetPOO {
 			this->textBoxNomRue->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxNomRue_Leave);
 			this->textBoxTVA->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxTVA_Enter);
 			this->textBoxTVA->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxTVA_Leave);
-			this->textBoxRef->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxRef_Enter);
-			this->textBoxRef->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxRef_Leave);
 			this->textBoxPrixHT->Enter += gcnew System::EventHandler(this, &App_Stock::textBoxPrixHT_Enter);
 			this->textBoxPrixHT->Leave += gcnew System::EventHandler(this, &App_Stock::textBoxPrixHT_Leave);
 			database = gcnew DataBase();
@@ -109,7 +107,7 @@ namespace ProjetPOO {
 
 	private: bool buttonClicked = false;
 	private: bool buttonClicked2 = false;
-	private: System::Windows::Forms::TextBox^ textBoxRef;
+
 	private: System::Windows::Forms::TextBox^ textBoxTVA;
 
 
@@ -125,7 +123,6 @@ namespace ProjetPOO {
 			textBoxID->Text = "Identifiant Article";
 			textBoxNom->Text = "Nom";
 			textBoxPrixHT->Text = "Prix Hors Taxe";
-			textBoxRef->Text = "Référence de l'article";
 			textBoxTVA->Text = "Taux TVA";
 			textBoxPays->Text = "Pays";
 			textBoxVille->Text = "Ville";
@@ -197,7 +194,6 @@ namespace ProjetPOO {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->textBoxZip = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxID = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxRef = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxTVA = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
@@ -572,21 +568,6 @@ namespace ProjetPOO {
 			this->textBoxID->TabIndex = 21;
 			this->textBoxID->Text = L"Identifiant article";
 			// 
-			// textBoxRef
-			// 
-			this->textBoxRef->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBoxRef->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->textBoxRef->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxRef->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxRef->Location = System::Drawing::Point(221, 419);
-			this->textBoxRef->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->textBoxRef->Name = L"textBoxRef";
-			this->textBoxRef->Size = System::Drawing::Size(233, 22);
-			this->textBoxRef->TabIndex = 36;
-			this->textBoxRef->Text = L"Référence de l\'article";
-			// 
 			// textBoxTVA
 			// 
 			this->textBoxTVA->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
@@ -595,7 +576,7 @@ namespace ProjetPOO {
 			this->textBoxTVA->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->textBoxTVA->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBoxTVA->ForeColor = System::Drawing::SystemColors::ControlDark;
-			this->textBoxTVA->Location = System::Drawing::Point(221, 464);
+			this->textBoxTVA->Location = System::Drawing::Point(221, 419);
 			this->textBoxTVA->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBoxTVA->Name = L"textBoxTVA";
 			this->textBoxTVA->Size = System::Drawing::Size(233, 22);
@@ -611,7 +592,6 @@ namespace ProjetPOO {
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1906, 876);
 			this->Controls->Add(this->textBoxTVA);
-			this->Controls->Add(this->textBoxRef);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->textBoxAppart);
@@ -723,7 +703,9 @@ namespace ProjetPOO {
 		textBoxNom->ForeColor = System::Drawing::SystemColors::ControlText;
 		textBoxPrixHT->Text = System::Convert::ToString(selectedArticle->getPrice());
 		textBoxPrixHT->ForeColor = System::Drawing::SystemColors::ControlText;
-		textBoxTVA->Text = System::Convert::ToString(selectedArticle->getTax());
+		textBoxTVA->Text = System::Convert::ToString(selectedArticle->getTax()->getPercentage());
+		textBoxTVA->ForeColor = System::Drawing::SystemColors::ControlText;
+
 		
 	}
 
@@ -734,7 +716,6 @@ namespace ProjetPOO {
 	private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ nomArticle = textBoxNom->Text;
 		Decimal prixHT = Decimal::Parse(textBoxPrixHT->Text);
-		String^ nomReference = textBoxRef->Text;
 		Decimal tauxTVA = Decimal::Parse(textBoxTVA->Text);
 		
 		update_search(nullptr, nullptr);
@@ -916,20 +897,6 @@ namespace ProjetPOO {
 		if (textBoxTVA->Text == "") {
 			textBoxTVA->Text = "Taux TVA";
 			textBoxTVA->ForeColor = System::Drawing::SystemColors::ButtonShadow;
-		}
-	}
-
-	private: System::Void textBoxRef_Enter(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRef->Text == "Référence de l'article") {
-			textBoxRef->Text = "";
-			textBoxRef->ForeColor = System::Drawing::SystemColors::ControlText;
-		}
-	}
-
-	private: System::Void textBoxRef_Leave(System::Object^ sender, System::EventArgs^ e) {
-		if (textBoxRef->Text == "") {
-			textBoxRef->Text = "Référence de l'article";
-			textBoxRef->ForeColor = System::Drawing::SystemColors::ButtonShadow;
 		}
 	}
 
