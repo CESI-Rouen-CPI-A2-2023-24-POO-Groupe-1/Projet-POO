@@ -1,5 +1,6 @@
 #include "mARTICLE.h"
 #include "mTAX.h"
+#include "DataBase.h"
 
 Article^ ARTICLE::add(Article^ article) {
 	DataBase^ rarticle = gcnew DataBase;
@@ -17,9 +18,20 @@ void ARTICLE::edit(Article^ article) {
 
 void ARTICLE::remove(Article^ article) {
 	DataBase^ rarticle = gcnew DataBase;
-	String^ order = "DELETE FROM Articles WHERE ID_ARTICLES = " + article->getId() + "; ";
-	rarticle->execute(order);
+	try {
+		if (article->getId() == 0) {
+			throw gcnew Exception("Unknown ID");
+		}
+		else {
+			String^ order = "DELETE FROM Articles WHERE ID_ARTICLES = " + article->getId() + "; ";
+			rarticle->execute(order);
+		}
+	}
+	catch (Exception^ ex) {
+		System::Windows::Forms::MessageBox::Show("Erreur : Vous n'avez pas les privilèges nécessaires");
+	}
 }
+
 
 Article^ ARTICLE::get(int id) {
 	DataBase^ rarticle = gcnew DataBase;
@@ -38,8 +50,7 @@ Article^ ARTICLE::get(int id) {
 
 DataSet^ ARTICLE::search(String^ id, String^ nom, String^ prix) {
 	DataBase^ db = gcnew DataBase();
-	String^ order = "SELECT * FROM Articles WHERE id_articles LIKE '%" + id + "%' AND articles_nom LIKE '%" + nom + "%' AND articles_prix_ht LIKE '%" + prix + "%'";
+	String^ order = "SELECT * FROM Articles WHERE id_articles LIKE '%" + id + "%' AND articles_nom LIKE '%" + nom + "%' AND articles_prix_ht LIKE '%" + prix + "%';";
 	DataSet^ ds = db->executeToDataSet(order);
 	return ds;
 }
-
