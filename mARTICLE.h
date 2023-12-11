@@ -4,9 +4,9 @@
 public ref class ARTICLE
 {
 public:
-    static Article^ ARTICLE::add(Article^ article);
-    static void ARTICLE::edit(Article^ article);
-    static void ARTICLE::remove(Article^ article);
-    static Article^ ARTICLE::get(int id);
-    static DataSet^ ARTICLE::search(String^ mot, String^ reference);
+    static Article^ add(Article^ article);
+    static void edit(Article^ article);
+    static void remove(Article^ article);
+    static Article^ get(int id);
+    static DataSet^ search(String^ id, String^ nom, String^ prix);
 };
