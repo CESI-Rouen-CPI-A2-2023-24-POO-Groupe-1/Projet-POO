@@ -680,7 +680,7 @@ namespace ProjetPOO {
 	private: System::Void update_search(System::Object^ sender, System::EventArgs^ e) {
 		
 		String^ id = textBoxIdSearch->Text;
-		if (id == "Identifiant Stock") {
+		if (id == "Identifiant Article") {
 			id = "";
 		}
 		String^ nom = textBoxNomSearch->Text;
@@ -697,8 +697,8 @@ namespace ProjetPOO {
 		dataGridView1->Columns[0]->HeaderText = "Identifiant";
 		dataGridView1->Columns[1]->HeaderText = "Nom";
 		dataGridView1->Columns[2]->HeaderText = "Prix Hors Taxe";
+		dataGridView1->Columns[3]->HeaderText = "Référence de l'article";
 		// hide useless columns
-		dataGridView1->Columns[3]->Visible = false;
 		dataGridView1->Columns[4]->Visible = false;
 		// update
 		dataGridView1->Update();
@@ -718,8 +718,11 @@ namespace ProjetPOO {
 		selectedArticle = ARTICLE::get(id);
 		
 		textBoxID->Text = selectedArticle->getId().ToString();
+		textBoxID->ForeColor = System::Drawing::SystemColors::ControlText;
 		textBoxNom->Text = selectedArticle->getName();
+		textBoxNom->ForeColor = System::Drawing::SystemColors::ControlText;
 		textBoxPrixHT->Text = System::Convert::ToString(selectedArticle->getPrice());
+		textBoxPrixHT->ForeColor = System::Drawing::SystemColors::ControlText;
 		textBoxTVA->Text = System::Convert::ToString(selectedArticle->getTax());
 		
 	}
