@@ -1,5 +1,6 @@
 #pragma once
 #include "mORDER.h"
+#include "mARTICLE.h"
 #include "mCLIENT.h"
 
 namespace ProjetPOO {
@@ -46,7 +47,7 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::TextBox^ textBoxRefSearch;
 
 
-	private: System::Windows::Forms::DataGridView^ dataGridView2;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::TextBox^ textBoxIDClientSearch;
 	private: System::Windows::Forms::TextBox^ textBoxNomClientSearch;
@@ -67,6 +68,7 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::TextBox^ textBoxID;
 	private: System::Windows::Forms::DataGridView^ dataGridView3;
+	private: System::Windows::Forms::DataGridView^ dataGridView2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
@@ -101,7 +103,6 @@ namespace ProjetPOO {
 			this->Main_Titre_2 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBoxRefSearch = (gcnew System::Windows::Forms::TextBox());
-			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->textBoxIDClientSearch = (gcnew System::Windows::Forms::TextBox());
@@ -122,11 +123,12 @@ namespace ProjetPOO {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->textBoxID = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -207,18 +209,6 @@ namespace ProjetPOO {
 			this->textBoxRefSearch->TextChanged += gcnew System::EventHandler(this, &App_Commandes::search);
 			this->textBoxRefSearch->Enter += gcnew System::EventHandler(this, &App_Commandes::textBoxRefSearch_Enter);
 			this->textBoxRefSearch->Leave += gcnew System::EventHandler(this, &App_Commandes::textBoxRefSearch_Leave);
-			// 
-			// dataGridView2
-			// 
-			this->dataGridView2->BackgroundColor = System::Drawing::SystemColors::ButtonFace;
-			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Location = System::Drawing::Point(132, 147);
-			this->dataGridView2->Margin = System::Windows::Forms::Padding(2);
-			this->dataGridView2->Name = L"dataGridView2";
-			this->dataGridView2->RowHeadersWidth = 51;
-			this->dataGridView2->RowTemplate->Height = 24;
-			this->dataGridView2->Size = System::Drawing::Size(585, 569);
-			this->dataGridView2->TabIndex = 16;
 			// 
 			// pictureBox2
 			// 
@@ -317,6 +307,7 @@ namespace ProjetPOO {
 			this->button2->TabIndex = 23;
 			this->button2->Text = L"Supprimer l\'article sélectionné";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &App_Commandes::button2_Click);
 			// 
 			// textBox1
 			// 
@@ -342,6 +333,7 @@ namespace ProjetPOO {
 			this->button3->TabIndex = 26;
 			this->button3->Text = L"Ajouter un article";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &App_Commandes::button3_Click);
 			// 
 			// textBoxRef
 			// 
@@ -450,6 +442,18 @@ namespace ProjetPOO {
 			this->dataGridView3->Size = System::Drawing::Size(552, 375);
 			this->dataGridView3->TabIndex = 22;
 			// 
+			// dataGridView2
+			// 
+			this->dataGridView2->BackgroundColor = System::Drawing::SystemColors::ButtonFace;
+			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView2->Location = System::Drawing::Point(132, 147);
+			this->dataGridView2->Margin = System::Windows::Forms::Padding(2);
+			this->dataGridView2->Name = L"dataGridView2";
+			this->dataGridView2->RowHeadersWidth = 51;
+			this->dataGridView2->RowTemplate->Height = 24;
+			this->dataGridView2->Size = System::Drawing::Size(585, 569);
+			this->dataGridView2->TabIndex = 16;
+			// 
 			// App_Commandes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -493,10 +497,10 @@ namespace ProjetPOO {
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &App_Commandes::App_Commandes_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -556,7 +560,7 @@ namespace ProjetPOO {
 		};
 		if (e->RowIndex >= 0) {
 			Order^ order = ORDER::get(Convert::ToInt32(dataGridView1->Rows[e->RowIndex]->Cells[0]->Value));
-			dataGridView2->DataSource = order->getArticleList()->toDataSet();
+			dataGridView3->DataSource = order->getArticleList()->toDataSet()->Tables[0]->DefaultView;
 
 			textBoxRef->Text = order->getReference();
 			textBoxRef->ForeColor = System::Drawing::SystemColors::ControlText;
@@ -570,7 +574,7 @@ namespace ProjetPOO {
 			textBoxNom->ForeColor = System::Drawing::SystemColors::ControlText;
 			textBoxRemise->Text = order->getRemise().ToString();
 			textBoxRemise->ForeColor = System::Drawing::SystemColors::ControlText;
-			textBoxTotal->Text = order->getTotal().ToString();
+			textBoxTotal->Text = order->getList()->getTotal().ToString();
 
 		}
 	}
@@ -732,6 +736,7 @@ namespace ProjetPOO {
 			Order^ order = gcnew Order();
 			order->setReference(textBoxRef->Text);
 			order->setClient(CLIENT::get(Convert::ToInt32(textBoxIDClient->Text)));
+			// remove "%" t the end of the string
 			order->setRemise(Convert::ToInt32(textBoxRemise->Text->Substring(0, textBoxRemise->Text->Length - 1)));
 			order->setArticleList(articleList);
 			ORDER::add(order);
@@ -746,6 +751,36 @@ namespace ProjetPOO {
 			ORDER::edit(order);
 			search(nullptr, nullptr);
 		}
+	}
+
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		// add article to list
+		Article^ article = ARTICLE::get(Convert::ToInt32(textBox1->Text));
+		int amount;
+
+		try{
+			amount = Convert::ToInt32(textBox2->Text);
+		} catch (Exception^ e) {
+			MessageBox::Show("Veuillez entrer une quantité valide", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+
+		articleList->add(article, amount);
+		dataGridView3->DataSource = articleList->toDataSet()->Tables[0]->DefaultView;
+		textBoxTotal->Text = articleList->getTotal().ToString();
+	}
+
+
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (dataGridView3->SelectedCells->Count == 0) {
+			MessageBox::Show("Veuillez sélectionner un article", "Erreur", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;
+		}
+		int id = Convert::ToInt32(dataGridView3->SelectedCells[0]->OwningRow->Cells[0]->Value);
+		articleList->remove(id);
+		MessageBox::Show("Article supprimé avec succès !", "Succès", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		dataGridView3->DataSource = articleList->toDataSet()->Tables[0]->DefaultView;
+		textBoxTotal->Text = articleList->getTotal().ToString();
 	}
 };
 }

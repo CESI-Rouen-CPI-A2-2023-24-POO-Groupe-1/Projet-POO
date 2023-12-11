@@ -33,5 +33,4 @@ public:
 	void setRemise(float remise);
     ArticleList^ getList();
     void setList(ArticleList^ Liste);
-    float getTotal();
 };

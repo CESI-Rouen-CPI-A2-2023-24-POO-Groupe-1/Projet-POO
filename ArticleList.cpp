@@ -21,7 +21,12 @@ void ArticleList::add(Article^ article, int amount) {
 
 void ArticleList::remove(int index) {
     if (index == 0) {
-		head = head->getNext();
+		if (size() > 1) {
+			head = head->getNext();
+		}
+		else {
+			head = nullptr;
+		}
 	}
 	else {
 		ArticleInList^ current = head;
@@ -79,6 +84,16 @@ DataSet^ ArticleList::toDataSet() {
 		index++;
 	}
 	return dataSet;
+}
+
+int ArticleList::getTotal(){
+	int total = 0;
+	ArticleInList^ current = head;
+	while (current != nullptr) {
+		total += current->getPrice() * current->getAmount();
+		current = current->getNext();
+	}
+	return total;
 }
 
 

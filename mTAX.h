@@ -10,5 +10,4 @@ public:
     static void TAX::remove(Tax^ tax);
     static Tax^ TAX::get(int id);
     static DataSet^ TAX::search(float percentage);
-    static int TAX::go(float percentage);
 };

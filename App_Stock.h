@@ -587,15 +587,23 @@ namespace ProjetPOO {
 		try{
 			 prixHT = float::Parse(textBoxPrixHT->Text);
 			 tauxTVA = float::Parse(textBoxTVA->Text);
-
 		}
 		catch(Exception^event){
 			MessageBox::Show("Erreur lors de la récupération des données");
 			return;
 		}
-		Tax^ newtaux = gcnew Tax(tauxTVA);
-		newtaux = TAX::add(newtaux);
-		Article^ newarticle = gcnew Article(nomArticle, prixHT, newtaux);
+
+		Tax^ tax;
+
+		DataSet^ ds = TAX::search(tauxTVA);
+		if (ds->Tables[0]->Rows->Count == 0) {
+			tax = gcnew Tax(tauxTVA);
+			tax = TAX::add(tax);
+		} else {
+			tax = TAX::get(tauxTVA);
+		}
+
+		Article^ newarticle = gcnew Article(nomArticle, prixHT, tax);
 		newarticle = ARTICLE::add(newarticle);
 
 		update_search(nullptr, nullptr);

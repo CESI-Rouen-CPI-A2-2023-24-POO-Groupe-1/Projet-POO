@@ -12,6 +12,7 @@ public:
     void setAmount(int index, int amount);
     void clear();
     int size();
+    int getTotal();
     DataSet^ toDataSet();
     ArticleInList^ get(int index);
 };

@@ -97,15 +97,3 @@ void Order::setList(ArticleList^ Liste)
 {
     this->Liste = Liste;
 }
-
-float Order::getTotal()
-{
-    DataSet^ list = this->getList()->toDataSet();
-    float total = 0;
-    if (list->Tables[0]->Rows->Count == 0){return 0.0f;}
-	for (int i = 0; i < list->Tables["Article"]->Rows->Count; i++)
-	{
-		total += float::Parse(list->Tables["Article"]->Rows[i]->ItemArray[3]->ToString()) * float::Parse(list->Tables["Article"]->Rows[i]->ItemArray[4]->ToString());
-	}
-	return total;
-}

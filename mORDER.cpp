@@ -15,7 +15,7 @@ Order^ ORDER::add(Order^ order) {
 	int i = 0;
 	for (i = 0; i < nblignes; i++) {
 		ArticleInList^ article = list->get(i);
-		String^ theorder2 = "INSERT INTO Commandes_Articles(ID_COMMANDES, ID_ARTICLES, COMMANDES_ARTICLES_NB) VALUES (" + id + ", " + article->getId() + ", " + article->getAmount() + ");";
+		String^ theorder2 = "INSERT INTO Commandes_Articles(ID_COMMANDES, ID_ARTICLES, ARTICLES_COMMANDES_NB) VALUES (" + id + ", " + article->getId() + ", " + article->getAmount() + ");";
 		rcommande->execute(theorder2);
 	}
 
@@ -37,12 +37,12 @@ void ORDER::edit(Order^ order) {
 		DataSet^ result = rcommande->executeToDataSet(theorder2);
 		if (result->Tables[0]->Rows->Count == 0) {
 			// If not, add it
-			String^ theorder3 = "INSERT INTO Commandes_Articles(ID_COMMANDES, ID_ARTICLES, COMMANDES_ARTICLES_NB) VALUES (" + order->getId() + ", " + article->getId() + ", " + article->getAmount() + ");";
+			String^ theorder3 = "INSERT INTO Commandes_Articles(ID_COMMANDES, ID_ARTICLES, ARTICLES_COMMANDES_NB) VALUES (" + order->getId() + ", " + article->getId() + ", " + article->getAmount() + ");";
 			rcommande->execute(theorder3);
 		}
 		else {
 			// If yes, update it
-			String^ theorder3 = "UPDATE Commandes_Articles SET COMMANDES_ARTICLES_NB = " + article->getAmount() + " WHERE ID_COMMANDES = " + order->getId() + " AND ID_ARTICLES = " + article->getId() + ";";
+			String^ theorder3 = "UPDATE Commandes_Articles SET ARTICLES_COMMANDES_NB = " + article->getAmount() + " WHERE ID_COMMANDES = " + order->getId() + " AND ID_ARTICLES = " + article->getId() + ";";
 			rcommande->execute(theorder3);
 		}
 	}
