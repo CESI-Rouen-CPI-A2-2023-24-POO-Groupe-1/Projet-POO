@@ -9,54 +9,26 @@ Employes^ EMPLOYES::add(Employes^ employes)
 {
     // add to database
     DataBase^ db = gcnew DataBase();
-    int id = db->executeToInt("INSERT INTO employes (employes_nom, employes_prenom, employes_naissance, id_adresse) VALUES ('" + employes->getFirstName() + "', '" + employes->getLastName() + "', '" + employes->getHired().ToString() + "', '" + employes->getHome_address()->getId() + "'); SELECT SCOPE_IDENTITY();");
-    Employes^ c = gcnew Employes(id, employes->getFirstName(), employes->getLastName(), employes->getHired(), employes->getHome_address(), employes->getSuperior());
+    int id = db->executeToInt("INSERT INTO employes (employes_nom, employes_prenom, employes_embauche, employes_superieur, id_adresse) VALUES ('" + employes->getFirstName() + "', '" + employes->getLastName() + "', '" + employes->getHired().ToString() + "', '" + employes->getSuperior() + "', '" + employes->getHome_address()->getId() + "'); SELECT SCOPE_IDENTITY();");
+    Employes^ c = gcnew Employes(id, employes->getFirstName(), employes->getLastName(), employes->getHired(), employes->getSuperior(), employes->getHome_address());
     return c;
 }
 
 void EMPLOYES::edit(Employes^ employes)
 {
 	DataBase^ db = gcnew DataBase();
-	db->execute("UPDATE employes SET EMPLOYES_NOM = '" + employes->getFirstName() + "', EMPLOYES_PRENOM = '" + employes->getLastName() + "', EMPLOYES_EMBAUCHE = '" + employes->getHired().ToString() + "', ID_ADRESSE = '" + employes->getHome_address()->getId() + "' WHERE ID_EMPLOYES = '" + employes->getId() + "'");
+	db->execute("UPDATE employes SET EMPLOYES_NOM = '" + employes->getFirstName() + "', EMPLOYES_PRENOM = '" + employes->getLastName() + "', EMPLOYES_EMBAUCHE = '" + employes->getHired().ToString() + "', EMPLOYES_SUPERIEUR =  '" + employes->getSuperior() + "', ID_ADRESSE = '" + employes->getHome_address()->getId() + "' WHERE ID_EMPLOYES = '" + employes->getId() + "'");
 }
 
-void EMPLOYES::remove(Employes^ employes){
-    int idEmploye = employes->getId();
+void EMPLOYES::remove(Employes^ employes)
+{
     DataBase^ db = gcnew DataBase();
-
-    // Recherche des enregistrements qui font référence à l'employé
-    DataSet^ dsReferences = db->executeToDataSet("SELECT * FROM employes WHERE id_employes_1 = '" + idEmploye + "'");
-    DataTable^ dtReferences = dsReferences->Tables[0];
-
-    if (dtReferences->Rows->Count > 0) {
-        // Mise à jour des références vers NULL
-        db->execute("UPDATE employes SET id_employes_1 = NULL WHERE id_employes_1 = '" + idEmploye + "'");
-    }
-
-    // Suppression de l'employé lui-même
-    db->execute("DELETE FROM employes WHERE id_employes = '" + idEmploye + "'");
+    int homeAddressId = employes->getHome_address()->getId();
+    db->execute("DELETE FROM employes WHERE id_employes = '" + employes->getId() + "'");
+    db->execute("DELETE FROM adresse WHERE id_adresse = '" + homeAddressId + "' AND id_adresse NOT IN (SELECT id_adresse FROM employes)");
 }
 
 
-
-
-
-
-//{
-//    int idEmploye = employes->getId();
-//    DataBase^ db = gcnew DataBase();
-//    DataSet^ dsReferences = db->executeToDataSet("SELECT * FROM employes WHERE id_employes_1 = '" + idEmploye + "'");
-//    DataTable^ dtReferences = dsReferences->Tables[0];
-//
-//    if (dtReferences->Rows->Count > 0){
-//        db->execute("UPDATE employes SET id_employes_1 = NULL WHERE id_employes_1 = '" + idEmploye + "'");
-//        db->execute("DELETE FROM employes WHERE id_employes = '" + idEmploye + "'");
-//    }
-//    else {
-//        db->execute("DELETE FROM employes WHERE id_employes = '" + idEmploye + "'");
-//    }
-//}
-//
 Employes^ EMPLOYES::get(int id) {
     DataBase^ db = gcnew DataBase();
     DataSet^ ds = db->executeToDataSet("SELECT * FROM employes WHERE id_employes = '" + id + "'");
@@ -68,18 +40,17 @@ Employes^ EMPLOYES::get(int id) {
             dr["employes_nom"] != DBNull::Value &&
             dr["employes_prenom"] != DBNull::Value &&
             dr["employes_embauche"] != DBNull::Value &&
-            dr["id_adresse"] != DBNull::Value &&
-            dr["id_employes_1"] != DBNull::Value)
+            dr["employes_superieur"] != DBNull::Value &&
+            dr["id_adresse"] != DBNull::Value)
         {
             Employes^ c = gcnew Employes(Convert::ToInt32(dr["id_employes"]),
                 dr["employes_nom"]->ToString(),
                 dr["employes_prenom"]->ToString(),
                 Convert::ToDateTime(dr["employes_embauche"]),
-                ADDRESS::get(Convert::ToInt32(dr["id_adresse"])),
-                EMPLOYES::get(Convert::ToInt32(dr["id_employes_1"])));
+                Convert::ToInt32(dr["employes_superieur"]),
+                ADDRESS::get(Convert::ToInt32(dr["id_adresse"])));
             return c;
-        }
-        else {
+        } else {
             return nullptr;
         }
     }
