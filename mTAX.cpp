@@ -3,9 +3,11 @@
 
 Tax^ TAX::add(Tax^ tax) {
     DataBase^ rtax = gcnew DataBase;
-    String^ order = "INSERT INTO Taux_TVA(TVA_TAUX) VALUES(" + tax->getPercentage() + "); SELECT SCOPED_IDENTITY();";
-    int id = rtax->executeToInt(order);
-    Tax^ newtax = gcnew Tax(id, tax->getPercentage());
+    String^ order1 = "INSERT INTO Taux_TVA(TVA_TAUX) VALUES(" + tax->getPercentage() + ");";
+    int id;
+    String^ order2 = "SELECT TOP 1 ID_TVA FROM Taux_TVA ORDER BY ID_TVA ASC;";
+    int idtaux = rtax->executeToInt(order2);
+    Tax^ newtax = gcnew Tax(idtaux, tax->getPercentage());
     return newtax;
 }
 
@@ -32,15 +34,38 @@ Tax^ TAX::get(int id) {
     DataBase^ rtax = gcnew DataBase;
     String^ order = "SELECT TVA_TAUX FROM Taux_TVA WHERE ID_TVA = " + id;
     DataSet^ ds = rtax->executeToDataSet(order);
-    int percentage = Convert::ToInt32(ds->Tables[0]->Rows[0]->ItemArray[0]);
-    Tax^ sortie = gcnew Tax(id, percentage);
-    return sortie;
+    try {
+        int percentage = Convert::ToInt32(ds->Tables[0]->Rows[0]->ItemArray[0]);
+        Tax^ sortie = gcnew Tax(id, percentage);
+        return sortie;
+    }
+    catch (Exception^ event) {
+        return nullptr;
+    }
 
 }
-DataSet^ TAX::search(int percentage) {
+DataSet^ TAX::search(float percentage) {
     DataBase^ rtax = gcnew DataBase;
-    String^ order = "SELECT ID_TVA WHERE TVA_TAUX = " + percentage;
+    try {
+    String^ order = "SELECT ID_TVA WHERE TVA_TAUX = " + percentage.ToString();
     DataSet^ ds = rtax->executeToDataSet(order);
     return ds;
+    }
+    catch (Exception^ event) {
+        return nullptr;
+    }
+}
+int TAX::go(float percentage) {
+    DataBase^ rtax = gcnew DataBase;
+    try {
+        String^ order = "SELECT ID_TVA WHERE TVA_TAUX = " + percentage.ToString();
+        DataSet^ ds = rtax->executeToDataSet(order);
+        int id = Convert::ToInt32(ds->Tables[0]->Rows[0]->ItemArray[0]);
+            return id;
+    }
+    catch (Exception^ event) {
+        return 0;
+    }
+
 
 }
