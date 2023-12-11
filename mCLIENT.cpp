@@ -22,7 +22,7 @@ Client^ CLIENT::add(Client^ client){
 
 	try{
 		int id = db->executeToInt("INSERT INTO client (client_nom, client_prenom, client_naissance, id_adresse, id_adresse_1) VALUES ('" + client->getFirstName() + "', '" + client->getLastName() + "', '" + client->getBirthdate().ToString() + "', '" + deliver_address->getId() + "', '" + billing_address->getId() + "'); SELECT SCOPE_IDENTITY();");
-		Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), deliver_address, billing_address);
+		Client^ c = gcnew Client(id, client->getFirstName(), client->getLastName(), client->getBirthdate(), billing_address, deliver_address); 
 		return c;
 	} catch (Exception^ ex) {
         Console::WriteLine("Erreur lors de l'ajout du client : " + ex->Message);

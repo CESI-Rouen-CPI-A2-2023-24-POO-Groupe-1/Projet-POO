@@ -230,7 +230,6 @@ namespace ProjetPOO {
 			// 
 			// Main_Titre_2
 			// 
-			this->Main_Titre_2->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->Main_Titre_2->AutoSize = true;
 			this->Main_Titre_2->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->Main_Titre_2->Font = (gcnew System::Drawing::Font(L"Calibri", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -367,7 +366,7 @@ namespace ProjetPOO {
 			this->Modifier->Name = L"Modifier";
 			this->Modifier->Size = System::Drawing::Size(689, 78);
 			this->Modifier->TabIndex = 3;
-			this->Modifier->Text = L"Modifier un personnel";
+			this->Modifier->Text = L"Modifier un client";
 			this->Modifier->UseVisualStyleBackColor = true;
 			this->Modifier->Click += gcnew System::EventHandler(this, &App_Client::Modifier_Click);
 			// 
@@ -381,7 +380,7 @@ namespace ProjetPOO {
 			this->Ajouter->Name = L"Ajouter";
 			this->Ajouter->Size = System::Drawing::Size(689, 78);
 			this->Ajouter->TabIndex = 0;
-			this->Ajouter->Text = L"Ajouter un personnel";
+			this->Ajouter->Text = L"Ajouter un client";
 			this->Ajouter->UseVisualStyleBackColor = true;
 			this->Ajouter->Click += gcnew System::EventHandler(this, &App_Client::Ajouter_Click);
 			// 
@@ -749,9 +748,9 @@ namespace ProjetPOO {
 		}
 
 
-		Address^ billing_address = gcnew Address(num_appartement, num_rue, nom_rue, ville, cp, pays);
-		Address^ delivery_address = gcnew Address(num_appartement, num_rue, nom_rue, ville, cp, pays);
-		Client^ client = gcnew Client(nom, prenom, date, billing_address, delivery_address);
+		Address^ billing_address = gcnew Address(pays, cp, ville, nom_rue, num_rue, num_appartement);
+		Address^ delivery_address = gcnew Address(pays, cp, ville, nom_rue, num_rue, num_appartement);
+		Client^ client = gcnew Client(prenom, nom, date, billing_address, delivery_address);
 
 		client = CLIENT::add(client);
 		selectedClient = client;
@@ -773,8 +772,8 @@ namespace ProjetPOO {
 		String^ nom_rue = textBoxNomRue->Text;
 		DateTime date = dateTimePickerBirth->Value;
 
-		Address^ billing_address = gcnew Address(num_appartement, num_rue, nom_rue, ville, cp, pays);
-		Address^ delivery_address = gcnew Address(num_appartement, num_rue, nom_rue, ville, cp, pays);
+		Address^ billing_address = gcnew Address(pays, cp, ville, nom_rue, num_rue, num_appartement);
+		Address^ delivery_address = gcnew Address(pays, cp, ville, nom_rue, num_rue, num_appartement);
 
 		selectedClient->setFirstName(prenom);
 		selectedClient->setLastName(nom);
@@ -958,9 +957,10 @@ namespace ProjetPOO {
 	}
 
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// 
 	////////
 	//Vide//
 	////////
@@ -979,59 +979,3 @@ private: System::Void textBoxID_TextChanged(System::Object^ sender, System::Even
 }
 };
 }
-
-
-//////////////
-//Pas réussi//
-//////////////
-
-			//String^ newPrenom = textBoxPrenom->Text;
-			//String^ newNom = textBoxNom->Text;
-			//String^ newPays = textBoxPays->Text;
-			//String^ newVille = textBoxVille->Text;
-			//String^ newCp = textBoxZip->Text;
-			//String^ newNum_rue = textBoxAppart->Text;
-			//String^ newNum_appartement = textBoxNumRue->Text;
-			//String^ newNom_rue = textBoxNomRue->Text;
-			//String^ newDate = textBoxIdSearch3->Text;
-			//String^ updateQuery = "UPDATE CLIENT SET";
-			//bool updatedSomething = false;
-			//
-			//if (!String::IsNullOrEmpty(newPrenom)) {
-			//	updateQuery += " CLIENT_PRENOM = '" + newPrenom + "',";
-			//	updatedSomething = true;
-			//}
-			//
-			//if (!String::IsNullOrEmpty(newNom)) {
-			//	updateQuery += " CLIENT_NOM = '" + newNom + "',";
-			//	updatedSomething = true;
-			//}
-			//
-			//if (!String::IsNullOrEmpty(newDate)) {
-			//	updateQuery += " CLIENT_NAISSANCE = '" + newDate + "',";
-			//	updatedSomething = true;
-			//}
-			//
-			//int idPays = database->executeToInt("SELECT ID_PAYS FROM Pays WHERE PAYS_NOM = '" + newPays + "'");
-			//if (idPays == 0) {
-			//	String^ insertPaysQuery = "INSERT INTO Pays (PAYS_NOM) OUTPUT INSERTED.ID_PAYS VALUES ('" + newPays + "')";
-			//	idPays = database->executeToInt(insertPaysQuery);
-			//}
-			//
-			//int idVille = database->executeToInt("SELECT ID_VILLE FROM Ville WHERE VILLE_NOM = '" + newVille + "' AND VILLE_CP = '" + newCp + "'");
-			//if (idVille == 0) {
-			//	String^ insertVilleQuery = "INSERT INTO Ville (VILLE_NOM, VILLE_CP, ID_PAYS) OUTPUT INSERTED.ID_VILLE VALUES ('" + newVille + "', '" + newCp + "', " + idPays + ")";
-			//	idVille = database->executeToInt(insertVilleQuery);
-			//}
-			//
-			//int idAdresse = database->executeToInt("SELECT ID_ADRESSE FROM Adresse WHERE ADRESSE_NUM_APPARTEMENT = '" + newNum_appartement + "' AND ADRESSE_NUM_RUE = '" + newNum_rue + "' AND ADRESSE_RUE = '" + newNom_rue + "' AND ID_VILLE = " + idVille);
-			//if (idAdresse == 0) {
-			//	String^ insertAdresseQuery = "INSERT INTO Adresse (ADRESSE_NUM_APPARTEMENT, ADRESSE_NUM_RUE, ADRESSE_RUE, ID_VILLE) OUTPUT INSERTED.ID_ADRESSE VALUES ('" + newNum_appartement + "', '" + newNum_rue + "', '" + newNom_rue + "', " + idVille + ")";
-			//	idAdresse = database->executeToInt(insertAdresseQuery);
-			//}
-			//
-			//if (updatedSomething) {
-			//	updateQuery = updateQuery->Substring(0, updateQuery->Length - 1);
-			//	updateQuery += " WHERE ID_CLIENT = " + ClientUpdate;
-			//	database->execute(updateQuery);
-			//}
